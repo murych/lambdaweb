@@ -1,0 +1,26 @@
+{% load bootstrap3 %}
+
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" 
+				 data-toggle="collapse" data-target="#navbar-menu">
+				 <span class="sr-only">Toggle navigation</span>
+				 <span class="icon-bar"></span>
+				 <span class="icon-bar"></span>
+				 <span class="icon-bar"></span>
+			</button>
+			{% include 'brand.html' %}
+		</div>
+
+		<div class="pull-right col-xs-8  collapse navbar-collapse" id="navbar-menu">
+			<ul class="nav navbar-nav">
+				<li><a href="{% url 'index' %}">Главная</a></li>
+				<li><a href="">Афиша</a></li>
+				<li><a href="">Проекты</a></li>
+				<li><a href="" >Партнеры</a></li>
+				<li><a href="" >О нас</a></li>
+		 </ul>
+		</div>
+	</div>
+</nav>
