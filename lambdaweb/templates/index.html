@@ -1,49 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script src="https://use.fontawesome.com/1fd7c5df6b.js"></script>
-	{% load static %}
-	{% load bootstrap3 %}
-	{% bootstrap_css %}
-	{% bootstrap_javascript %}
+{% extends 'base.html'%}
+{% load bootstrap3 %}
+{% block title %}
+	Lambda
+{% endblock title %}
 
-	<title>Lambda</title>
-
-	<!-- Custom styles for this template -->
-	<link href="{% static 'css/main.css' %}" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
-
-	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-	  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-	<!--[endif]-->
-
-	<script src="{% static 'js/modernizr.custom.js' %}"></script>
-
-</head>
-
-<body>
-	
-	<!-- MAIN IMAGE SECTION -->
-	<div id="headerwrap">
-		<div class="container">
-			<div class="row">
-				{% include 'navbar.html' %}
-			</div>
+<!-- MAIN IMAGE SECTION -->
+{% block header %}
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
 					<h1>LAMBDA</h1>
-{#					<h2>We Create Cool Stuff</h2>#}
+					{#					<h2>We Create Cool Stuff</h2>#}
 					<div class="spacer"></div>
-{#					<i class="fa fa-angle-down"></i>#}
+					{#					<i class="fa fa-angle-down"></i>#}
 				</div>
 			</div><!-- row -->
 			<div class="row">
@@ -53,30 +21,33 @@
 				<div class="clearfix visible-xs-block"></div>
 				<div class="col-xs-6 col-sm-4">
 					<p>
-					<b	style="font-size: 20px; padding: 15px">Кто
-						мы?</b>	</br>
-					Мы образовательный проект Lambda при ФРЭЛА МАИ,
+						<b	style="font-size: 24px">Кто
+							мы?</b>	<br>
+						Мы образовательный проект Lambda при
+						ФРЭЛА МАИ,
 						реализующий практикум программистов и бесплатные курсы
 						для студентов.
 					</p>
 				</div>
 			</div>
-		</div><!-- /container -->
-	</div><!-- /headerwrap -->
+{% endblock header %}
 
-	<!-- WELCOME SECTION -->
-{#	<div class="container">#}
-{#	  <div class="row mt">#}
-{#		<div class="col-lg-8">#}
-{#			<h1>We build websites & apps that people love!</h1>#}
-{#			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>#}
-{#		</div>#}
-{#		<div class="col-lg-4">#}
-{#			<p class="pull-right"><br><button type="button" class="btn btn-green">Start Your Project Now</button></p>#}
-{#		</div>#}
-{#	  </div><!-- /row -->#}
-{#	</div><!-- /.container -->#}
-{##}
+{% block content %}
+
+	<!-- NEAREST EVENT SECTION -->
+	<div class="container">
+		<div class="row mt">
+			<div class="col-lg-8">
+				<h1>Кто может участвовать?</h1>
+				<p>Кто угодно. Сообщество бесплатное, добровольное и ориентироанное на студентов.
+Начинающие свой путь в IT найдут у нас возможность быстро учиться, а опытные разработчики - единомышленников и проекты.</p>
+			</div>
+			<div class="col-lg-4">
+				<p class="pull-right"><br><button type="button" class="btn btn-green">Start Your Project Now</button></p>
+			</div>
+		</div><!-- /row -->
+	</div><!-- /.container -->
+
 {#	<!-- PORTFOLIO SECTION -->#}
 {#	<div id="portfolio">#}
 {#		<div class="container">#}
@@ -103,38 +74,44 @@
 {#	</div><!-- portfolio -->#}
 
 
-	<!-- SERVICES SECTION -->
-{#	<div id="services">#}
-{#		<div class="container">#}
-{#			<div class="row mt">#}
-{#				<div class="col-lg-1 centered">#}
-{#					<i class="fa fa-certificate"></i>#}
-{#				</div>#}
-{#				<div class="col-lg-3">#}
-{#					<h3>Quality Design</h3>#}
-{#					<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>#}
-{#				</div>#}
-{##}
-{#				<div class="col-lg-1 centered">#}
-{#					<i class="fa fa-question-circle"></i>#}
-{#				</div>#}
-{#				<div class="col-lg-3">#}
-{#					<h3>Awesome Support</h3>#}
-{#					<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>#}
-{#				</div>#}
-{#			#}
-{#			#}
-{#				<div class="col-lg-1 centered">#}
-{#					<i class="fa fa-globe"></i>#}
-{#				</div>#}
-{#				<div class="col-lg-3">#}
-{#					<h3>Global Services</h3>#}
-{#					<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>#}
-{#				</div>#}
-{#			#}
-{#			</div><!-- row -->#}
-{#		</div><!-- container -->#}
-{#	</div><!-- services section -->#}
+	<!-- ABOUT SECTION -->
+	<div id="services">
+		<div class="container">
+			<div class="row mt">
+
+				<div class="col-lg-1 centered">
+					<i class="fa fa-question-circle"></i>
+				</div>
+				<div class="col-lg-3">
+					<h3>Что мы делаем?</h3>
+					<li>Читаем лекции</li>
+					<li>Работаем над проектами</li>
+					<li>Приглашаем специалистов из ведущих IT компаний</li>
+					<li>Вместе ходим на конференции и митапы</li>
+				</div>
+
+				<div class="col-lg-1 centered">
+					<i class="fa fa-ticket"></i>
+				</div>
+				<div class="col-lg-3">
+					<h3>Кто может прийти?</h3>
+					<p>Кто угодно. Начинающие свой путь в IT найдут у нас возможность быстро учиться, а опытные разработчики - единомышленников и проекты.</p>
+				</div>
+
+				<div class="col-lg-1 centered">
+					<i class="fa fa-globe"></i>
+				</div>
+				<div class="col-lg-3">
+					<h3>Как нас найти?</h3>
+					<p>Место встреч уточняется.
+До тех пор по всем вопросам обращайтесь на почту: <a href="mailto:lambdafrela@yahoo.com" style="color: white"><b>lambdafrela@yahoo.com</b></a></p>
+				</div>
+
+
+
+			</div><!-- row -->
+		</div><!-- container -->
+	</div><!-- services section -->
 	
 	
 	<!-- BLOG POSTS -->
@@ -150,7 +127,7 @@
 {#				<p><a href="#"><i class="fa fa-angle-right"></i> See All Posts</a></p>#}
 {#			</div>#}
 {#		</div><!-- row -->#}
-{#		#}
+{##}
 {#		<div class="row mt">#}
 {#			<div class="col-lg-4">#}
 {#				<img class="img-responsive" src="{% static 'img/post01.jpg' %}"#}
@@ -170,7 +147,7 @@
 {#				<h3><a href="#">We are an award winning design agency</a></h3>#}
 {#				<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>#}
 {#				<p><a href="#"><i class="fa fa-link"></i> Read More</a></p>#}
-{#			</div>		#}
+{#			</div>#}
 {#		</div><!-- row -->#}
 {#	</div><!-- container -->#}
 	
@@ -275,22 +252,6 @@
 {#	</div><!-- Contact Footer -->#}
 	
 
-	<!-- Bootstrap core JavaScript
-	================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-	<script src="{% static 'js/bootstrap.min.js'%}"></script>
-	<script src="{% static 'js/main.js'%}"></script>
-	<script src="{% static 'js/masonry.pkgd.min.js'%}"></script>
-	<script src="{% static 'js/imagesloaded.js'%}"></script>
-	<script src="{% static 'js/classie.js'%}"></script>
-	<script src="{% static 'js/AnimOnScroll.js'%}"></script>
-	<script>
-		new AnimOnScroll( document.getElementById( 'grid' ), {
-			minDuration : 0.4,
-			maxDuration : 0.7,
-			viewportFactor : 0.2
-		} );
-	</script>
-</body>
-</html>
+
+
+{% endblock content %}

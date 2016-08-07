@@ -1,6 +1,6 @@
 body {
     background-color: #f2f2f2;
-	font-family: Lato, sans-serif;
+	font-family: "Open Sans", sans-serif;
     font-weight: 300;
     font-size: 16px;
     color: #555;
@@ -27,7 +27,7 @@ p {
     padding-top: 25px;
 }
 a {
-    color: #16a085;
+    color: #0093DA;
     word-wrap: break-word;
     -webkit-transition: color .1s ease-in, background .1s ease-in;
     -moz-transition: color .1s ease-in, background .1s ease-in;
@@ -60,14 +60,14 @@ hr {
 }
 .btn-green {
     color: #fff;
-    background-color: #1abc9c;
-    border-color: #1abc9c;
+    background-color: #0093DA;
+    border-color: #0093DA;
     font-weight: 300;
 }
 .btn-green:hover, .btn-green:focus, .btn-green:active, .btn-green.active, .open .dropdown-toggle.btn-green {
     color: #fff;
-    background-color: #16a085;
-    border-color: #16a085;
+    background-color: #0093DA;
+    border-color: #0093DA;
     font-weight: 300;
 }
 .tm {
@@ -172,7 +172,7 @@ hr {
 .body-push-toleft {
     left: -200px;
 }
-.menu, .body-push {
+/*.menu, .body-push {
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
@@ -207,14 +207,12 @@ hr {
     -ms-transition: all .1s ease-in-out;
     -o-transition: all .1s ease-in-out;
     transition: all .1s ease-in-out;
-}
+}*/
 #headerwrap {
     background: url(../img/header-bg1.jpg) no-repeat center top;
     /*margin-top: -10px;*/
     /*padding-top: 20px;*/
     text-align: center;
-    background-attachment: relative;
-    background-position: center;
     min-height: 750px;
     width: 100%;
 	-webkit-background-size: cover;
@@ -350,7 +348,7 @@ hr {
 #portfolio {
     width: 100%}
 #services {
-    background: #1abc9c;
+    background: #0093DA;
     margin-top: 25px;
     padding-top: 35px;
     padding-bottom: 35px;
@@ -397,10 +395,10 @@ hr {
     padding: 15px;
 }
 #sf .lg {
-    background-color: #1abc9c;
+    background-color: #0093DA;
 }
 #sf .dg {
-    background-color: #16a085;
+    background-color: #0093DA;
 }
 #sf h4 {
     color: #fff;
@@ -592,7 +590,7 @@ header {}
 	margin: 0;
 }
 .navbar-nav> li> a {
-	font-family: "Helvetica", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	padding: 25px;
 	border-bottom: 4px solid #0093DA;
 }
@@ -613,12 +611,18 @@ header {}
 }
 .navbar-brand img {
 	margin: auto;
+	max-height: 75px;
 	padding-top: 0!important;
 }
 
-.col-xs-6.col-sm-4{
+.col-xs-6.col-sm-4 {
 	color: white;
 	font-size: 16px;
 	text-align: left;
-	font-family: "Helvetica", sans-serif;
+	font-family: "Open Sans Semibold", sans-serif;
+}
+li {
+	color: white;
+	font-size: 18px;
+	font-family: "Open Sans", sans-serif;
 }
