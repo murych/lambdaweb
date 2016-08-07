@@ -1,0 +1,12 @@
+{% if events_list %}
+	{% for event in events_list|slice:':1' %}
+		<div class="container">
+			<div class="row mt">
+				<div class='col-md-12'>
+					<h2 >Ближайшее событие</h2>
+					{% include "event_near_card.html"%}
+				</div>
+			</div><!-- /row -->
+		</div><!-- /.container -->
+	{% endfor %}
+{% endif %}

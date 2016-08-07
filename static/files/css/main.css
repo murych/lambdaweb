@@ -19,6 +19,7 @@ p {
 }
 .centered {
     text-align: center;
+    font-size: 20px;
 }
 .goright {
     text-align: right;
@@ -58,13 +59,13 @@ hr {
 .btn {
     border-radius: 0;
 }
-.btn-green {
+.btn-blue {
     color: #fff;
     background-color: #0093DA;
     border-color: #0093DA;
     font-weight: 300;
 }
-.btn-green:hover, .btn-green:focus, .btn-green:active, .btn-green.active, .open .dropdown-toggle.btn-green {
+.btn-blue:hover, .btn-blue:focus, .btn-blue:active, .btn-blue.active, .open .dropdown-toggle.btn-blue {
     color: #fff;
     background-color: #0093DA;
     border-color: #0093DA;
@@ -238,26 +239,20 @@ hr {
     color: #fff;
 }
 #headerwrap .spacer {
-    margin-top: 150px;
+    margin-top: 120px;
 }
 #mapwrap {
     margin: 0;
     padding: 0;
 }
 #serviceswrap {
-    background: url(../img/services-bg.jpg) no-repeat center top;
-    margin-top: -10px;
-    padding-top: 20px;
+    background: url(../img/header-bg1.jpg) no-repeat center top;
+    /*margin-top: -10px;*/
+    /*padding-top: 20px;*/
     text-align: center;
-    background-attachment: relative;
-    background-position: center center;
-    min-height: 500px;
+    min-height: 750px;
     width: 100%;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
-    -webkit-background-size: cover;
+	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
@@ -270,19 +265,13 @@ hr {
     margin-top: 150px;
 }
 #aboutwrap {
-    background: url(../img/about-bg.jpg) no-repeat center top;
-    margin-top: -10px;
-    padding-top: 20px;
+    background: url(../img/header-bg1.jpg) no-repeat center top;
+    /*margin-top: -10px;*/
+    /*padding-top: 20px;*/
     text-align: center;
-    background-attachment: relative;
-    background-position: center center;
-    min-height: 500px;
+    min-height: 750px;
     width: 100%;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
-    -webkit-background-size: cover;
+	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
@@ -295,19 +284,13 @@ hr {
     margin-top: 150px;
 }
 #portwrap {
-    background: url(../img/portfolio-bg.jpg) no-repeat center top;
-    margin-top: -10px;
-    padding-top: 20px;
+    background: url(../img/header-bg1.jpg) no-repeat center top;
+    /*margin-top: -10px;*/
+    /*padding-top: 20px;*/
     text-align: center;
-    background-attachment: relative;
-    background-position: center center;
-    min-height: 500px;
+    min-height: 750px;
     width: 100%;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
-    -webkit-background-size: cover;
+	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;

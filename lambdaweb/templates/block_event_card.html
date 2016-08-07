@@ -1,0 +1,25 @@
+{% load bootstrap3 %}
+<article>
+	<div class="event-card panel">
+		<div class="panel-body">
+			<div class="row">
+				{% if event.image %}
+					<div class="col-md-12 ">
+						<img class="img-responsive img-thumbnail"
+							 src="{{ event.image.url }}"
+							 alt="event-{{event.slug}}-thumbnail"
+							 style="display:inline;max-height:200px;max-width:
+							  200px;">
+					</div>
+				{% endif %}
+				<div class="col-md-12">
+					<h3 class="col-md-12">
+						<a href="{% url 'event' slug=event.slug %}" >
+							{{ event.name }}
+						</a>
+					</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</article>
