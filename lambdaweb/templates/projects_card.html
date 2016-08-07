@@ -1,0 +1,33 @@
+{% load bootstrap3 %}
+<article>
+	<div class="event-card panel">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-6 col-xs-12 text-content">
+					<h3 class="col-md-12">
+						<a href="{% url 'event' slug=event.slug %}" >
+							{{ event.name }}
+						</a>
+					</h3>
+					<h4 class='col-md-12'>{% bootstrap_icon "time" %} {{ event.date }}</h4>
+					<p style="padding-left: 25px">
+						{{event.description|truncatewords:10}}<br>
+						<i>
+							<a href="{% url 'event' slug=event.slug %}">
+								(Читать далее)
+							</a>
+						</i>
+					</p>
+				</div>
+				{% if event.image %}
+					<div class="col-md-4 col-xs-12 pull-right" style="align-content:center;">
+						<img class="img-responsive img-thumbnail"
+							 src="{{ event.image.url }}"
+							 alt="event-{{event.slug}}-thumbnail"
+							 style="display:inline;max-height:200px;max-width:200px;">
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</article>
