@@ -18,7 +18,7 @@ class Entry(models.Model):
 	image = models.ImageField(null=True)
 
 	class Meta:
-		ordering = ['created_date']
+		ordering = ['-created_date']
 
 	def get_absolute_url(self):
 		return reverse('event', args=[str(self.slug)])
