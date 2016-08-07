@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block title %}
+	Лямбда: афиша
+{% endblock %}
+{% block description %}
+	Афиша Лямбда МАИ, {% if events_list %}ближайшее событие:
+	{{ events_list.0.date }} {%endif%}
+{% endblock %}
+
+{% block content %}
+	<div class="panel page-panel">
+		<div class="panel-body">
+			<div class="panel-heading headline-container">
+				<h2 class="headline">Афиша мероприятий</h2>
+			</div>
+			<div class="page-content">
+				{% if events_list %}
+					<div>
+						{% include "events_list.html" %}
+					</div>
+				{% else %}
+					<h3>Нет событий</h3>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
