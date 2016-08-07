@@ -15,6 +15,7 @@ class Entry(models.Model):
 	description = models.TextField(max_length=1500)
 	slug = models.SlugField(max_length=300, blank=True)
 	created_date = models.DateTimeField(auto_now_add=True)
+	image = models.ImageField(null=True)
 
 	class Meta:
 		ordering = ['created_date']
@@ -31,7 +32,7 @@ class Entry(models.Model):
 class Event(Entry):
 	date = models.DateTimeField()
 	address = models.CharField(max_length=300)
-	speaker = models.CharField(max_length=100)
+	speaker = models.CharField(max_length=100, blank=True)
 
 
 class Project(Entry):
