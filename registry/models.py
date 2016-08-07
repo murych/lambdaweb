@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse
 from unidecode import unidecode
 from django.template.defaultfilters import slugify
 
-# Create your models here.
+# TODO: maybe create `feedback` class only with 3 fields - text, author, role
 
 default_url_vk = "https://vk.com/lambdafrela"
 default_url_github = "https://github.com/lambdafrela"

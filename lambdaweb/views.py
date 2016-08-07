@@ -4,11 +4,14 @@ from registry.models import *
 from django.template import RequestContext
 from django.db.models import Q
 # TODO: change all `context_instance` to `dict` as in events()
+# TODO @murych: add projects_list to index()
 
 
 def index(request):
 	events_list = Event.objects.all()
-	return render_to_response('index.html', {'events_list': events_list})
+	projects_list = Project.objects.all()
+	return render_to_response('index.html', {'events_list': events_list,
+											 'projects_list': projects_list})
 
 
 def events(request):
