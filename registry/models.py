@@ -3,9 +3,6 @@ from django.core.urlresolvers import reverse
 from unidecode import unidecode
 from django.template.defaultfilters import slugify
 
-# TODO: maybe create `feedback` class only with 3 fields - text, author, role
-# TODO: change events sorting order by date - done @murych 08.08.2016
-
 default_url_vk = "https://vk.com/lambdafrela"
 default_url_github = "https://github.com/lambdafrela"
 
@@ -52,3 +49,11 @@ class Member(Entry):
 	email = models.EmailField(max_length=100)
 
 
+class Feedback(models.Model):
+	date = models.DateTimeField(auto_now_add=True)
+	text = models.TextField(max_length=100)
+	author = models.CharField(max_length=50)
+	role = models.CharField(max_length=50)
+
+	class Meta:
+		ordering = ['-date']
