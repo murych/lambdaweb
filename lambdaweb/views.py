@@ -21,14 +21,14 @@ def events(request):
 
 def members(request):
 	members_list = Member.objects.all()
-	render_to_response('members.html', {'members_list': members_list})
+	return render_to_response('members.html', {'members_list': members_list})
 
 
 def partners(request):
 	partners_list = Partner.objects.all()
-	render_to_response('partners.html', {'partners_list': partners_list})
+	return render_to_response('partners.html', {'partners_list': partners_list})
 
 
 def projects(request):
-	projects_list = Partner.objects.all()
-	render_to_response('projects.html', {'projects_list': projects_list})
+	projects_list = Project.objects.all()
+	return render_to_response('projects.html', {'projects_list': projects_list})
