@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load bootstrap3 %}
 {% block title %}
-	Лямбда: проекты
+	Лямбда: команда
 {% endblock %}
 
 <!-- MAIN IMAGE SECTION -->
@@ -14,7 +14,7 @@
 
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
-					<h2>Наши проекты</h2>
+					<h2>Команда проекта</h2>
 {#					<div class="spacer"></div>#}
 				</div>
 			</div><!-- row -->
@@ -26,12 +26,10 @@
 	<div class="panel page-panel">
 		<div class="panel-body">
 			<div class="page-content">
-				{% if projects_list %}
+				{% if members_list %}
 					<div>
-						{% include "projects_list.html" %}
+						{% include "members_list.html" %}
 					</div>
-				{% else %}
-					<h3>Нет проектов</h3>
 				{% endif %}
 			</div>
 		</div>
