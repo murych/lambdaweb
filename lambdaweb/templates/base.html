@@ -35,38 +35,64 @@
 
 <body>
 
-<div id="headerwrap">
-	<div class="container">
-		<div class="row">
-			{% include 'navbar.html' %}
-		</div>
-		{% block header %}
-		{% endblock header %}
-	</div><!-- /container -->
-</div><!-- /headerwrap -->
+	<div id="headerwrap">
+		<div class="container">
+			<div class="row">
+				{% include 'navbar.html' %}
+			</div>
+			{% block header %}
+			{% endblock header %}
+		</div><!-- /container -->
+	</div><!-- /headerwrap -->
 
-{% block event_near %}
-{% endblock event_near %}
+	{% block event_near %}
+	{% endblock event_near %}
 
-{% block content %}
-{% endblock content %}
+	{% block content %}
+	{% endblock content %}
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="{% static 'js/bootstrap.min.js'%}"></script>
-<script src="{% static 'js/main.js'%}"></script>
-<script src="{% static 'js/masonry.pkgd.min.js'%}"></script>
-<script src="{% static 'js/imagesloaded.js'%}"></script>
-<script src="{% static 'js/classie.js'%}"></script>
-<script src="{% static 'js/AnimOnScroll.js'%}"></script>
-<script>
-	new AnimOnScroll( document.getElementById( 'grid' ), {
-		minDuration : 0.4,
-		maxDuration : 0.7,
-		viewportFactor : 0.2
-	} );
-</script>
+	<!-- SOCIAL FOOTER --->
+	<section id="contact"></section>
+	<div id="sf">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 dg">
+					<h4 class="ml">VK</h4>
+					<p class="centered">
+						<a href="https://vk.com/lambdafrela"><i class="fa fa-vk"></i></a></p>
+					<p class="ml">> Follow Us</p>
+				</div>
+				<div class="col-lg-4 lg">
+					<h4 class="ml">GITHUB</h4>
+					<p class="centered"><a href="https://github.com/lambdafrela"><i class="fa fa-github"></i></a></p>
+					<p class="ml">> Fork Us</p>
+				</div>
+				<div class="col-lg-4 dg">
+					<h4 class="ml">SLACK</h4>
+					<p class="centered"><a href="https://goo.gl/qHQ2vf"><i class="fa fa-slack"></i></a></p>
+					<p class="ml">> Chat To Us</p>
+				</div>
+			</div><!-- row -->
+		</div><!-- container -->
+	</div><!-- Social Footer -->
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	{#<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>#}
+	{#<script src="{% static 'js/bootstrap.min.js'%}"></script>#}
+	{#<script src="{% static 'js/main.js'%}"></script>#}
+	{#<script src="{% static 'js/masonry.pkgd.min.js'%}"></script>#}
+	{#<script src="{% static 'js/imagesloaded.js'%}"></script>#}
+	{#<script src="{% static 'js/classie.js'%}"></script>#}
+	{#<script src="{% static 'js/AnimOnScroll.js'%}"></script>#}
+	<script>
+		new AnimOnScroll( document.getElementById( 'grid' ), {
+			minDuration : 0.4,
+			maxDuration : 0.7,
+			viewportFactor : 0.2
+		} );
+	</script>
 </body>
+
 </html>

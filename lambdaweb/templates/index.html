@@ -5,7 +5,6 @@
 {% endblock title %}
 
 <!-- TODO: move all `style` tags to main.css -->
-<!-- TODO: remove odd sections -->
 
 <!-- MAIN IMAGE SECTION -->
 {% block header %}
@@ -21,8 +20,7 @@
 		<div class="clearfix visible-xs-block"></div>
 		<div class="col-xs-6 col-sm-4">
 			<p>
-				<b	style="font-size: 24px">Кто
-					мы?</b>	<br>
+				<b style="font-size: 24px">Кто мы?</b><br>
 				Мы образовательный проект Lambda при
 				ФРЭЛА МАИ,
 				реализующий практикум программистов и бесплатные курсы
@@ -32,16 +30,12 @@
 	</div>
 {% endblock header %}
 
+<!-- NEAREST EVENT SECTION -->
 {% block event_near %}
 	{% include 'blocks/block_event_near.html' %}
 {% endblock event_near %}
 
 {% block content %}
-
-	<!-- NEAREST EVENT SECTION -->
-
-
-
 
 	<!-- ABOUT SECTION -->
 	{% include 'blocks/block_about.html' %}
@@ -52,44 +46,7 @@
 	<!-- PROJECTS SECTION -->
 	{% include 'blocks/block_projects.html' %}
 
-
-	<!-- CLIENTS LOGOS -->
-	{% block feedback %}
-		{% include 'blocks/block_feedback.html' %}
-	{% endblock feedback %}
-
-
-
-
-
-	<!-- SOCIAL FOOTER --->
-		<section id="contact"></section>
-		<div id="sf">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-4 dg">
-						<h4 class="ml">VK</h4>
-						<p class="centered">
-							<a href="https://vk.com/lambdafrela"><i class="fa fa-vk"></i></a></p>
-						<p class="ml">> Follow Us</p>
-					</div>
-					<div class="col-lg-4 lg">
-						<h4 class="ml">GITHUB</h4>
-						<p class="centered"><a href="https://github.com/lambdafrela"><i class="fa fa-github"></i></a></p>
-						<p class="ml">> Fork Us</p>
-					</div>
-					<div class="col-lg-4 dg">
-						<h4 class="ml">SLACK</h4>
-						<p class="centered"><a href="https://goo.gl/qHQ2vf"><i class="fa fa-slack"></i></a></p>
-						<p class="ml">> Chat To Us</p>
-					</div>
-				</div><!-- row -->
-			</div><!-- container -->
-		</div><!-- Social Footer -->
-
-
-
-
-
+	<!-- FEEDBACK SECTION -->
+	{% include 'blocks/block_feedback.html' %}
 
 {% endblock content %}
