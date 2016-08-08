@@ -8,6 +8,7 @@
 	<meta name="author" content="">
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="https://use.fontawesome.com/1fd7c5df6b.js"></script>
+
 	{% load static %}
 	{% load bootstrap3 %}
 	{% bootstrap_css %}
@@ -35,15 +36,9 @@
 
 <body>
 
-	<div id="headerwrap">
-		<div class="container">
-			<div class="row">
-				{% include 'navbar.html' %}
-			</div>
-			{% block header %}
-			{% endblock header %}
-		</div><!-- /container -->
-	</div><!-- /headerwrap -->
+{% block header %}
+{% endblock header %}
+
 
 	{% block event_near %}
 	{% endblock event_near %}
@@ -51,30 +46,7 @@
 	{% block content %}
 	{% endblock content %}
 
-	<!-- SOCIAL FOOTER --->
-	<section id="contact"></section>
-	<div id="sf">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 dg">
-					<h4 class="ml">VK</h4>
-					<p class="centered">
-						<a href="https://vk.com/lambdafrela"><i class="fa fa-vk"></i></a></p>
-					<p class="ml">> Follow Us</p>
-				</div>
-				<div class="col-lg-4 lg">
-					<h4 class="ml">GITHUB</h4>
-					<p class="centered"><a href="https://github.com/lambdafrela"><i class="fa fa-github"></i></a></p>
-					<p class="ml">> Fork Us</p>
-				</div>
-				<div class="col-lg-4 dg">
-					<h4 class="ml">SLACK</h4>
-					<p class="centered"><a href="https://goo.gl/qHQ2vf"><i class="fa fa-slack"></i></a></p>
-					<p class="ml">> Chat To Us</p>
-				</div>
-			</div><!-- row -->
-		</div><!-- container -->
-	</div><!-- Social Footer -->
+	{% include 'blocks/block_footer.html' %}
 
 	<!-- Bootstrap core JavaScript
 	================================================== -->

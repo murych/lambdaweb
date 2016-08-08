@@ -8,12 +8,28 @@
 	{{ events_list.0.date }} {%endif%}
 {% endblock %}
 
+<!-- MAIN IMAGE SECTION -->
+{% block header %}
+	<div id="serviceswrap">
+		<div class="container">
+			<div class="row">
+				{% include 'blocks/block_navbar.html' %}
+			</div>
+
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<h2>Афиша мероприятий</h2>
+{#					<div class="spacer"></div>#}
+				</div>
+			</div><!-- row -->
+		</div><!-- /container -->
+	</div><!-- /headerwrap -->
+{% endblock header %}
+
+
 {% block content %}
 	<div class="panel page-panel">
 		<div class="panel-body">
-			<div class="panel-heading headline-container">
-				<h2 class="headline">Афиша мероприятий</h2>
-			</div>
 			<div class="page-content">
 				{% if events_list %}
 					<div>

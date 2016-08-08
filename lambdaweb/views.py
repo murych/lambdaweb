@@ -3,8 +3,6 @@ from registry.models import *
 # from . import utils
 from django.template import RequestContext
 from django.db.models import Q
-# TODO: change all `context_instance` to `dict` as in events()
-# TODO @murych: add projects_list to index()
 
 
 def index(request):
