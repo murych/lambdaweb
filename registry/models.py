@@ -4,6 +4,7 @@ from unidecode import unidecode
 from django.template.defaultfilters import slugify
 
 # TODO: maybe create `feedback` class only with 3 fields - text, author, role
+# TODO: change events sorting order by date - done @murych 08.08.2016
 
 default_url_vk = "https://vk.com/lambdafrela"
 default_url_github = "https://github.com/lambdafrela"
@@ -33,6 +34,9 @@ class Event(Entry):
 	date = models.DateTimeField()
 	address = models.CharField(max_length=300)
 	speaker = models.CharField(max_length=100, blank=True)
+
+	class Meta:
+		ordering = ['-date']
 
 
 class Project(Entry):
