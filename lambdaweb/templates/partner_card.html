@@ -1,0 +1,33 @@
+{% load bootstrap3 %}
+<article>
+	<div class="event-card panel">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-6 col-xs-12 text-content">
+					<h3 class="col-md-12">
+						<a href="{% url 'partner' slug=partner.slug %}" >
+							{{ partner.name }}
+						</a>
+					</h3>
+{#					<h4 class='col-md-12'>{% bootstrap_icon "time" %} {{ partner.date }}</h4>#}
+					<p style="padding-left: 25px">
+						{{partner.description|truncatewords:10}}<br>
+						<i>
+							<a href="{% url 'partner' slug=partner.slug %}">
+								(Читать далее)
+							</a>
+						</i>
+					</p>
+				</div>
+				{% if partner.image %}
+					<div class="col-md-4 col-xs-12 pull-right" style="align-content:center;">
+						<img class="img-responsive img-thumbnail"
+							 src="{{ partner.image.url }}"
+							 alt="event-{{partner.slug}}-thumbnail"
+							 style="display:inline;max-height:200px;max-width:200px;">
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</article>

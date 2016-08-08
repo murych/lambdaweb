@@ -1,10 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block title %}
+	Лямбда: партнеры
+{% endblock %}
 
-</body>
-</html>
+<!-- MAIN IMAGE SECTION -->
+{% block header %}
+	<div id="serviceswrap">
+		<div class="container">
+			<div class="row">
+				{% include 'blocks/block_navbar.html' %}
+			</div>
+
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<h2>Наши партнеры</h2>
+{#					<div class="spacer"></div>#}
+				</div>
+			</div><!-- row -->
+		</div><!-- /container -->
+	</div><!-- /headerwrap -->
+{% endblock header %}
+
+{% block content %}
+	<div class="panel page-panel">
+		<div class="panel-body">
+			<div class="page-content">
+				{% if partners_list %}
+					<div>
+						{% include "partners_list.html" %}
+					</div>
+				{% else %}
+					<h3>Нет партнеров</h3>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
