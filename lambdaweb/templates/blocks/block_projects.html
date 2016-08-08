@@ -1,4 +1,6 @@
 {% load bootstrap3 %}
+{% load substract %}
+{# TODO: uncomment substracting of projects conut #}
 <div class="panel page-panel">
 	<div class="panel-body">
 		<div class="panel-heading headline-container">
@@ -16,7 +18,8 @@
 						<p><a href="{% url 'projects' %}">
 							<h1 style="padding-top: 50px"><i class="fa
 							fa-angle-right"></i></h1>
-							<h2>Еще {{ projects_list|length }}</h2>
+{#							<h2>Еще {{ projects_list|length|substract }}</h2>#}
+							<h2>Еще</h2>
 						</a></p>
 					</div>
 			{% else %}

@@ -1,4 +1,5 @@
 {% load bootstrap3 %}
+{% load substract %}
 <div class="panel page-panel">
 	<div class="panel-body">
 		<div class="panel-heading headline-container">
@@ -16,7 +17,7 @@
 						<p><a href="{% url 'events' %}">
 							<h1 style="padding-top: 50px"><i class="fa
 							fa-angle-right"></i></h1>
-							<h2>Еще {{ events_list|length }}</h2>
+							<h2>Еще {{ events_list|length|substract }}</h2>
 						</a></p>
 					</div>
 			{% else %}
