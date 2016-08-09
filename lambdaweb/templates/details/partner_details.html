@@ -1,10 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load bootstrap3 %}
 
-</body>
-</html>
+{% block title %}
+Лямбда событие {{partner.name}}
+{% endblock %}
+
+{% block description %}
+{{partner.title}} {{partner.description}}
+{% endblock %}
+
+<!-- MAIN IMAGE SECTION -->
+{% block header %}
+	<div id="serviceswrap">
+		<div class="container">
+			<div class="row">
+				{% include 'blocks/block_navbar.html' %}
+			</div>
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<h2>Афиша мероприятий</h2>
+{#					<div class="spacer"></div>#}
+				</div>
+			</div><!-- row -->
+		</div><!-- /container -->
+	</div><!-- /headerwrap -->
+{% endblock header %}
+
+{% block content %}
+<div class="panel page-panel">
+	<div class="panel-body">
+		<div class="col-md-12 page-content">
+			<div class="panel partner-card">
+				<div class="panel-heading">
+					<div class=" panel-title">
+						<div class="row text-left">
+							<h3 class="col-md-12">{{ partner.name }}</h3>
+							<h4 class='col-md-12'>{% bootstrap_icon "time" %} {{ partner.date }}</h4>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-6 col-xs-12 text-content">
+							<p>{{partner.description|linebreaks}}</p>
+							{% if partner.url %}
+								<p><i class="fa fa-globe" aria-hidden="true"></i> Сайт: <a href="{{partner.url}}">{{partner.url}}</a></p>
+							{% endif %}
+						</div>
+						{% if partner.image %}
+							<div class="col-md-4 col-xs-12 pull-right">
+								<img class="img-responsive img-thumbnail"
+									 src="{{ partner.image.url }}"
+									 alt="partner-{{partner.slug}}-image"
+									 style="display:inline;">
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
