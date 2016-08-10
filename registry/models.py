@@ -29,7 +29,9 @@ class Entry(models.Model):
 
 class Event(Entry):
 	date = models.DateTimeField()
+	avatar = models.ImageField(null=True)
 	address = models.CharField(max_length=300)
+	future = models.BooleanField(default=True)
 	speaker = models.CharField(max_length=100, blank=True)
 
 	class Meta:
