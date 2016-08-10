@@ -1,4 +1,4 @@
-{% load bootstrap3 %}
+{% load thumbnail %}
 <article>
 	<div class="event-card panel">
 		<div class="panel-body">
@@ -9,7 +9,7 @@
 							{{ event.name }}
 						</a>
 					</h3>
-					<h4 class='col-md-12'>{% bootstrap_icon "time" %} {{ event.date }}</h4>
+					<h4 class='col-md-12'><i class="fa fa-clock-o"></i> {{ event.date }}</h4>
 					<p style="padding-left: 25px">
 						{{event.description|truncatewords:10}}<br>
 						<i>
@@ -22,9 +22,9 @@
 				{% if event.image %}
 					<div class="col-md-4 col-xs-12 pull-right" style="align-content:center;">
 						<img class="img-responsive img-thumbnail"
-							 src="{{ event.image.url }}"
+							 src="{% thumbnail event.image 200x200 crop %}"
 							 alt="event-{{event.slug}}-thumbnail"
-							 style="display:inline;max-height:200px;max-width:200px;">
+							 style="display:inline;">
 					</div>
 				{% endif %}
 			</div>

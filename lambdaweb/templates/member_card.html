@@ -1,4 +1,4 @@
-{% load bootstrap3 %}
+{% load thumbnail %}
 <article>
 	<div class="event-card panel">
 		<div class="panel-body">
@@ -22,9 +22,9 @@
 				{% if member.image %}
 					<div class="col-md-4 col-xs-12 pull-right" style="align-content:center;">
 						<img class="img-responsive img-thumbnail"
-							 src="{{ member.image.url }}"
+							 src="{% thumbnail member.image 200x200 crop %}"
 							 alt="event-{{member.slug}}-thumbnail"
-							 style="display:inline;max-height:200px;max-width:200px;">
+							 style="display:inline;">
 					</div>
 				{% endif %}
 			</div>

@@ -19,13 +19,13 @@
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
 					<h2>Афиша мероприятий</h2>
-{#					<div class="spacer"></div>#}
 				</div>
 			</div><!-- row -->
 		</div><!-- /container -->
 	</div><!-- /headerwrap -->
 {% endblock header %}
 
+<!-- CONTENT SECTION -->
 {% block content %}
 <div class="panel page-panel">
 	<div class="panel-body">
@@ -34,29 +34,48 @@
 				<div class="panel-heading">
 					<div class=" panel-title">
 						<div class="row text-left">
-							<h3 class="col-md-12">{{ event.name }}</h3>
-							<h4 class='col-md-12'>{% bootstrap_icon "time" %} {{ event.date }}</h4>
+							<h1 class="col-md-12">{{ event.name }}</h1>
+							<h4 class="col-md-12">
+								<!--TODO: `add to calendar` url should work with google calendar -->
+								<i class="fa fa-clock-o"></i> {{ event.date }}  <a class="add-cal">Добавить в календарь</a><br>
+								<i class="fa fa-map-marker"> </i> {{ event.address }} <br>
+								<i class="fa fa-user"></i> {{ event.speaker }}
+							</h4>
 						</div>
 					</div>
 				</div>
 
+				<!-- DESCRIPTION SECTION -->
 				<div class="panel-body">
 					<div class="row">
-						<div class="col-md-6 col-xs-12 text-content">
-							<p>{{event.description|linebreaks}}</p>
-							{% if event.url %}
-								<p><i class="fa fa-globe" aria-hidden="true"></i> Сайт: <a href="{{event.url}}">{{event.url}}</a></p>
-							{% endif %}
-						</div>
-						{% if event.image %}
-							<div class="col-md-4 col-xs-12 pull-right">
+						{% if event.avatar %}
+							<div class="col-md-4 col-xs-12 pull-left">
 								<img class="img-responsive img-thumbnail"
-									 src="{{ event.image.url }}"
+									 src="{{ event.avatar.url }}"
 									 alt="event-{{event.slug}}-image"
-									 style="display:inline;">
+									 style="display:inline;
+									 max-height: 600px;
+									 max-width: 300px">
 							</div>
 						{% endif %}
+						<div class="col-md-6 col-xs-12 text-content">
+							<p>
+								{{event.description|linebreaks}}
+								<i class="fa fa-globe" aria-hidden="true"></i>
+								Сайт: <a href="{{event.url}}">{{event.url}}</a>
+								<!-- TODO: add `future` field to Event. states: 0 or 1 -->
+								<!-- TODO: if `future` is 1 then add button "Register", which redirects to VK -->
+							</p>
+						</div>
 					</div>
+
+				<!-- GALLERY SECTION -->
+				<!-- TODO: make /media/ files be placed automaticly by-category -->
+				<!-- TODO: find out how to make "gallery" in html+css+js -->
+				<!-- TODO: find out how to attach many photos to Event correctly -->
+
+
+
 				</div>
 			</div>
 		</div>
