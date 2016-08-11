@@ -2,6 +2,7 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from unidecode import unidecode
 from django.template.defaultfilters import slugify
+# from filer.models.foldermodels import Folder
 
 default_url_vk = "https://vk.com/lambdafrela"
 default_url_github = "https://github.com/lambdafrela"
@@ -29,9 +30,9 @@ class Entry(models.Model):
 
 class Event(Entry):
 	date = models.DateTimeField()
-	avatar = models.ImageField(null=True)
 	address = models.CharField(max_length=300)
-	future = models.BooleanField(default=True)
+	future = models.BooleanField(default=False)
+	avatar = models.ImageField(null=True, blank=True, upload_to='events/%Y/%m/%d/')
 	speaker = models.CharField(max_length=100, blank=True)
 
 	class Meta:

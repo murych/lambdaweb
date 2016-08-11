@@ -63,8 +63,9 @@
 								{{event.description|linebreaks}}
 								<i class="fa fa-globe" aria-hidden="true"></i>
 								Сайт: <a href="{{event.url}}">{{event.url}}</a>
-								<!-- TODO: add `future` field to Event. states: 0 or 1 -->
-								<!-- TODO: if `future` is 1 then add button "Register", which redirects to VK -->
+								{% if event.future == True %}
+									<br><button type="button" class="btn btn-blue">Принять участие</button>
+								{% endif %}
 							</p>
 						</div>
 					</div>
