@@ -18,7 +18,7 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
-					<h2>Афиша мероприятий</h2>
+					<h2>{{ partner.name }}</h2>
 {#					<div class="spacer"></div>#}
 				</div>
 			</div><!-- row -->
@@ -31,15 +31,6 @@
 	<div class="panel-body">
 		<div class="col-md-12 page-content">
 			<div class="panel partner-card">
-				<div class="panel-heading">
-					<div class=" panel-title">
-						<div class="row text-left">
-							<h3 class="col-md-12">{{ partner.name }}</h3>
-							<h4 class='col-md-12'>{% bootstrap_icon "time" %} {{ partner.date }}</h4>
-						</div>
-					</div>
-				</div>
-
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-md-6 col-xs-12 text-content">
