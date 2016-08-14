@@ -1,33 +1,12 @@
 {% load thumbnail %}
-<article>
-	<div class="event-card panel">
-		<div class="panel-body">
-			<div class="row">
-				<div class="col-md-6 col-xs-12 text-content">
-					<h3 class="col-md-12">
-						<a href="{% url 'project' slug=project.slug %}" >
-							{{ project.name }}
-						</a>
-					</h3>
-{#					<h4 class='col-md-12'>{% bootstrap_icon "time" %} {{ project.date }}</h4>#}
-					<p style="padding-left: 25px">
-						{{project.description|truncatewords:10}}<br>
-						<i>
-							<a href="{% url 'project' slug=project.slug %}">
-								(Читать далее)
-							</a>
-						</i>
-					</p>
-				</div>
-				{% if project.image %}
-					<div class="col-md-4 col-xs-12 pull-right" style="align-content:center;">
-						<img class="img-responsive img-thumbnail"
-							 src="{% thumbnail project.image 200x200 crop %}"
-							 alt="event-{{project.slug}}-thumbnail"
-							 style="display:inline;">
-					</div>
-				{% endif %}
+<div class="panel member-card">
+	<div class="panel-body">
+			<div class="text-center">
+				<img class="img-responsive img-thumbnail" src="{% thumbnail project.image 200x200 crop %}" alt="project-name-image" style="display:inline;">
 			</div>
+
+		<div class="text-content">
+			<h3><a href="{% url 'project' slug=project.slug %}" >{{ project.name }}</a></h3>
 		</div>
 	</div>
-</article>
+</div>
