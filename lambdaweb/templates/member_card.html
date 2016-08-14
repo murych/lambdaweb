@@ -1,33 +1,17 @@
 {% load thumbnail %}
-<article>
-	<div class="event-card panel">
-		<div class="panel-body">
-			<div class="row">
-				<div class="col-md-6 col-xs-12 text-content">
-					<h3 class="col-md-12">
-						<a href="{% url 'member' slug=member.slug %}" >
-							{{ member.name }}
-						</a>
-					</h3>
-{#					<h4 class='col-md-12'>{% bootstrap_icon "time" %} {{ member.date }}</h4>#}
-					<p style="padding-left: 25px">
-						{{member.description|truncatewords:10}}<br>
-						<i>
-							<a href="{% url 'member' slug=member.slug %}">
-								(Читать далее)
-							</a>
-						</i>
-					</p>
-				</div>
-				{% if member.image %}
-					<div class="col-md-4 col-xs-12 pull-right" style="align-content:center;">
-						<img class="img-responsive img-thumbnail"
-							 src="{% thumbnail member.image 200x200 crop %}"
-							 alt="event-{{member.slug}}-thumbnail"
-							 style="display:inline;">
-					</div>
-				{% endif %}
+<div class="panel member-card">
+	<div class="panel-body">
+			<div class="text-center">
+				<img class="img-responsive img-thumbnail" src="{% thumbnail member.image 200x200 crop %}" alt="member-name-image" style="display:inline;">
 			</div>
+
+		<div class="text-content">
+			<h3><a href="{% url 'member' slug=member.slug %}" >{{ member.name }}</a></h3>
+			{% if member.description %}
+				<div>
+					<p>{{member.description}}</p>
+				</div>
+			{% endif %}
 		</div>
 	</div>
-</article>
+</div>

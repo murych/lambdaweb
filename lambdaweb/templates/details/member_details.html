@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load bootstrap3 %}
+{% load thumbnail %}
 
 {% block title %}
 Лямбда событие {{member.name}}
@@ -18,8 +18,7 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
-					<h2>Афиша мероприятий</h2>
-{#					<div class="spacer"></div>#}
+					<h2>{{ member.name }}</h2>
 				</div>
 			</div><!-- row -->
 		</div><!-- /container -->
@@ -30,32 +29,30 @@
 <div class="panel page-panel">
 	<div class="panel-body">
 		<div class="col-md-12 page-content">
-			<div class="panel member-card">
-				<div class="panel-heading">
-					<div class=" panel-title">
-						<div class="row text-left">
-							<h3 class="col-md-12">{{ member.name }}</h3>
-							<h4 class='col-md-12'>{% bootstrap_icon "time" %} {{ member.date }}</h4>
-						</div>
-					</div>
-				</div>
-
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-md-6 col-xs-12 text-content">
-							<p>{{member.description|linebreaks}}</p>
-							{% if member.url %}
-								<p><i class="fa fa-globe" aria-hidden="true"></i> Сайт: <a href="{{member.url}}">{{member.url}}</a></p>
-							{% endif %}
+							<p>
+								{{member.description|linebreaks}}
+								{% if member.url %}
+									<i class="fa fa-vk" aria-hidden="true"></i> Сайт: <a href="{{member.url}}">{{member.url}}</a>
+								{% endif %}
+								<br>
+								{% if member.email %}
+									<i class="fa fa-envelope" aria-hidden="true"></i> Почта: <a href="mailto:{{member.email}}">{{member.email}}</a>
+								{% endif %}
+								<br>
+								{% if member.github %}
+									<i class="fa fa-github" aria-hidden="true"></i> Github: <a href="{{member.github}}">{{member.github}}</a>
+								{% endif %}
+							</p>
 						</div>
-						{% if member.image %}
-							<div class="col-md-4 col-xs-12 pull-right">
-								<img class="img-responsive img-thumbnail"
-									 src="{{ member.image.url }}"
-									 alt="member-{{member.slug}}-image"
-									 style="display:inline;">
-							</div>
-						{% endif %}
+						<div class="col-md-4 col-xs-12 pull-right">
+							<img class="img-responsive img-thumbnail"
+								 src="{% thumbnail member.image 300x300 crop %}"
+								 alt="member-{{member.slug}}-image"
+								 style="display:inline;">
+						</div>
 					</div>
 				</div>
 			</div>
