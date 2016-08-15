@@ -131,7 +131,7 @@ hr {
 	padding: 0;
 }
 #serviceswrap {
-	background: url(../img/services-bg.jpg) no-repeat center top;
+	background: url(../img/services-bg.png) no-repeat center top;
 	/*margin-top: -10px;*/
 	/*padding-top: 20px;*/
 	text-align: center;
@@ -141,6 +141,9 @@ hr {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+}
+#serviceswrap .navbar-nav> li> a{
+	color: white;
 }
 #serviceswrap h2 {
 	color: #fff;
