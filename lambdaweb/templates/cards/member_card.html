@@ -9,7 +9,7 @@
 			<h3><a href="{% url 'member' slug=member.slug %}" >{{ member.name }}</a></h3>
 			{% if member.description %}
 				<div>
-					<p>{{member.description}}</p>
+					<p>{{member.description|truncatewords:1}}</p>
 				</div>
 			{% endif %}
 		</div>
