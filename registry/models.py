@@ -34,6 +34,7 @@ class Event(Entry):
 	future = models.BooleanField(default=False)
 	avatar = models.ImageField(null=True, blank=True, upload_to='events/%Y/%m/%d/')
 	speaker = models.CharField(max_length=100, blank=True)
+	calendar = models.URLField(blank=True)
 
 	class Meta:
 		ordering = ['-date']

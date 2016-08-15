@@ -1,17 +1,14 @@
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render_to_response
 from registry.models import *
-# from . import utils
-from django.template import RequestContext
-from django.db.models import Q
 
 
 def index(request):
 	events_list = Event.objects.all()
 	projects_list = Project.objects.all()
 	feedback_list = Feedback.objects.all()
-	return render_to_response('index.html', {'events_list': events_list,
-											 'projects_list': projects_list,
-											 'feedback_list': feedback_list})
+	return render_to_response('index.html', {'events_list'  : events_list,
+	                                         'projects_list': projects_list,
+	                                         'feedback_list': feedback_list})
 
 
 def events(request):

@@ -12,19 +12,23 @@
 					</h3>
 					<h4 class='col-md-12'>
 						<i class="fa fa-clock-o"></i> {{ event.date }} <br>
-						<i class="fa fa-map-marker"> </i> {{ event.address }} <br>
+						<i class="fa fa-map-marker"></i> {{ event.address }} <br>
 						<i class="fa fa-user"></i> {{ event.speaker }}
 					</h4>
 					<p style="padding-left: 25px">
-						{{event.description|truncatewords:10}}<br>
+						{{event.description|truncatewords:20}}<br>
 						<i>
 							<a href="{% url 'event' slug=event.slug %}">
 								(Читать далее)
 							</a>
 						</i>
-					</p>
-					<p style="align-self: center"><br><button type="button" class="btn
-					btn-blue">Принять участие</button></p>
+                        <div class="spacer"></div>
+                        <a href="{{ event.url }}">
+                            <button type="button" class="btn btn-blue">
+                                Принять участие
+                            </button>
+                        </a>
+                    </p>
 				</div>
 				{% if event.image %}
 					<div class="col-md-4 col-xs-12">
