@@ -6,3 +6,7 @@
 local_settings.py
 /static
 /.idea
+node_modules/
+dist/
+app/css/
+app/header.min.css
