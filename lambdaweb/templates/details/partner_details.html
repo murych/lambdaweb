@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load bootstrap3 %}
+{% load django_markdown %}
 
 {% block title %}
     {{partner.name}} - Lambda
@@ -33,7 +34,7 @@
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-md-6 col-xs-12 text-content">
-							<p>{{partner.description|linebreaks}}</p>
+							<p>{{partner.description|markdown|linebreaks}}</p>
 							{% if partner.url %}
 								<p><i class="fa fa-globe" aria-hidden="true"></i> Сайт: <a href="{{partner.url}}">{{partner.url}}</a></p>
 							{% endif %}

@@ -41,6 +41,7 @@ INSTALLED_APPS = (
 	'django.contrib.sitemaps',
 	'bootstrap3',
 	'easy_thumbnails',
+	'django_markdown',
 	'registry',
 	# 'templatetags.substract',
 )

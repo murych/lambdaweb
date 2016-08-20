@@ -1,4 +1,5 @@
 {% load thumbnail %}
+{% load django_markdown %}
 <div class="panel member-card">
 	<div class="panel-body">
 			<div class="text-center">
@@ -9,7 +10,7 @@
 			<h3><a href="{% url 'member' slug=member.slug %}" >{{ member.name }}</a></h3>
 			{% if member.description %}
 				<div>
-					<p>{{member.description|truncatewords:1}}</p>
+					<p>{{member.description|markdown|truncatewords:1}}</p>
 				</div>
 			{% endif %}
 		</div>

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load thumbnail %}
+{% load django_markdown %}
 
 {% block title %}
     {{event.name}} - Lambda
@@ -60,7 +61,7 @@
 
                             <div class="col-md-6 col-xs-12 text-content">
                                 <p>
-                                    {{event.description|linebreaks}}
+                                    {{event.description|markdown|linebreaks}}
                                     <i class="fa fa-globe" aria-hidden="true"></i>
                                     Сайт: <a href="{{event.url}}">{{event.url}}</a>
                                 </p>
