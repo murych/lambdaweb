@@ -3,6 +3,7 @@ from django.core.urlresolvers import reverse
 from unidecode import unidecode
 from django.template.defaultfilters import slugify
 # from filer.models.foldermodels import Folder
+from django_markdown.models import MarkdownField
 
 default_url_vk = "https://vk.com/lambdafrela"
 default_url_github = "https://github.com/lambdafrela"
@@ -11,7 +12,7 @@ default_url_github = "https://github.com/lambdafrela"
 class Entry(models.Model):
 	name = models.CharField(max_length=200)
 	url = models.URLField(max_length=100, default=default_url_vk)
-	description = models.TextField(max_length=1500)
+	description = MarkdownField()
 	slug = models.SlugField(max_length=300, blank=True)
 	created_date = models.DateTimeField(auto_now_add=True)
 	image = models.ImageField(null=True)

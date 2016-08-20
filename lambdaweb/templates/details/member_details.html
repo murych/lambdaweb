@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load thumbnail %}
+{% load django_markdown %}
 
 {% block title %}
     {{member.name}} - Lambda
@@ -33,7 +34,7 @@
 					<div class="row">
 						<div class="col-md-6 col-xs-12 text-content">
 							<p>
-								{{member.description|linebreaks}}
+								{{member.description|markdown|linebreaks}}
 								{% if member.url %}
 									<i class="fa fa-vk" aria-hidden="true"></i> Сайт: <a href="{{member.url}}">{{member.url}}</a>
 								{% endif %}

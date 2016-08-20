@@ -1,29 +1,27 @@
-{#{% block feedback %}#}
-	<div id="lg">
-		<div class="container">
+<div id="lg">
+    <div class="container">
 
-			<div class="panel-heading headline-container">
-				<h2 class="headline" style="text-align: left">О нас говорят</h2>
-			</div>
+        <div class="panel-heading headline-container">
+            <h2 class="headline" style="text-align: left">О нас говорят</h2>
+        </div>
 
-			<div class="row centered">
-				{% if feedback_list %}
-					{% for feedback in feedback_list|slice:":4" %}
-						<div class="col-md-3 ">
-							<div class="item">
-								<div class="testimonials-post">
-									<span class="fa fa-quote-left"></span>
-									<p>“ {{ feedback.text }} ”</p>
-									<h6>{{ feedback.author }} - <em>{{ feedback.role }}</em></h6>
-								</div>
-							</div>
-						</div>
-					{% endfor %}
-				{% else %}
-					<p class="centered">Пока не говорят :)</p>
-				{% endif %}
-			</div><!-- row -->
+        <div class="row centered">
+            {% if feedback_list %}
+                {% for feedback in feedback_list|slice:":4" %}
+                    <div class="col-md-3 ">
+                        <div class="item">
+                            <div class="testimonials-post">
+                                <span class="fa fa-quote-left"></span>
+                                <p>“ {{ feedback.text }} ”</p>
+                                <h6>{{ feedback.author }} - <em>{{ feedback.role }}</em></h6>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="centered">Пока не говорят :)</p>
+            {% endif %}
+        </div><!-- row -->
 
-		</div><!-- container -->
-	</div><!-- dg -->
-{#{% endblock feedback %}#}
+    </div><!-- container -->
+</div><!-- dg -->

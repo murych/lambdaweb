@@ -1,5 +1,6 @@
-{% load bootstrap3 %}
 {% load thumbnail %}
+{% load bootstrap3 %}
+{% load django_markdown %}
 <article>
 	<div class="event-card panel">
 		<div class="panel-body">
@@ -16,7 +17,7 @@
 						<i class="fa fa-user"></i> {{ event.speaker }}
 					</h4>
 					<p style="padding-left: 25px">
-						{{event.description|truncatewords:20}}<br>
+						{{event.description|markdown|truncatewords:20}}<br>
 						<i>
 							<a href="{% url 'event' slug=event.slug %}">
 								(Читать далее)

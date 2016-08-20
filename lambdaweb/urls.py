@@ -9,6 +9,7 @@ from django.conf import settings
 urlpatterns = [
 	url(r'^$', views.index, name='index'),
 	url(r'^admin/', include(admin.site.urls)),
+	url(r'^markdown/', include('django_markdown.urls')),
 	url(r'^registry/', include('registry.urls')),
 	url(r'^partners/$', views.partners, name="partners"),
 	url(r'^projects/$', views.projects, name="projects"),

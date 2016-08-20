@@ -1,6 +1,7 @@
 {% extends "base.html" %}
-{% load bootstrap3 %}
 {% load thumbnail %}
+{% load bootstrap3 %}
+{% load django_markdown %}
 
 {% block title %}
     {{project.name}} - Lambda
@@ -34,7 +35,7 @@
 				<div class="row">
 					<div class="col-md-6 col-xs-12 text-content">
 						<p>
-							{{project.description|linebreaks}}
+							{{project.description|markdown|linebreaks}}
 							{% if project.github %}
 								<i class="fa fa-github" aria-hidden="true"></i> Страница проекта на Github: <a href="{{ project.github }}">{{ project.github }}</a>
 							{% endif %}
