@@ -1,0 +1,5 @@
+import env
+
+
+DEBUG = env.DEV_ENV
+TEMPLATE_DEBUG = DEBUG
