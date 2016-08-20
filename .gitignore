@@ -90,4 +90,5 @@ ENV/
 .ropeproject
 
 .idea/
+media/
 /secret.txt
