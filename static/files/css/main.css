@@ -531,6 +531,21 @@ li {
 	font-style: italic;
 	font-weight: 200;
 }
+#error {
+	background: url(../img/error.jpg) no-repeat center top;
+	text-align: center;
+	/*min-height: 750px;*/
+	width: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
 #error h1 {
 	font-size: 110px;
+}
+
+#error .col-md-12 {
+	padding-top: 250px;
+	padding-bottom: 100px;
 }
