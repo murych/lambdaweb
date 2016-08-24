@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block title %}
+	404 - Lambda
+{% endblock title %}
+
+
+{% block header %}
+    <div class="container">
+			<div class="row">
+				{% include 'blocks/block_navbar.html' %}
+			</div>
+		</div>
+	</div>
+{% endblock header %}
+
+{% block content %}
+    <div id="error" class="col-md-12" align="center"
+        style="padding-top: 110px;padding-bottom: 110px">
+        <h1>404</h1>
+        <h2><i>Похоже, этой страницы не существует</i></h2>
+        <h3><i>Вернуться на <a href="{% url 'index' %}">главную</a></i></h3>
+    </div>
+{% endblock content %}
