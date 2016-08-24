@@ -9,4 +9,3 @@ local_settings.py
 /.idea
 /dist/
 /app/css/
-/app/header.min.css
