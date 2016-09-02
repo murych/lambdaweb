@@ -1,9 +1,13 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% load bootstrap3 %}
+{% load static %}
 {% block title %}
 	Lambda
 {% endblock title %}
 
+{% block styles %}
+	<link href="{% static 'css/indexwrap.css' %}" rel="stylesheet">
+{% endblock styles %}
 
 <!-- MAIN IMAGE SECTION -->
 {% block header %}
@@ -39,8 +43,8 @@
 
 <!-- NEAREST EVENT SECTION -->
 {% block event_near %}
-{#	{% include 'blocks/block_event_near.html' %}#}
 	{% include 'blocks/block_announcement.html' %}
+	{% include 'blocks/block_event_near.html' %}
 {% endblock event_near %}
 
 {% block content %}

@@ -7,7 +7,7 @@
 			<div class="row">
 				<div class="col-md-8 col-xs-12 text-content">
 					<h3 class="col-md-12">
-						<a href="{% url 'event' slug=event.slug %}" >
+						<a href="{% url 'event' slug=event.slug %}">
 							{{ event.name }}
 						</a>
 					</h3>
@@ -16,27 +16,27 @@
 						<i class="fa fa-map-marker"></i> {{ event.address }} <br>
 						<i class="fa fa-user"></i> {{ event.speaker }}
 					</h4>
-					<p style="padding-left: 25px">
-						{{event.description|markdown|truncatewords:20}}<br>
+					<p style="padding-left: 50px">
+						{{ event.description|markdown|truncatewords:20 }}
 						<i>
 							<a href="{% url 'event' slug=event.slug %}">
 								(Читать далее)
 							</a>
 						</i>
-                        <div class="spacer"></div>
-                        <a href="{{ event.url }}">
-                            <button type="button" class="btn btn-blue">
-                                Принять участие
-                            </button>
-                        </a>
-                    </p>
+						<br><br>
+						<a href="{{ event.url }}">
+							<button type="button" class="btn btn-blue">
+								Принять участие
+							</button>
+						</a>
+					</p>
 				</div>
 				{% if event.image %}
 					<div class="col-md-4 col-xs-12">
 						<img class="img-responsive img-thumbnail"
-							 src="{% thumbnail event.image 250x250 crop %}"
-							 alt="event-{{event.slug}}-thumbnail"
-							 style="display:inline;">
+						     src="{% thumbnail event.image 250x250 crop %}"
+						     alt="event-{{ event.slug }}-thumbnail"
+						     style="display:inline;">
 					</div>
 				{% endif %}
 			</div>

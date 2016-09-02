@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 {% load bootstrap3 %}
+{% load static %}
 {% block title %}
 	Афиша - Lambda
 {% endblock %}
 {% block description %}
 	Афиша Лямбда МАИ, {% if events_list %}ближайшее событие:
-	{{ events_list.0.date }} {%endif%}
-{% endblock %}
+	{{ events_list.0.date }} {% endif %}
+{% endblock description %}
+{% block styles %}
+	<link href="{% static 'css/serviceswrap.css' %}" rel="stylesheet">
+{% endblock styles %}
 
 <!-- MAIN IMAGE SECTION -->
 {% block header %}

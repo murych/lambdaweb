@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% load bootstrap3 %}
+{% load static %}
 {% block title %}
 	О нас - Lambda
 {% endblock %}
+{% block styles %}
+	<link href="{% static 'css/serviceswrap.css' %}" rel="stylesheet">
+{% endblock styles %}
 
 <!-- MAIN IMAGE SECTION -->
 {% block header %}

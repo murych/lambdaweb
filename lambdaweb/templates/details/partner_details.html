@@ -1,13 +1,17 @@
 {% extends "base.html" %}
+{% load static %}
 {% load bootstrap3 %}
 {% load django_markdown %}
+{% block styles %}
+	<link href="{% static 'css/serviceswrap.css' %}" rel="stylesheet">
+{% endblock styles %}
 
 {% block title %}
-    {{partner.name}} - Lambda
+	{{ partner.name }} - Lambda
 {% endblock %}
 
 {% block description %}
-{{partner.title}} {{partner.description}}
+	{{ partner.title }} {{ partner.description }}
 {% endblock %}
 
 <!-- MAIN IMAGE SECTION -->
@@ -27,30 +31,31 @@
 {% endblock header %}
 
 {% block content %}
-<div class="panel page-panel">
-	<div class="panel-body">
-		<div class="col-md-12 page-content">
-			<div class="panel partner-card">
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-md-6 col-xs-12 text-content">
-							<p>{{partner.description|markdown|linebreaks}}</p>
-							{% if partner.url %}
-								<p><i class="fa fa-globe" aria-hidden="true"></i> Сайт: <a href="{{partner.url}}">{{partner.url}}</a></p>
+	<div class="panel page-panel">
+		<div class="panel-body">
+			<div class="col-md-12 page-content">
+				<div class="panel partner-card">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-6 col-xs-12 text-content">
+								<p>{{ partner.description|markdown|linebreaks }}</p>
+								{% if partner.url %}
+									<p><i class="fa fa-globe" aria-hidden="true"></i> Сайт:
+										<a href="{{ partner.url }}">{{ partner.url }}</a></p>
+								{% endif %}
+							</div>
+							{% if partner.image %}
+								<div class="col-md-4 col-xs-12 pull-right">
+									<img class="img-responsive img-thumbnail"
+									     src="{{ partner.image.url }}"
+									     alt="partner-{{ partner.slug }}-image"
+									     style="display:inline;">
+								</div>
 							{% endif %}
 						</div>
-						{% if partner.image %}
-							<div class="col-md-4 col-xs-12 pull-right">
-								<img class="img-responsive img-thumbnail"
-									 src="{{ partner.image.url }}"
-									 alt="partner-{{partner.slug}}-image"
-									 style="display:inline;">
-							</div>
-						{% endif %}
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 {% endblock %}

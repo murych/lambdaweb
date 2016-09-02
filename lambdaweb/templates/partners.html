@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% load bootstrap3 %}
+{% load static %}
 {% block title %}
 	Партнеры - Lambda
-{% endblock %}
+{% endblock title %}
+{% block styles %}
+	<link href="{% static 'css/serviceswrap.css' %}" rel="stylesheet">
+{% endblock styles %}
 
 <!-- MAIN IMAGE SECTION -->
 {% block header %}
@@ -26,9 +30,7 @@
 		<div class="panel-body">
 			<div class="page-content">
 				{% if partners_list %}
-					<div>
 						{% include "lists/partners_list.html" %}
-					</div>
 				{% else %}
 					<h3>Нет партнеров</h3>
 				{% endif %}

@@ -1,13 +1,17 @@
 {% extends "base.html" %}
+{% load static %}
 {% load thumbnail %}
 {% load django_markdown %}
+{% block styles %}
+	<link href="{% static 'css/serviceswrap.css' %}" rel="stylesheet">
+{% endblock styles %}
 
 {% block title %}
-    {{member.name}} - Lambda
+	{{ member.name }} - Lambda
 {% endblock %}
 
 {% block description %}
-{{member.title}} {{member.description}}
+	{{ member.title }} {{ member.description }}
 {% endblock %}
 
 <!-- MAIN IMAGE SECTION -->
@@ -27,37 +31,40 @@
 {% endblock header %}
 
 {% block content %}
-<div class="panel page-panel">
-	<div class="panel-body">
-		<div class="col-md-12 page-content">
+	<div class="panel page-panel">
+		<div class="panel-body">
+			<div class="col-md-12 page-content">
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-md-6 col-xs-12 text-content">
 							<p>
-								{{member.description|markdown|linebreaks}}
+								{{ member.description|markdown|linebreaks }}
 								{% if member.url %}
-									<i class="fa fa-vk" aria-hidden="true"></i> Сайт: <a href="{{member.url}}">{{member.url}}</a>
+									<i class="fa fa-vk" aria-hidden="true"></i> Сайт:
+									<a href="{{ member.url }}">{{ member.url }}</a>
 								{% endif %}
 								<br>
 								{% if member.email %}
-									<i class="fa fa-envelope" aria-hidden="true"></i> Почта: <a href="mailto:{{member.email}}">{{member.email}}</a>
+									<i class="fa fa-envelope" aria-hidden="true"></i> Почта:
+									<a href="mailto:{{ member.email }}">{{ member.email }}</a>
 								{% endif %}
 								<br>
 								{% if member.github %}
-									<i class="fa fa-github" aria-hidden="true"></i> Github: <a href="{{member.github}}">{{member.github}}</a>
+									<i class="fa fa-github" aria-hidden="true"></i> Github:
+									<a href="{{ member.github }}">{{ member.github }}</a>
 								{% endif %}
 							</p>
 						</div>
 						<div class="col-md-4 col-xs-12 pull-right">
 							<img class="img-responsive img-thumbnail"
-								 src="{% thumbnail member.image 300x300 crop %}"
-								 alt="member-{{member.slug}}-image"
-								 style="display:inline;">
+							     src="{% thumbnail member.image 300x300 crop %}"
+							     alt="member-{{ member.slug }}-image"
+							     style="display:inline;">
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+	</div>
 {% endblock %}

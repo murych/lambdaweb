@@ -1,20 +1,22 @@
 {% extends 'base.html' %}
 {% load bootstrap3 %}
+{% load static %}
 {% block title %}
 	500 - Lambda
 {% endblock title %}
-
+{% block styles %}
+	<link href="{% static 'css/errors.css' %}" rel="stylesheet">
+{% endblock styles %}
 
 {% block header %}
-    <div class="container" id="error">
-			<div class="row">
-				{% include 'blocks/block_navbar.html' %}
-                <div class="col-md-12" align="center">
-                    <h1>500</h1>
-                    <h2><i>Наш сервер пытается укусить свой хвост</i></h2>
-                    <h3><i>Вернуться на <a href="{% url 'index' %}">главную</a></i></h3>
-                </div>
-            </div>
+	<div class="container" id="error">
+		<div class="row">
+			{% include 'blocks/block_navbar.html' %}
+			<div class="col-md-12" align="center">
+				<h1>500</h1>
+				<h2><i>Наш сервер пытается укусить свой хвост</i></h2>
+				<h3><i>Вернуться на <a href="{% url 'index' %}">главную</a></i></h3>
+			</div>
 		</div>
 	</div>
 {% endblock header %}

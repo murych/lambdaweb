@@ -1,81 +1,84 @@
 {% extends "base.html" %}
+{% load static %}
 {% load thumbnail %}
 {% load django_markdown %}
+{% block styles %}
+	<link href="{% static 'css/serviceswrap.css' %}" rel="stylesheet">
+{% endblock styles %}
 
 {% block title %}
-    {{event.name}} - Lambda
+	{{ event.name }} - Lambda
 {% endblock %}
 
 {% block description %}
-    {{event.title}} {{event.description}}
+	{{ event.title }} {{ event.description }}
 {% endblock %}
 
 <!-- MAIN IMAGE SECTION -->
 {% block header %}
-    <div id="serviceswrap">
-        <div class="container">
-            <div class="row">
-                {% include 'blocks/block_navbar.html' %}
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Афиша мероприятий</h2>
-                </div>
-            </div><!-- row -->
-        </div><!-- /container -->
-    </div><!-- /headerwrap -->
+	<div id="serviceswrap">
+		<div class="container">
+			<div class="row">
+				{% include 'blocks/block_navbar.html' %}
+			</div>
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<h2>Афиша мероприятий</h2>
+				</div>
+			</div><!-- row -->
+		</div><!-- /container -->
+	</div><!-- /headerwrap -->
 {% endblock header %}
 
 <!-- CONTENT SECTION -->
 {% block content %}
-    <div class="panel page-panel">
-        <div class="panel-body">
-            <div class="col-md-12 page-content">
-                <div class="panel event-card">
-                    <div class="panel-heading">
-                        <div class=" panel-title">
-                            <div class="row text-left">
-                                <h1 class="col-md-12">{{ event.name }}</h1>
-                                <h4 class="col-md-12">
-                                    <!--TODO: `add to calendar` url should work with google calendar -->
-                                    <i class="fa fa-clock-o"></i> {{ event.date }} &emsp;
-                                    {% if event.calendar and event.future == True %}
-                                        <a target="_blank" href="{{ event.calendar }}"><img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_en.gif"></a>
-                                    {% endif %}<br>
-                                    <i class="fa fa-map-marker"> </i> {{ event.address }} <br>
-                                    <i class="fa fa-user"></i> {{ event.speaker }}
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
+	<div class="panel page-panel">
+		<div class="panel-body">
+			<div class="col-md-12 page-content">
+				<div class="panel event-card">
+					<div class="panel-heading">
+						<div class=" panel-title">
+							<div class="row text-left">
+								<h1 class="col-md-12">{{ event.name }}</h1>
+								<h4 class="col-md-12">
+									<i class="fa fa-clock-o"></i> {{ event.date }} &emsp;
+									{% if event.calendar and event.future == True %}
+										<a target="_blank" href="{{ event.calendar }}"><img border="0"
+										                                                    src="https://www.google.com/calendar/images/ext/gc_button1_en.gif"></a>
+									{% endif %}<br>
+									<i class="fa fa-map-marker"> </i> {{ event.address }} <br>
+									<i class="fa fa-user"></i> {{ event.speaker }}
+								</h4>
+							</div>
+						</div>
+					</div>
 
-                    <!-- DESCRIPTION SECTION -->
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-4 col-xs-12 pull-left">
-                                <img class="img-responsive img-thumbnail"
-                                     src="{% thumbnail event.avatar 300x600 crop %}"
-                                     alt="event-{{event.slug}}-image"
-                                     style="display:inline;">
-                            </div>
+					<!-- DESCRIPTION SECTION -->
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-4 col-xs-12 pull-left">
+								<img class="img-responsive img-thumbnail"
+								     src="{% thumbnail event.avatar 300x600 crop %}"
+								     alt="event-{{ event.slug }}-image"
+								     style="display:inline;">
+							</div>
 
-                            <div class="col-md-6 col-xs-12 text-content">
-                                <p>
-                                    {{event.description|markdown|linebreaks}}
-                                    <i class="fa fa-globe" aria-hidden="true"></i>
-                                    Сайт: <a href="{{event.url}}">{{event.url}}</a>
-                                </p>
-                            </div>
-                        </div>
+							<div class="col-md-6 col-xs-12 text-content">
+								<p>
+									{{ event.description|markdown|linebreaks }}
+									<i class="fa fa-globe" aria-hidden="true"></i>
+									Сайт: <a href="{{ event.url }}">{{ event.url }}</a>
+								</p>
+							</div>
+						</div>
 
-                        <!-- GALLERY SECTION -->
-                        <!-- TODO: make /media/ files be placed automaticly by-category -->
-                        <!-- TODO: find out how to make "gallery" in html+css+js -->
-                        <!-- TODO: find out how to attach many photos to Event correctly -->
+						<!-- GALLERY SECTION -->
+						<!-- TODO: find out how to make "gallery" in html+css+js -->
+						<!-- TODO: find out how to attach many photos to Event correctly -->
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
