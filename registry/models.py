@@ -18,8 +18,8 @@ def get_image_dir_path(instance, filename):
 
 
 class Entry(models.Model):
-	description = MarkdownField()
 	name = models.CharField(max_length=200)
+	description = MarkdownField()
 	slug = models.SlugField(max_length=300, blank=True)
 	created_date = models.DateTimeField(auto_now_add=True)
 	url = models.URLField(max_length=100, default=default_url_vk)
