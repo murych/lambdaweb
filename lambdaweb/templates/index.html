@@ -2,63 +2,63 @@
 {% load bootstrap3 %}
 {% load static %}
 {% block title %}
-	Lambda
+    Lambda
 {% endblock title %}
 
 {% block styles %}
-	<link href="{% static 'css/indexwrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/indexwrap.css' %}" rel="stylesheet">
 {% endblock styles %}
 
 <!-- MAIN IMAGE SECTION -->
 {% block header %}
-	<div id="indexwrap">
-		<div class="container">
-			<div class="row">
-				{% include 'blocks/block_navbar.html' %}
-			</div>
+    <div id="indexwrap">
+        <div class="container">
+            <div class="row">
+                {% include 'blocks/block_navbar.html' %}
+            </div>
 
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<h1>LAMBDA</h1>
-					<div class="spacer"></div>
-				</div>
-			</div><!-- row -->
-			<div class="row">
-				<div class="col-xs-6 col-sm-4"></div>
-				<div class="col-xs-6 col-sm-4"></div>
-				<div class="clearfix visible-xs-block"></div>
-				<div class="col-xs-6 col-sm-4">
-					<p>
-						<b style="font-size: 24px">Кто мы?</b><br>
-						Мы образовательный проект Lambda при
-						ФРЭЛА МАИ,
-						реализующий практикум программистов и бесплатные курсы
-						для студентов.
-					</p>
-				</div>
-			</div>
-		</div><!-- /container -->
-	</div><!-- /headerwrap -->
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h1>LAMBDA</h1>
+                    <div class="spacer"></div>
+                </div>
+            </div><!-- row -->
+            <div class="row">
+                <div class="col-xs-6 col-sm-4"></div>
+                <div class="col-xs-6 col-sm-4"></div>
+                <div class="clearfix visible-xs-block"></div>
+                <div class="col-xs-6 col-sm-4">
+                    <p>
+                        <b style="font-size: 24px">Кто мы?</b><br>
+                        Мы образовательный проект Lambda при
+                        ФРЭЛА МАИ,
+                        реализующий практикум программистов и бесплатные курсы
+                        для студентов.
+                    </p>
+                </div>
+            </div>
+        </div><!-- /container -->
+    </div><!-- /headerwrap -->
 {% endblock header %}
 
 <!-- NEAREST EVENT SECTION -->
 {% block event_near %}
-	{% include 'blocks/block_announcement.html' %}
-	{% include 'blocks/block_event_near.html' %}
+    {% include 'blocks/block_announcement.html' %}
+    {% include 'blocks/block_event_near.html' %}
 {% endblock event_near %}
 
 {% block content %}
 
-	<!-- ABOUT SECTION -->
-	{% include 'blocks/block_about.html' %}
+    <!-- ABOUT SECTION -->
+    {% include 'blocks/block_about.html' %}
 
-	<!-- BLOG POSTS -->
-	{% include 'blocks/block_events.html' %}
+    <!-- BLOG POSTS -->
+    {% include 'blocks/block_events.html' %}
 
-	<!-- PROJECTS SECTION -->
-	{# {% include 'blocks/block_projects.html' %} #}
+    <!-- PROJECTS SECTION -->
+    {# {% include 'blocks/block_projects.html' %} #}
 
-	<!-- FEEDBACK SECTION -->
-	{# {% include 'blocks/block_feedback.html' %} #}
+    <!-- FEEDBACK SECTION -->
+    {# {% include 'blocks/block_feedback.html' %} #}
 
 {% endblock content %}
