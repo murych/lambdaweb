@@ -221,3 +221,13 @@ li {
 	font-style  : italic;
 	font-weight : 200;
 }
+
+.partner-card {
+	display   : -webkit-box;
+	display   : -moz-box;
+	display   : -ms-flexbox;
+	display   : -webkit-flex;
+	display   : flex;
+	flex-wrap : wrap;
+	max-height: 280px;
+}
