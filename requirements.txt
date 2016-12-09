@@ -1,5 +1,5 @@
 django==1.9
 django-bootstrap3
 unidecode
-pillow
+pillow==3.4.2
 easy-thumbnails
