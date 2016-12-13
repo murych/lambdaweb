@@ -1,29 +1,32 @@
 {% load bootstrap3 %}
 {% load substract %}
-<div class="panel page-panel">
-	<div class="panel-body">
-		<div class="panel-heading headline-container">
-			<h2 class="headline">Афиша мероприятий</h2>
-		</div>
-		<div class="page-content">
-			{% if events_list %}
+
+	<div class="container">
+		<div class="row mt">
+			<div class="col-lg-12">
+				<h1>Последние события</h1>
+			</div><!-- col-lg-12 -->
+			<div class="col-lg-8">
+				<p>Лекции, выступления спикеров, хакатоны...</p>
+			</div><!-- col-lg-8-->
+			<div class="col-lg-4 goright">
+				<p><a href="#"><i class="fa fa-angle-right"></i> Посмотреть
+					все записи</a></p>
+			</div>
+		</div><!-- row -->
+		
+		<div class="row mt">
+		{% if events_list %}
 					{% for event in events_list|slice:":3" %}
-						<div class='col-md-3 centered'>
+						<div class='col-lg-4'>
 							{% include "blocks/block_event_card.html" %}
 						</div>
 					{% endfor %}
-
-					<div class="col-lg-3 centered">
-						<p><a href="{% url 'events' %}">
-							<h1 style="padding-top: 50px"><i class="fa
-							fa-angle-right"></i></h1>
-{#							<h2>Еще {{ events_list|length|substract }}</h2>#}
-							<h2>Еще</h2>
-						</a></p>
-					</div>
 			{% else %}
 				<h3>Нет событий</h3>
 			{% endif %}
-		</div>
-	</div>
-</div>
+			
+		</div><!-- row -->
+	</div><!-- container -->
+<!-- 	</div>
+</div> -->
