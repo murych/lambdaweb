@@ -1,12 +1,13 @@
+{% load thumbnail %}
+{% load bootstrap3 %}
+{% load django_markdown %}
+
 {% if events_list %}
-	{% for event in events_list|slice:':1' %}
-		<div class="container">
-			<div class="row mt">
-				<div class='col-md-12'>
-					<h2 >Ближайшее событие</h2>
-					{% include "blocks/block_event_near_card.html" %}
-				</div>
-			</div><!-- /row -->
-		</div><!-- /.container -->
-	{% endfor %}
+    {% for event in events_list %}
+        {% if event.is_future == True %}
+            <div class="container">
+                {% include "blocks/block_event_near_card.html" %}
+            </div>
+        {% endif %}
+    {% endfor %}
 {% endif %}
