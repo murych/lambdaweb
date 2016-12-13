@@ -3,3 +3,4 @@ django-bootstrap3
 unidecode
 pillow
 easy-thumbnails
+django-markdown
