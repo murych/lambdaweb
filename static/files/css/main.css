@@ -9,13 +9,8 @@ body {
 	-webkit-overflow-scrolling : touch;
 }
 
-h1 {
-	font-family : "Muller Medium", sans-serif;
-	font-weight : 500;
-	color       : #333;
-}
 
-h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 {
 	font-family : "Open Sans", sans-serif;
 	font-weight : 500;
 	color       : #333;
@@ -38,6 +33,10 @@ p {
 
 .mt {
 	padding-top : 25px;
+}
+
+.container {
+	padding-top: 30px;
 }
 
 a {
@@ -136,7 +135,7 @@ hr {
 }
 
 #sf .container {
-	width : 100%
+	width : 100%;
 }
 
 #sf .col-lg-4 {
@@ -230,4 +229,17 @@ li {
 	display   : flex;
 	flex-wrap : wrap;
 	max-height: 280px;
+}
+
+#cf {
+	display : block;
+	width   : 100%
+}
+
+#cf .container {
+	margin: 10px;
+}
+
+#container {
+	padding-top: 40px;
 }
