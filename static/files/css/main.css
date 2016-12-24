@@ -35,9 +35,6 @@ p {
 	padding-top : 25px;
 }
 
-.container {
-	padding-top: 30px;
-}
 
 a {
 	color              : #0093DA;
@@ -238,8 +235,4 @@ li {
 
 #cf .container {
 	margin: 10px;
-}
-
-#container {
-	padding-top: 40px;
 }
