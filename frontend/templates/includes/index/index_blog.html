@@ -1,0 +1,31 @@
+{% load i18n mezzanine_tags blog_tags keyword_tags disqus_tags %}
+<div class="event-card panel">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6 col-xs-12 text-content">
+                {% block blog_post_list_post_title %}
+                    {% editable blog_post.title %}
+                        <h2 class="col-md-12">
+                            <a href="{{ blog_post.get_absolute_url }}">{{ blog_post.title }}</a>
+                        </h2>
+                    {% endeditable %}
+                {% endblock blog_post_list_post_title %}
+
+                {% block blog_post_list_post_content %}
+                    {% editable blog_post.content %}
+                        {{ blog_post.description_from_content|safe|truncatewords:10 }}
+                    {% endeditable %}
+                {% endblock blog_post_list_post_content %}
+
+                {% block blog_post_list_post_links %}
+                    <div class="blog-list-detail">
+                        <p>
+                            <a href="{{ blog_post.get_absolute_url }}">{% trans "read more" %}</a>
+                        </p>
+                    </div>
+
+                {% endblock blog_post_list_post_links %}
+            </div>
+        </div>
+    </div>
+</div>

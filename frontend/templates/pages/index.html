@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}>
+{% load pages_tags mezzanine_tags i18n staticfiles static %}
+{% load i18n mezzanine_tags blog_tags keyword_tags disqus_tags %}
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+    <title>
+        {% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
+    <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+
+    {% ifinstalled mezzanine.blog %}
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
+        <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
+    {% endifinstalled %}
+
+    {% compress css %}
+        <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+        <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
+        <link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">
+        {% if LANGUAGE_BIDI %}
+            <link rel="stylesheet" href="{% static "css/bootstrap-rtl.css" %}">
+        {% endif %}
+        {% ifinstalled cartridge.shop %}
+            <link rel="stylesheet" href="{% static "css/cartridge.css" %}">
+            {% if LANGUAGE_BIDI %}
+                <link rel="stylesheet" href="{% static "css/cartridge.rtl.css" %}">
+            {% endif %}
+        {% endifinstalled %}
+
+        <!-- Material Design fonts -->
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- Bootstrap Material Design -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-material-design.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/ripples.min.css' %}">
+
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+    {% endcompress %}
+
+    {% compress js %}
+        <script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
+        <script src="{% static "js/bootstrap.js" %}"></script>
+        <script src="{% static "js/bootstrap-extras.js" %}"></script>
+        <script src="https://use.fontawesome.com/1fd7c5df6b.js"></script>
+        {#    <script type="text/javascript" src="//vk.com/js/api/openapi.js?133"></script>#}
+        {##}
+        {#    <!-- VK Widget -->#}
+        {#    <div id="vk_community_messages"></div>#}
+        {#    <script type="text/javascript">#}
+        {#        VK.Widgets.CommunityMessages("vk_community_messages", 105873414, {});#}
+        {#    </script>#}
+        {% block extra_js %}{% endblock %}
+    {% endcompress %}
+
+    <!--[if lt IE 9]>
+<script src="{% static "js/html5shiv.js" %}"></script>
+<script src="{% static "js/respond.min.js" %}"></script>
+<![endif]-->
+
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body id="{% block body_id %}body{% endblock %}">
+
+{% include 'includes/block_navbar.html' %}
+
+{% nevercache %}
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endnevercache %}
+
+{% block main %}
+
+    {% block index_logo %}
+        <div id="index_logo" class="container">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1>LAMBDA</h1>
+                <hr class="small">
+                <h2>Code. Hack. Meet.</h2>
+                <div class="spacer"></div>
+                <i class="fa fa-angle-down"></i>
+            </div>
+        </div>
+    {% endblock index_logo %}
+
+    {% block index_about %}
+        {% include 'includes/index/index_about.html' %}
+    {% endblock index_about %}
+
+    {% block index_quote %}
+        {% include 'includes/index/index_quote.html' %}
+    {% endblock index_quote %}
+
+    {% block index_blog %}
+        <div class="container">
+            <div class="row mt">
+                <div class="col-lg-12">
+                    <h1>Последние события</h1>
+                </div>
+                <div class="col-lg-8">
+                    <p>Лекции, выступления спикеров, хакатоны...</p>
+                </div>
+                {#                <div class="col-lg-4 goright">#}
+                {#                    <p><a href="{% url 'blog' %}"><i class="fa fa-angle-right"></i> Посмотреть#}
+                {#                        все записи</a></p>#}
+                {#                </div>#}
+            </div>
+            {% if blog_posts %}
+                {% for blog_post in blog_posts.object_list|slice:":3" %}
+                    <div class='col-lg-4'>
+                        {% include 'includes/index/index_blog.html' %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h3>Нет событий</h3>
+            {% endif %}
+        </div>
+    {% endblock index_blog %}
+
+<div class="spacer"></div>
+
+{% endblock main %}
+
+
+{% block footer %}
+    {% include 'includes/block_footer.html' %}
+{% endblock footer %}
+
+</body>
+</html>
