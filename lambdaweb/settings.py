@@ -226,6 +226,7 @@ if DJANGO_VERSION < (1, 9):
 ################
 
 INSTALLED_APPS = (
+	"frontend",
 	"django.contrib.admin",
 	"django.contrib.auth",
 	"django.contrib.contenttypes",

@@ -21,7 +21,6 @@
         <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
         <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
         <link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
         {% if LANGUAGE_BIDI %}
             <link rel="stylesheet" href="{% static "css/bootstrap-rtl.css" %}">
         {% endif %}
@@ -32,9 +31,20 @@
             {% endif %}
         {% endifinstalled %}
 
-        {% block extra_css %}
+        <!-- Material Design fonts -->
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
 
-        {% endblock extra_css %}
+        <!-- Bootstrap -->
+        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- Bootstrap Material Design -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-material-design.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/ripples.min.css' %}">
+
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
     {% endcompress %}
 
     {% compress js %}
@@ -62,27 +72,7 @@
 
 <body id="{% block body_id %}body{% endblock %}">
 
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">{% trans "Toggle Navigation" %}</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            {% block navbar_title %}
-                {% if settings.SITE_TITLE %}<a class="navbar-brand" href="/">{{ settings.SITE_TITLE }}</a>{% endif %}
-                {% if settings.SITE_TAGLINE %}<p class="navbar-text visible-lg">{{ settings.SITE_TAGLINE }}</p>
-                {% endif %}
-            {% endblock %}
-        </div>
-        <div class="navbar-collapse collapse">
-            {% block navbar_search_form %}{% search_form "all" %}{% endblock %}
-            {% block navbar_dropdown_menu %}{% page_menu "pages/menus/dropdown.html" %}{% endblock %}
-        </div>
-    </div>
-</div>
+{% include 'includes/block_navbar.html' %}
 
 {% nevercache %}
     {% if messages %}
@@ -99,107 +89,56 @@
 
 {% block main %}
 
-    <div id="index_logo" class="container">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <h1>LAMBDA</h1>
-            <hr class="small">
-            <h2>Code. Hack. Meet.</h2>
-            <div class="spacer"></div>
-            <i class="fa fa-angle-down"></i>
+    {% block index_logo %}
+        <div id="index_logo" class="container">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1>LAMBDA</h1>
+                <hr class="small">
+                <h2>Code. Hack. Meet.</h2>
+                <div class="spacer"></div>
+                <i class="fa fa-angle-down"></i>
+            </div>
         </div>
-    </div>
+    {% endblock index_logo %}
 
-    {% include 'includes/index/index_about.html' %}
-    {% include 'includes/index/index_quote.html' %}
+    {% block index_about %}
+        {% include 'includes/index/index_about.html' %}
+    {% endblock index_about %}
 
+    {% block index_quote %}
+        {% include 'includes/index/index_quote.html' %}
+    {% endblock index_quote %}
 
-
-
-    {% if blog_posts %}
-        {% for blog_post in blog_posts.object_list|slice:":3" %}
-            {% block blog_post_list_post_title %}
-                {% editable blog_post.title %}
-                    <h2>
-                        <a href="{{ blog_post.get_absolute_url }}">{{ blog_post.title }}</a>
-                    </h2>
-                {% endeditable %}
-            {% endblock %}
-            {% block blog_post_list_post_metainfo %}
-                {% editable blog_post.publish_date %}
-                    <h6 class="post-meta">
-                        {% trans "Posted by" %}:
-                        {% with blog_post.user as author %}
-                            <a href="{% url "blog_post_list_author" author %}">{{ author.get_full_name|default:author.username }}</a>
-                        {% endwith %}
-                        {% with blog_post.categories.all as categories %}
-                            {% if categories %}
-                                {% trans "in" %}
-                                {% for category in categories %}
-                                    <a href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>
-                                    {% if not forloop.last %}, {% endif %}
-                                {% endfor %}
-                            {% endif %}
-                        {% endwith %}
-                        {% blocktrans with sometime=blog_post.publish_date|timesince %}{{ sometime }}
-                            ago{% endblocktrans %}
-                    </h6>
-                {% endeditable %}
-            {% endblock %}
-
-            {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
-                {% block blog_post_list_post_featured_image %}
-                    <a href="{{ blog_post.get_absolute_url }}">
-                        <img class="img-thumbnail pull-left"
-                             src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 90 90 %}">
-                    </a>
-                {% endblock %}
-            {% endif %}
-
-            {% block blog_post_list_post_content %}
-                {% editable blog_post.content %}
-                    {{ blog_post.description_from_content|safe }}
-                {% endeditable %}
-            {% endblock %}
-
-            {% block blog_post_list_post_links %}
-                <div class="blog-list-detail">
-                    {% keywords_for blog_post as tags %}
-                    {% if tags %}
-                        <ul class="list-inline tags">
-                            {% trans "Tags" %}:
-                            {% spaceless %}
-                                {% for tag in tags %}
-                                    <li><a href="{% url "blog_post_list_tag" tag.slug %}" class="tag">{{ tag }}</a>
-                                        {% if not forloop.last %}, {% endif %}</li>
-                                {% endfor %}
-                            {% endspaceless %}
-                        </ul>
-                    {% endif %}
-                    <p>
-                        <a href="{{ blog_post.get_absolute_url }}">{% trans "read more" %}</a>
-                        {% if blog_post.allow_comments %}
-                            /
-                            {% if settings.COMMENTS_DISQUS_SHORTNAME %}
-                                <a href="{{ blog_post.get_absolute_url }}#disqus_thread"
-                                   data-disqus-identifier="{% disqus_id_for blog_post %}">
-                                    {% trans "Comments" %}
-                                </a>
-                            {% else %}
-                                <a href="{{ blog_post.get_absolute_url }}#comments">
-                                    {% blocktrans count comments_count=blog_post.comments_count %}{{ comments_count }}
-                                        comment{% plural %}{{ comments_count }} comments{% endblocktrans %}
-                                </a>
-                            {% endif %}
-                        {% endif %}
-                    </p>
+    {% block index_blog %}
+        <div class="container">
+            <div class="row mt">
+                <div class="col-lg-12">
+                    <h1>Последние события</h1>
                 </div>
-            {% endblock %}
-        {% endfor %}
-    {% else %}
-        <h3>Нет событий</h3>
-    {% endif %}
+                <div class="col-lg-8">
+                    <p>Лекции, выступления спикеров, хакатоны...</p>
+                </div>
+                {#                <div class="col-lg-4 goright">#}
+                {#                    <p><a href="{% url 'blog' %}"><i class="fa fa-angle-right"></i> Посмотреть#}
+                {#                        все записи</a></p>#}
+                {#                </div>#}
+            </div>
+            {% if blog_posts %}
+                {% for blog_post in blog_posts.object_list|slice:":3" %}
+                    <div class='col-lg-4'>
+                        {% include 'includes/index/index_blog.html' %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h3>Нет событий</h3>
+            {% endif %}
+        </div>
+    {% endblock index_blog %}
+
+<div class="spacer"></div>
 
 {% endblock main %}
+
 
 {% block footer %}
     {% include 'includes/block_footer.html' %}

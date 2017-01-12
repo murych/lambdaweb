@@ -31,6 +31,19 @@
             {% endif %}
         {% endifinstalled %}
 
+        <!-- Material Design fonts -->
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- Bootstrap Material Design -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-material-design.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/ripples.min.css' %}">
+
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
         {% block extra_css %}
 
         {% endblock extra_css %}
@@ -61,27 +74,7 @@
 
 <body id="{% block body_id %}body{% endblock %}">
 
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">{% trans "Toggle Navigation" %}</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            {% block navbar_title %}
-                {% if settings.SITE_TITLE %}<a class="navbar-brand" href="/">{{ settings.SITE_TITLE }}</a>{% endif %}
-                {% if settings.SITE_TAGLINE %}<p class="navbar-text visible-lg">{{ settings.SITE_TAGLINE }}</p>
-                {% endif %}
-            {% endblock %}
-        </div>
-        <div class="navbar-collapse collapse">
-            {% block navbar_search_form %}{% search_form "all" %}{% endblock %}
-            {% block navbar_dropdown_menu %}{% page_menu "pages/menus/dropdown.html" %}{% endblock %}
-        </div>
-    </div>
-</div>
+{% include 'includes/block_navbar.html' %}
 
 <div class="container">
 
