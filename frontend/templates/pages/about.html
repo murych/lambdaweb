@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load mezzanine_tags keyword_tags i18n %}
+
+{% block meta_title %}
+    О нас
+{% endblock meta_title %}
+
+{% block meta_keywords %}{% metablock %}
+    {% keywords_for page as keywords %}
+    {% for keyword in keywords %}{% if not forloop.first %}, {% endif %}{{ keyword }}{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+    {{ page.description }}
+{% endmetablock %}{% endblock %}
+
+<!-- MAIN IMAGE SECTION -->
+{#{% block header %}#}
+{#	<div id="serviceswrap">#}
+{#		<div class="container">#}
+{#			<div class="row">#}
+{#				{% include 'blocks/block_navbar.html' %}#}
+{#			</div>#}
+{##}
+{#			<div class="row">#}
+{#				<div class="col-lg-8 col-lg-offset-2">#}
+{#					<h2>Команда проекта</h2>#}
+{#				</div>#}
+{#			</div><!-- row -->#}
+{#		</div><!-- /container -->#}
+{#	</div><!-- /headerwrap -->#}
+{#{% endblock header %}#}
+
+
+
+
+{% block title %}
+    {% if page %}
+        {% editable page.title %}{{ page.title }}{% endeditable %}
+    {% else %}
+        {% trans "People" %}
+    {% endif %}
+{% endblock %}
+
+{% block breadcrumb_menu %}
+    {{ block.super }}
+    {% if category %}
+        <li>{% trans "Category:" %}{{ category }}
+        <li>
+    {% endif %}
+{% endblock %}
+
+{% block main %}
+
+
+    <div class="panel page-panel">
+        <div class="panel-body">
+            <div class="page-content">
+                {% if people %}
+                    {% for person in people %}
+                        <div class='col-md-3'>
+                            {% include 'includes/about/about_member.html' %}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+    {% pagination_for people %}
+
+{% endblock %}

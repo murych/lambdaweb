@@ -39,6 +39,7 @@ urlpatterns += [
 
 	# url("^$", direct_to_template, {"template": }, views=views.index, name="home"),
 	url("^$", views.home, name="home"),
+	url("^about/", views.members, name="about"),
 
 	# HOMEPAGE AS AN EDITABLE PAGE IN THE PAGE TREE
 	# ---------------------------------------------
@@ -70,6 +71,8 @@ urlpatterns += [
 
 	# MEZZANINE'S URLS
 	url("^%s/" % settings.EVENT_SLUG, include("mezzanine_agenda.urls")),
+	url(r'^people/', include('mezzanine_people.urls')),
+
 	# ----------------
 	# ADD YOUR OWN URLPATTERNS *ABOVE* THE LINE BELOW.
 	# ``mezzanine.urls`` INCLUDES A *CATCH ALL* PATTERN

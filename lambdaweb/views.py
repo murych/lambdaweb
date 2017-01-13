@@ -1,19 +1,20 @@
 from __future__ import unicode_literals
-from future.builtins import str, int
 
 from calendar import month_name
 
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.template.response import TemplateResponse
 from django.utils.translation import ugettext_lazy as _
-
-from mezzanine.blog.models import BlogPost, BlogCategory
-from mezzanine.blog.feeds import PostsRSS, PostsAtom
+from future.builtins import int, str
+from mezzanine.blog.models import BlogCategory, BlogPost
 from mezzanine.conf import settings
 from mezzanine.generic.models import Keyword
 from mezzanine.utils.views import paginate
+
+from mezzanine_people.models import Person, PersonCategory
 
 User = get_user_model()
 
@@ -64,29 +65,26 @@ def home(request, tag=None, year=None, month=None, username=None,
     return TemplateResponse(request, templates, context)
 
 
-def blog_post_detail(request, slug, year=None, month=None, day=None,
-                     template="blog/blog_post_detail.html",
-                     extra_context=None):
-    """. Custom templates are checked for using the name
-    ``blog/blog_post_detail_XXX.html`` where ``XXX`` is the blog
-    posts's slug.
+def members(request, category=None, template="mezzanine_people/person_list.html"):
     """
-    blog_posts = BlogPost.objects.published(
-                                     for_user=request.user).select_related()
-    blog_post = get_object_or_404(blog_posts, slug=slug)
-    related_posts = blog_post.related_posts.published(for_user=request.user)
-    context = {"blog_post": blog_post, "editable_obj": blog_post,
-               "related_posts": related_posts}
-    context.update(extra_context or {})
-    templates = [u"blog/blog_post_detail_%s.html" % str(slug), template]
+    Display a list of people that are filtered by category.
+    Custom templates are checked for using the name
+    ``people/person_list_XXX.html`` where ``XXX`` is the category's slug.
+    """
+    settings.use_editable()
+    templates = ['pages/about.html']
+    people = Person.objects.published()
+    if category is not None:
+        category = get_object_or_404(PersonCategory, slug=category)
+        people = people.filter(categories=category)
+        templates.append(u"mezzanine_people/person_list_%s.html" %
+                          str(category.slug))
+
+    people = people.prefetch_related("categories")
+
+    people = paginate(people, request.GET.get("page", 1),
+                      settings.PEOPLE_PER_PAGE,
+                      settings.MAX_PAGING_LINKS)
+    context = {"people": people, "category": category}
+    templates.append(template)
     return TemplateResponse(request, templates, context)
-
-
-def blog_post_feed(request, format, **kwargs):
-    """
-    Blog posts feeds - maps format to the correct feed view.
-    """
-    try:
-        return {"rss": PostsRSS, "atom": PostsAtom}[format](**kwargs)(request)
-    except KeyError:
-        raise Http404()
