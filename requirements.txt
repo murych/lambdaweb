@@ -1,16 +1,23 @@
-Mezzanine==4.2.2
 beautifulsoup4==4.5.3
 bleach==1.5.0
 chardet==2.3.0
-Django==1.10.5
+Django==1.8
 django-contrib-comments==1.7.3
 filebrowser-safe==0.4.6
 future==0.16.0
+geopy==0.95.1
 grappelli-safe==0.4.5
 html5lib==0.9999999
+icalendar==3.11.1
+Markdown==2.6.7
+Mezzanine==4.2.2
+-e git+https://github.com/jpells/mezzanine-agenda.git@aa34af7d6e8cc8898e59d7cef5d2feea8ae9e8cd#egg=mezzanine_agenda
+-e git+https://github.com/stbarnabas/mezzanine-events.git@227b08472b7412bdd69f088af2ee5a06afd4b1f2#egg=mezzanine_events
+-e git+https://github.com/bcs-de/mezzanine-pageimages.git@acaacf5f97871972cb02d40791a0757a6a712644#egg=mezzanine_pageimages
 oauthlib==2.0.1
 olefile==0.44
 Pillow==4.0.0
+python-dateutil==2.6.0
 pytz==2016.10
 requests==2.12.4
 requests-oauthlib==0.7.0
