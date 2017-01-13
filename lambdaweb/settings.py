@@ -247,6 +247,7 @@ INSTALLED_APPS = (
 	"mezzanine.twitter",
 	"mezzanine_agenda",
 	"mezzanine_people",
+	"embed_video",
 	# "mezzanine.accounts",
 	# "mezzanine.mobile",
 )
@@ -334,3 +335,7 @@ except ImportError:
 	pass
 else:
 	set_dynamic_settings(globals())
+
+EMBED_VIDEO_BACKENDS = (
+    'embed_video.backends.YoutubeBackend',
+)

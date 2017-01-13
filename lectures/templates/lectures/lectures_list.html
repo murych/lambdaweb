@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load mezzanine_tags keyword_tags i18n %}
+{% load embed_video_tags %}
+
+{% block meta_title %}{% if page %}{{ page.richtextpage.meta_title }}{% else %}{% trans "People" %}
+{% endif %}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+    {% keywords_for page as keywords %}
+    {% for keyword in keywords %}{% if not forloop.first %}, {% endif %}{{ keyword }}{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+    {{ page.description }}
+{% endmetablock %}{% endblock %}
+
+{% block title %}
+    {% if page %}
+        {% editable page.title %}{{ page.title }}{% endeditable %}
+    {% else %}
+        {% trans "People" %}
+    {% endif %}
+{% endblock %}
+
+{% block breadcrumb_menu %}
+    {{ block.super }}
+    {% if category %}
+        <li>{% trans "Category:" %}{{ category }}
+        <li>
+    {% endif %}
+{% endblock %}
+
+{% block main %}
+
+    {% for lecture in lectures %}
+        {% editable lecture.title %}
+            <div>
+                <h3><a href="#">{{ lecture.title }}</a></h3>
+                <br>
+                {% video lecture.video as my_video %}
+                URL: {{ my_video.url }}
+                Thumbnail: {{ my_video.thumbnail }}
+                Backend: {{ my_video.backend }}
+
+                {% video my_video "large" %}
+                {% endvideo %}
+            </div>
+        {% endeditable %}
+    {% endfor %}
+
+    {% pagination_for lectures %}
+
+{% endblock %}

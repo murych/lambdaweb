@@ -1,16 +1,17 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from mezzanine.pages.models import Page
+from embed_video.fields import EmbedVideoField
 
 
 # Create your models here.
 
-class Course():
-	pass
+class Course(models.Model):
+	title = models.CharField(max_length=200)
 
 
 class Lecture(Course):
-	pass
+	video = EmbedVideoField()
 
 
 class Practise(Course):
