@@ -46,33 +46,33 @@
 
 {% block main %}
 
-    {% if category or year or month or author %}
-        {% block lecture_list_filterinfo %}
-            <p>
-            {% if category %}
-                {% trans "Viewing posts for the category" %} {{ category }}
-                {% else %}{% if year or month %}
-                    {% trans "Viewing posts from" %} {% if month %}{{ month }}, {% endif %}
-                    {{ year }}
-                    {% else %}{% if author %}
-                        {% trans "Viewing posts by" %}
-                        {{ author.get_full_name|default:author.username }}
-                    {% endif %}{% endif %}{% endif %}
-        {% endblock %}
-    </p>
-    {% else %}
-        {% if page %}
-            {% block lecture_list_pagecontent %}
-                {% if page.get_content_model.content %}
-                    {% editable page.get_content_model.content %}
-                        {{ page.get_content_model.content|richtext_filters|safe }}
-                    {% endeditable %}
-                {% endif %}
-            {% endblock %}
-        {% endif %}
-    {% endif %}
+{#    {% if category or year or month or author %}#}
+{#        {% block lecture_list_filterinfo %}#}
+{#            <p>#}
+{#            {% if category %}#}
+{#                {% trans "Viewing posts for the category" %} {{ category }}#}
+{#                {% else %}{% if year or month %}#}
+{#                    {% trans "Viewing posts from" %} {% if month %}{{ month }}, {% endif %}#}
+{#                    {{ year }}#}
+{#                    {% else %}{% if author %}#}
+{#                        {% trans "Viewing posts by" %}#}
+{#                        {{ author.get_full_name|default:author.username }}#}
+{#                    {% endif %}{% endif %}{% endif %}#}
+{#        {% endblock %}#}
+{#    </p>#}
+{#    {% else %}#}
+{#        {% if page %}#}
+{#            {% block lecture_list_pagecontent %}#}
+{#                {% if page.get_content_model.content %}#}
+{#                    {% editable page.get_content_model.content %}#}
+{#                        {{ page.get_content_model.content|richtext_filters|safe }}#}
+{#                    {% endeditable %}#}
+{#                {% endif %}#}
+{#            {% endblock %}#}
+{#        {% endif %}#}
+{#    {% endif %}#}
 
-    {% for lecture in lectures.object_list %}
+    {% for lecture in lectures_list.object_list %}
         {% block lecture_list_post_title %}
             {% editable lecture.title %}
                 <h2>
@@ -83,10 +83,10 @@
         {% block lecture_list_post_metainfo %}
             {% editable lecture.publish_date %}
                 <h6 class="post-meta">
-                    {% trans "Posted by" %}:
-                    {% with lecture.user as author %}
-                        <a href="{% url "lecture_list_author" author %}">{{ author.get_full_name|default:author.username }}</a>
-                    {% endwith %}
+{#                    {% trans "Posted by" %}:#}
+{#                    {% with lecture.user as author %}#}
+{#                        <a href="{% url "lecture_list_author" author %}">{{ author.get_full_name|default:author.username }}</a>#}
+{#                    {% endwith %}#}
                     {% with lecture.categories.all as categories %}
                         {% if categories %}
                             {% trans "in" %}

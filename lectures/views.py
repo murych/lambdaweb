@@ -68,8 +68,7 @@ def lectures_list(request, tag=None, year=None, month=None, username=None,
 
 
 def lecture_detail(request, slug, year=None, month=None, day=None,
-		template="lectures/lecture_details.html",
-		extra_context=None):
+		template="lectures/lecture_details.html"):
 	""". Custom templates are checked for using the name
 	``blog/blog_post_detail_XXX.html`` where ``XXX`` is the blog
 	posts's slug.
@@ -80,7 +79,6 @@ def lecture_detail(request, slug, year=None, month=None, day=None,
 	related_lectures = lecture.related_lectures.published(for_user=request.user)
 	# related_course = lecture.related_course.published(for_user=request.user)
 	context = {"lecture": lecture, "editable_obj": lecture, "related_lectures": related_lectures}
-	context.update(extra_context or {})
 	templates = [u"lectures/lecture_detail_%s.html" % str(slug), template]
 	return TemplateResponse(request, templates, context)
 
