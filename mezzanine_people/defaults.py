@@ -14,11 +14,10 @@ from django.utils.translation import ugettext_lazy as _
 
 from mezzanine.conf import register_setting
 
-
 register_setting(
-    name="PEOPLE_PER_PAGE",
-    label=_("People per page"),
-    description=_("Max number of people shown on a people listing page."),
-    editable=True,
-    default=10,
+	name="PEOPLE_PER_PAGE",
+	label=_("People per page"),
+	description=_("Max number of people shown on a people listing page."),
+	editable=True,
+	default=10,
 )
