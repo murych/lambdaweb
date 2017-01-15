@@ -1,6 +1,6 @@
 from __future__ import absolute_import, unicode_literals
-import os
 
+import os
 from django import VERSION as DJANGO_VERSION
 from django.utils.translation import ugettext_lazy as _
 
@@ -90,7 +90,7 @@ USE_MODELTRANSLATION = False
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = [
-    '*'
+	'*'
 ]
 
 # Local time zone for this installation. Choices can be found here:
@@ -228,6 +228,7 @@ if DJANGO_VERSION < (1, 9):
 INSTALLED_APPS = (
 	"frontend",
 	"lectures",
+	"courses",
 	"django.contrib.admin",
 	"django.contrib.auth",
 	"django.contrib.contenttypes",
@@ -337,5 +338,13 @@ else:
 	set_dynamic_settings(globals())
 
 EMBED_VIDEO_BACKENDS = (
-    'embed_video.backends.YoutubeBackend',
+	'embed_video.backends.YoutubeBackend',
+)
+
+ADMIN_MENU_ORDER = (
+	("Content", ("pages.Page", "blog.BlogPost", "lectures.Lecture", "courses.Course",
+	"mezzanine_agenda.Event", "mezzanine_people.Person", "generic.ThreadedComment", ("Media Library", "fb_browse"),)),
+	("Site", ("sites.Site", "redirects.Redirect", "conf.Setting")),
+	("Users", ("auth.User", "auth.Group",)),
+	("Pages", ("lectures.LecturesPage", "courses.CoursesPage", "mezzanine_people.PeoplePage")),
 )

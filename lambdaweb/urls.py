@@ -8,6 +8,7 @@ from django.views.i18n import set_language
 from mezzanine.core.views import direct_to_template
 from mezzanine.conf import settings
 import views
+from lectures.views import *
 
 admin.autodiscover()
 
@@ -39,7 +40,7 @@ urlpatterns += [
 
 	# url("^$", direct_to_template, {"template": }, views=views.index, name="home"),
 	url("^$", views.home, name="home"),
-	url("^about/", views.members, name="about"),
+	url("^team/", views.members, name="team"),
 
 	# HOMEPAGE AS AN EDITABLE PAGE IN THE PAGE TREE
 	# ---------------------------------------------
@@ -72,6 +73,8 @@ urlpatterns += [
 	# MEZZANINE'S URLS
 	url("^%s/" % settings.EVENT_SLUG, include("mezzanine_agenda.urls")),
 	url(r'^people/', include('mezzanine_people.urls')),
+	url(r'^lectures/', include('lectures.urls')),
+	url(r'^courses/', include('courses.urls')),
 
 	# ----------------
 	# ADD YOUR OWN URLPATTERNS *ABOVE* THE LINE BELOW.
