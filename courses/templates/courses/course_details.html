@@ -1,4 +1,4 @@
-{% extends "blog/course_list.html" %}
+{% extends "courses/courses_list.html" %}
 {% load mezzanine_tags comment_tags keyword_tags rating_tags i18n disqus_tags %}
 
 {% block meta_title %}{{ course.meta_title }}{% endblock %}
@@ -27,9 +27,9 @@
         {% editable course.publish_date %}
             <h6 class="post-meta">
                 {% trans "Posted by" %}:
-                {% with course.user as author %}
-                    <a href="{% url "course_list_author" author %}">{{ author.get_full_name|default:author.username }}</a>
-                {% endwith %}
+{#                {% with course.user as author %}#}
+{#                    <a href="{% url "course_list_author" author %}">{{ author.get_full_name|default:author.username }}</a>#}
+{#                {% endwith %}#}
                 {% blocktrans with sometime=course.publish_date|timesince %}{{ sometime }} ago{% endblocktrans %}
             </h6>
         {% endeditable %}
@@ -82,13 +82,13 @@
         {% endif %}
     {% endblock %}
 
-    {% block course_detail_rating %}
-        <div class="panel panel-default rating">
-            <div class="panel-body">
-                {% rating_for course %}
-            </div>
-        </div>
-    {% endblock %}
+{#    {% block course_detail_rating %}#}
+{#        <div class="panel panel-default rating">#}
+{#            <div class="panel-body">#}
+{#                {% rating_for course %}#}
+{#            </div>#}
+{#        </div>#}
+{#    {% endblock %}#}
 
     {% block course_detail_sharebuttons %}
         {% set_short_url_for course %}

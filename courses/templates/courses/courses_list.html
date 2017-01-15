@@ -71,7 +71,7 @@
         {% endif %}
     {% endif %}
 
-    {% for course in courses.object_list %}
+    {% for course in courses_list.object_list %}
         {% block course_list_post_title %}
             {% editable course.title %}
                 <h2>
@@ -83,9 +83,9 @@
             {% editable course.publish_date %}
                 <h6 class="post-meta">
                     {% trans "Posted by" %}:
-                    {% with course.user as author %}
-                        <a href="{% url "course_list_author" author %}">{{ author.get_full_name|default:author.username }}</a>
-                    {% endwith %}
+{#                    {% with course.user as author %}#}
+{#                        <a href="{% url "course_list_author" author %}">{{ author.get_full_name|default:author.username }}</a>#}
+{#                    {% endwith %}#}
                     {% with course.categories.all as categories %}
                         {% if categories %}
                             {% trans "in" %}
@@ -159,5 +159,5 @@
 {% endblock %}
 
 {% block right_panel %}
-    {% include "blog/includes/filter_panel.html" %}
+    {% include "courses/includes/filter_panel.html" %}
 {% endblock %}

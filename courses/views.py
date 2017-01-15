@@ -45,8 +45,7 @@ def courses_list(request, tag=None, year=None, month=None, username=None,
 
 
 def course_detail(request, slug, year=None, month=None, day=None,
-		template="courses/course_details.html",
-		extra_context=None):
+		template="courses/course_details.html"):
 	""". Custom templates are checked for using the name
 	``blog/blog_post_detail_XXX.html`` where ``XXX`` is the blog
 	posts's slug.
@@ -56,8 +55,7 @@ def course_detail(request, slug, year=None, month=None, day=None,
 	course = get_object_or_404(courses, slug=slug)
 	# related_courses = course.related_courses.published(for_user=request.user)
 	# related_course = course.related_course.published(for_user=request.user)
-	context = {"course": course, "editable_obj": course, }
-	context.update(extra_context or {})
+	context = {"course": course, "editable_obj": course}
 	templates = [u"courses/course_detail_%s.html" % str(slug), template]
 	return TemplateResponse(request, templates, context)
 
