@@ -27,9 +27,9 @@
         {% editable lecture.publish_date %}
             <h6 class="post-meta">
                 {% trans "Posted by" %}:
-                {% with lecture.user as author %}
-                    <a href="{% url "lecture_list_author" author %}">{{ author.get_full_name|default:author.username }}</a>
-                {% endwith %}
+{#                {% with lecture.user as author %}#}
+{#                    <a href="{% url "lecture_list_author" author %}">{{ author.get_full_name|default:author.username }}</a>#}
+{#                {% endwith %}#}
                 {% blocktrans with sometime=lecture.publish_date|timesince %}{{ sometime }} ago{% endblocktrans %}
             </h6>
         {% endeditable %}
@@ -67,7 +67,7 @@
         {% endeditable %}
     {% endblock %}
 
-{#     {% block lecture_detail_keywords %}
+     {% block lecture_detail_keywords %}
         {% keywords_for lecture as tags %}
         {% if tags %}
             {% spaceless %}
@@ -80,7 +80,7 @@
                 </ul>
             {% endspaceless %}
         {% endif %}
-    {% endblock %} #}
+    {% endblock %}
 
     {% block lecture_detail_rating %}
         <div class="panel panel-default rating">

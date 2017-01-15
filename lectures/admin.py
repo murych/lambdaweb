@@ -19,7 +19,7 @@ if settings.BLOG_USE_FEATURED_IMAGE:
 lecture_fieldsets = list(lecture_fieldsets)
 lecture_fieldsets.insert(1, (_("Other lectures"), {
 	"classes": ("collapse-closed",),
-	"fields" : ("related_lectures",)}))
+	"fields" : ("related_lectures", "related_course")}))
 lecture_list_filter = deepcopy(DisplayableAdmin.list_filter) + ("categories",)
 
 

@@ -36,7 +36,7 @@ class Lecture(Displayable, Ownable, RichText, AdminThumbMixin):
 		upload_to=upload_to("lectures.Lecture.featured_image", "lecture"),
 		format="Image", max_length=255, null=True, blank=True)
 	rating = RatingField(verbose_name=_("Rating"))
-	# related_course = models.ForeignKey('Course')
+	related_course = models.ForeignKey('courses.Course', on_delete=models.CASCADE, null=True, blank=True)
 	related_lectures = models.ManyToManyField("self",
 		verbose_name=_("Related lectures"), blank=True)
 	video = EmbedVideoField(blank=True)
