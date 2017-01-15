@@ -43,7 +43,7 @@ class Person(Displayable, RichText, AdminThumbMixin):
 
 	@models.permalink
 	def get_absolute_url(self):
-		return ("person_detail", (), {"slug": self.slug})
+		return "person_detail", (), {"slug": self.slug}
 
 
 class PersonLink(models.Model):
@@ -72,7 +72,7 @@ class PersonCategory(Slugged):
 		return ("person_list_category", (), {"slug": self.slug})
 
 
-class AboutPage(Page):
+class PeoplePage(Page):
 	add_toc = models.BooleanField(_("Add TOC"), default=False,
 		help_text=_("Include a list of child links"))
 

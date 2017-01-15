@@ -2,7 +2,7 @@ from copy import deepcopy
 
 from django.contrib import admin
 
-from .models import Person, PersonLink, PersonCategory, AboutPage
+from .models import Person, PersonLink, PersonCategory, PeoplePage
 from mezzanine.conf import settings
 from mezzanine.core.admin import DisplayableAdmin
 
@@ -51,4 +51,4 @@ class PersonCategoryAdmin(admin.ModelAdmin):
 
 admin.site.register(Person, PersonAdmin)
 admin.site.register(PersonCategory, PersonCategoryAdmin)
-admin.site.register(AboutPage)
+admin.site.register(PeoplePage)
