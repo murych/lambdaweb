@@ -72,7 +72,7 @@ def members(request, category=None, template="mezzanine_people/person_list.html"
     ``people/person_list_XXX.html`` where ``XXX`` is the category's slug.
     """
     settings.use_editable()
-    templates = ['pages/about.html']
+    templates = ['pages/team.html']
     people = Person.objects.published()
     if category is not None:
         category = get_object_or_404(PersonCategory, slug=category)

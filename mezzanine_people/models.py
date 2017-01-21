@@ -1,11 +1,9 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-
-from mezzanine.conf import settings
-from mezzanine.core.fields import RichTextField, FileField
+from mezzanine.core.fields import FileField, RichTextField
 from mezzanine.core.models import Displayable, RichText, Slugged
-from mezzanine.utils.models import AdminThumbMixin
 from mezzanine.pages.models import Page
+from mezzanine.utils.models import AdminThumbMixin
 
 
 class Person(Displayable, RichText, AdminThumbMixin):
