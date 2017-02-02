@@ -8,7 +8,8 @@ local_settings.py
 /static
 .idea
 /dist/
-/app/css/
+frontend/css/
 /**/*.psd
 /**/Thumbs.db
-/app/libs/
+frontend/libs/
+media/
