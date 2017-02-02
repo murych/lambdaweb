@@ -6,7 +6,7 @@
 .coverage
 local_settings.py
 /static
-/.idea
+.idea
 /dist/
 /app/css/
 /**/*.psd
