@@ -1,8 +1,15 @@
 *.pyc
+/node_modules/
 *.pyo
 *.db
 .DS_Store
 .coverage
 local_settings.py
 /static
-/.idea
+.idea
+/dist/
+frontend/css/
+/**/*.psd
+/**/Thumbs.db
+frontend/libs/
+media/
