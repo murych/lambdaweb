@@ -77,8 +77,8 @@ gulp.task('build', ['removedist', 'imagemin', 'sass', 'scripts'], function() {
 		]).pipe(gulp.dest('dist/js'));
 
 	var buildFonts = gulp.src([
-		'app/fonts/**/*',
-		]).pipe(gulp.dest('dist/fonts'));
+		'app/materialdesignicons/**/*',
+		]).pipe(gulp.dest('dist/materialdesignicons'));
 
 });
 

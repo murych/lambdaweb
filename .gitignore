@@ -11,3 +11,4 @@ local_settings.py
 /app/css/
 /**/*.psd
 /**/Thumbs.db
+/app/libs/
