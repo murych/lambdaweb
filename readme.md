@@ -1,6 +1,6 @@
 Lambda Frela
 ========
-![](/project/lambda_html/image/header.png) 
+![](/image/header.png) 
 
 <h3>Desktop</h3>
 
