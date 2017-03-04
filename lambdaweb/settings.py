@@ -79,7 +79,8 @@ from django.utils.translation import ugettext_lazy as _
 
 # Setting to turn on featured images for blog posts. Defaults to False.
 #
-# BLOG_USE_FEATURED_IMAGE = True
+BLOG_USE_FEATURED_IMAGE = True
+EVENTS_USE_FEATURED_IMAGE = True
 
 # If True, the django-modeltranslation will be added to the
 # INSTALLED_APPS setting.
@@ -110,11 +111,11 @@ USE_TZ = True
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "ru"
+LANGUAGE_CODE = "ru-RU"
 
 # Supported languages
 LANGUAGES = (
-    ('ru', _('Russian')),
+    ('ru-RU', _('Russian')),
 )
 
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
@@ -232,6 +233,7 @@ if DJANGO_VERSION < (1, 9):
 ################
 
 INSTALLED_APPS = (
+    "frontend",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -251,6 +253,7 @@ INSTALLED_APPS = (
     "mezzanine.twitter",
     # "mezzanine.accounts",
     # "mezzanine.mobile",
+    "agenda",
 )
 
 # List of middleware classes to use. Order is important; in the request phase,

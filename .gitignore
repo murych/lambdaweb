@@ -4,6 +4,6 @@
 .DS_Store
 .coverage
 local_settings.py
-/static
+static/
 deploy/
 .idea/
