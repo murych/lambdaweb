@@ -8,7 +8,7 @@ from django.views.i18n import set_language
 from mezzanine.core.views import direct_to_template
 from mezzanine.conf import settings
 
-import views
+from lambdaweb.views import *
 
 admin.autodiscover()
 
@@ -38,7 +38,7 @@ urlpatterns += [
     # one homepage pattern, so if you use a different one, comment this
     # one out.
 
-    url(r"^$", views.home, name="home"),
+    url(r"^$", home, name="home"),
 
     # HOMEPAGE AS AN EDITABLE PAGE IN THE PAGE TREE
     # ---------------------------------------------
