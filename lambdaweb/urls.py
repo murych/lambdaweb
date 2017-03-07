@@ -72,6 +72,7 @@ urlpatterns += [
     # ``mezzanine.urls`` INCLUDES A *CATCH ALL* PATTERN
     # FOR PAGES, SO URLPATTERNS ADDED BELOW ``mezzanine.urls``
     # WILL NEVER BE MATCHED!
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url("^%s/" % settings.EVENT_SLUG, include("agenda.urls")),
 
     # If you'd like more granular control over the patterns in

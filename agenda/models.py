@@ -15,8 +15,9 @@ from mezzanine.core.models import Displayable, Ownable, RichText, Slugged
 from mezzanine.generic.fields import CommentsField, RatingField
 from mezzanine.utils.models import AdminThumbMixin, upload_to
 from mezzanine.utils.sites import current_site_id
+from ckeditor.fields import RichTextField
 
-class Event(Displayable, Ownable, RichText, AdminThumbMixin):
+class Event(Displayable, Ownable, AdminThumbMixin):
 	"""
 	A event.
 	"""
@@ -32,10 +33,13 @@ class Event(Displayable, Ownable, RichText, AdminThumbMixin):
 	featured_image = FileField(verbose_name=_("Featured Image"),
 		upload_to=upload_to("agenda.Event.featured_image", "event"),
 		format="Image", max_length=255, null=True, blank=True)
-
+	content = RichTextField(_("Content"))
 	admin_thumb_field = "featured_image"
 
+	search_fields = ("content",)
+
 	class Meta:
+		# abstract = True
 		verbose_name = _("Event")
 		verbose_name_plural = _("Events")
 		ordering = ("-start",)

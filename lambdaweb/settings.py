@@ -234,6 +234,8 @@ if DJANGO_VERSION < (1, 9):
 
 INSTALLED_APPS = (
     "frontend",
+    "ckeditor",
+    "ckeditor_uploader",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -339,3 +341,11 @@ except ImportError:
     pass
 else:
     set_dynamic_settings(globals())
+
+#####################
+# CKEDITOR SETTINGS #
+#####################
+
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
