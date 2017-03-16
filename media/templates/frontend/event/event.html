@@ -1,0 +1,288 @@
+{% extends 'frontend/base.html' %}
+{% load staticfiles %}
+{% load gravatar %}
+{% load mathfilters %}
+{% block content %}
+    <div class="container content">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="main-content">
+                    <div class="head-content">
+
+                        <div class="tags" style="background-color: {{ event.tags.color }}">{{ event.tags }}</div>
+                        <div class="author">
+                            {% gravatar event.author.email 150 %}
+                            <span>{{ event.author }}</span>
+                        </div>
+                    </div>
+                    <div class="title-content">
+                        <div class="title">
+                            <h1>{{ event.title }}</h1>
+                            <h4>{{ event.sub_title }}</h4>
+                        </div>
+                    </div>
+                    <div class="social-networks-content">
+                        <div class="social-networks">
+                            <a class="social-btn vk">
+                                <div class="social-icon"><span class="mdi mdi-vk"></span></div>
+                                <div class="social-count">12</div>
+                            </a>
+                            <a class="social-btn twitter">
+                                <div class="social-icon"><span class="mdi mdi-twitter"></span></div>
+                                <div class="social-count">12</div>
+                            </a>
+                            <a class="social-btn ok">
+                                <div class="social-icon"><span class="mdi mdi-odnoklassniki"></span></div>
+                                <div class="social-count">12</div>
+                            </a>
+                        </div>
+                        <div class="discuss">
+                            <a class="discuss-btn">
+                                <div class="discuss-icon"><span class="mdi mdi-comment-outline"></span></div>
+                                <div class="discuss-text">обсудить</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="img-content">
+                        <img src="/media/{{ event.featured_image }}">
+                    </div>
+                    <div class="head-title-content">
+                        <div class="title-avatar">
+                            <div class="event-avatar">
+                                <img src="/media/{{ event.profile_image }}">
+                            </div>
+                            <div class="event-title-tag">
+                                <div class="tag">{{ event.tags }}</div>
+                                <div class="title">{{ event.title }}</div>
+                            </div>
+                        </div>
+
+                        <div class="i-go">
+                            <a class="i-go-btn">
+                                <div class="i-go-icon"><span class="mdi mdi-run-fast"></span> <span
+                                        class="i-go-count">12</span>
+                                </div>
+                                <div class="i-go-text">я пойду</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="additional-information-content">
+                        <div class="icon-info">
+                            <div class="icon-item">
+                                <span class="mdi mdi-clock"></span>
+                            </div>
+                            <div class="icon-item">
+                                <span class="mdi mdi-map-marker"></span>
+                            </div>
+                            <div class="icon-item">
+                                <span class="mdi mdi-wifi"></span>
+                            </div>
+                            <div class="icon-item">
+                                <span class="mdi mdi-train"></span>
+                            </div>
+                            <div class="icon-item">
+                                <span class="mdi mdi-laptop"></span>
+                            </div>
+                        </div>
+                        <div class="info row">
+                            <div class="info-item col-md-4 col-xs-6">
+                                <div class="title">
+                                    Начало
+                                </div>
+                                <div class="description">
+                                    {{ event.start|time:"H:i" }}
+                                </div>
+                            </div>
+                            <div class="info-item col-md-4 col-xs-6 ">
+                                <div class="title">
+                                    Сайт
+                                </div>
+                                <div class="description">
+                                    <a target="_blank" href="{{ event.site }}">{{ event.site }} </a>
+                                </div>
+                            </div>
+                            <div class="info-item col-md-4 col-xs-6">
+                                <div class="title">
+                                    Длительность
+                                </div>
+                                <div class="description">
+                                    {{ time|floatformat }} мин.
+
+                                </div>
+                            </div>
+                            <div class="info-item col-md-4 col-xs-6">
+                                <div class="title">
+                                    Интернет
+                                </div>
+                                <div class="description">
+                                    {% if event.internet_available %}
+                                        Есть
+                                    {% else %}
+                                        Отсутствует
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="info-item col-md-4 col-xs-6">
+                                <div class="title">
+                                    Стоимость
+                                </div>
+                                <div class="description">
+                                    Бесплатно
+                                </div>
+                            </div>
+                            <div class="info-item col-md-4 col-xs-6">
+                                <div class="title">
+                                    Брать компьютер?
+                                </div>
+                                <div class="description">
+                                    {% if event.internet_available %}
+                                        Да
+                                    {% else %}
+                                        Оставь дома.
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        {{ event.description|safe }}
+                    </div>
+                    <div class="social-networks-content">
+                        <div class="social-networks">
+                            <a class="social-btn vk">
+                                <div class="social-icon"><span class="mdi mdi-vk"></span></div>
+                                <div class="social-count">12</div>
+                            </a>
+                            <a class="social-btn twitter">
+                                <div class="social-icon"><span class="mdi mdi-twitter"></span></div>
+                                <div class="social-count">12</div>
+                            </a>
+                            <a class="social-btn ok">
+                                <div class="social-icon"><span class="mdi mdi-odnoklassniki"></span></div>
+                                <div class="social-count">12</div>
+                            </a>
+                        </div>
+                        <div class="discuss">
+                            <a class="discuss-btn">
+                                <div class="discuss-icon"><span class="mdi mdi-comment-outline"></span></div>
+                                <div class="discuss-text">обсудить</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="views-content">
+                        <div class="views-count-btn">
+                            <div class="views-count-icon"><span class="mdi mdi-eye"></span></div>
+                            <div class="views-count-text">{{ event.hit_count.hits }}</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 side-bar">
+{% if datetime_now < event.start %}
+                <div class="date-time-event-card">
+                    <div class="date-card">
+                        <div class="date">
+                            {{ event.start|date:"d F" }}
+                        </div>
+                        <div class="weekday">
+                            {{ event.start|date:"l" }}
+                        </div>
+                        <div class="time">
+                            <div class="value">{{ event.start|time:"H:i" }}</div>
+                        </div>
+                        <div class="text-time-left">
+                            До начала осталось
+                        </div>
+                    </div>
+                    <div class="time-left-card">
+
+                        <div class="time-card">
+                            <div class="item-value">
+                                <div id="day0" class="item">0</div>
+                                <div id="day1" class="item">0</div>
+                            </div>
+                            <div class="item-type">дней</div>
+                        </div>
+
+                        <span>:</span>
+
+                        <div class="time-card">
+                            <div class="item-value">
+                                <div id='hour0' class="item">1</div>
+                                <div id='hour1' class="item">3</div>
+                            </div>
+                            <div class="item-type">часов</div>
+                        </div>
+
+                        <span>:</span>
+
+                        <div class="time-card">
+                            <div class="item-value">
+                                <div id='min0' class="item">3</div>
+                                <div id='min1' class="item">7</div>
+                            </div>
+                            <div class="item-type">минут</div>
+                        </div>
+                    </div>
+                </div>
+{% endif %}
+                <div class="advertising"></div>
+                <div class="map">
+                    <div class="address">
+                        <div class="label">
+                            Адресс:
+                        </div>
+                        <div class="value">
+                            {{ event.location.address }}
+                        </div>
+                    </div>
+                    <div class="address">
+                        <div class="label">
+                            Аудитория:
+                        </div>
+                        <div class="value">
+                            {{ event.location }}
+                        </div>
+                    </div>
+                    <div id="same-map" class="same-map">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {% block scripts %}
+        <script src="//code.jquery.com/jquery-1.12.4.min.js"
+                integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+                crossorigin="anonymous"></script>
+        <script type="text/javascript" src="{% static 'js/datetime-counter.js' %}"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                get_timer("{{ event.start|date:"c" }}");
+            });
+        </script>
+        <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+        <script type="text/javascript">
+            window.onload = function () {
+                ymaps.ready(function () {
+                    var myMap = new ymaps.Map('same-map', {
+                                center: [{{ event.location.point }}],
+                                zoom: 18
+                            }, {
+                                searchControlProvider: 'yandex#search'
+                            }),
+                            myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+                                hintContent: '{{ event.location }}',
+                                balloonContent: 'Аудитория: {{ event.location }} '
+                            }, {
+                                preset: 'islands#blueEducationCircleIcon'
+
+                            });
+
+                    myMap.geoObjects.add(myPlacemark);
+                });
+            };
+        </script>
+    {% endblock %}
+{% endblock %}

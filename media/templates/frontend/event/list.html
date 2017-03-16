@@ -1,0 +1,188 @@
+{% extends 'frontend/base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <div class="container-fluid main-events-bg">
+        <div class="main-events">
+
+            <!--*********СПИСОК МЕРОПРИЯТИЙ********-->
+
+            <div class="row no-margin">
+                <!--*********МЕРОПРИЯТИЕ********-->
+
+                <!--*********МЕРОПРИЯТИЕ********-->
+                {% for event in events|slice:":6" %}
+                    {% if event.type %}
+                        <div class="col-md-6   event-card" onclick="window.location ='{% url 'event' event.slug  %}'">
+                            <a>
+                                <div class="mask">
+                                    <div class="date">
+                                        {{ event.start|date:"d F" }}
+                                    </div>
+                                    <a class="comment">
+                                        <span class="mdi mdi-comment-multiple-outline"></span>
+                                    </a>
+                                    <div class="text">
+                                        <div class="title">
+                                            {{ event.title }}
+                                        </div>
+                                        <div class="description">
+                                            {{ event.sub_title }}
+                                        </div>
+                                        <div class="continue">
+                                            Подробнее...
+                                        </div>
+                                    </div>
+                                </div>
+                                <img src="/media/{{ event.featured_image }}"></a>
+                        </div>
+                        <!--*********МЕРОПРИЯТИЕ********-->
+                    {% else %}
+                        <!--*********МЕРОПРИЯТИЕ********-->
+
+                        <div class="col-md-3   event-card" onclick="window.location ='{% url 'event' event.slug  %}'">
+
+                            <div class="mask">
+                                <div class="date">
+                                    18 февраля
+                                </div>
+                                <a class="comment">
+                                    <span class="mdi mdi-comment-multiple-outline"></span>
+                                </a>
+                                <a href="#">
+                                    <div class="text">
+                                        <div class="title">
+                                            {{ event.title }}
+                                        </div>
+                                        <div class="description">
+                                            Приходи, познакомимся ;)
+                                        </div>
+                                        <div class="continue">
+                                            Подробнее...
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <img src="/media/{{ event.featured_image }}">
+
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <!--*********МЕРОПРИЯТИЕ********-->
+
+            </div>
+
+            <!--*********СПИСОК МЕРОПРИЯТИЙ********-->
+
+
+        </div>
+
+    </div>
+
+    <div class="container-fluid no-padding">
+        <!--*********ПОИСКОВЫЙ БАР********-->
+        <div class="search-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-xs-12">
+                        <span class="mdi mdi-calendar-multiple"></span>
+                        <div class="text">
+                            <div class="title">мероприятия</div>
+                            <div class="addition-title">Всего: 32</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="tags">
+                            <div class="title">ПОПУЛЯРНЫЕ ТЕГИ</div>
+                            <div class="tag-list">
+                                <a href="#" class="tag-item">Python</a>
+                                <a href="#" class="tag-item">Linux</a>
+                                <a href="#" class="tag-item">Безопастность</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 all">
+                        <a href="#" class="button">все</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="addition-bar">
+            <div class="container">
+                <div class="col-md-6 col-xs-12">
+                    <ul>
+                        <li><a href="#">все</a></li>
+                        <li><a href="#">Сегодня</a></li>
+                        <li><a href="#">Завтра</a></li>
+                        <li><a href="#">После завтра</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--*********ПОИСКОВЫЙ БАР********-->
+        <!--*********СПИСОК МЕРОПРИЯТИЙ********-->
+        <div class="container events">
+            <div class="row no-margin">
+                <!--*********МЕРОПРИЯТИЕ********-->
+                {% for event in events %}
+                    {% if event.type %}
+                        <div class="col-md-6   event-card" onclick="window.location ='{% url 'event' event.slug  %}'">
+                            <a>
+                                <div class="mask">
+                                    <div class="date">
+                                        {{ event.start|date:"d F" }}
+                                    </div>
+                                    <a class="comment">
+                                        <span class="mdi mdi-comment-multiple-outline"></span>
+                                    </a>
+                                    <div class="text">
+                                        <div class="title">
+                                            {{ event.title }}
+                                        </div>
+                                        <div class="description">
+                                            {{ event.sub_title }}
+                                        </div>
+                                        <div class="continue">
+                                            Подробнее...
+                                        </div>
+                                    </div>
+                                </div>
+                                <img src="/media/{{ event.featured_image }}"></a>
+                        </div>
+                        <!--*********МЕРОПРИЯТИЕ********-->
+                    {% else %}
+                        <!--*********МЕРОПРИЯТИЕ********-->
+
+                        <div class="col-md-3   event-card" onclick="window.location ='{% url 'event' event.slug  %}'">
+
+                            <div class="mask">
+                                <div class="date">
+                                    18 февраля
+                                </div>
+                                <a class="comment">
+                                    <span class="mdi mdi-comment-multiple-outline"></span>
+                                </a>
+                                <a href="#">
+                                    <div class="text">
+                                        <div class="title">
+                                            {{ event.title }}
+                                        </div>
+                                        <div class="description">
+                                            Приходи, познакомимся ;)
+                                        </div>
+                                        <div class="continue">
+                                            Подробнее...
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <img src="/media/{{ event.featured_image }}">
+
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <!--*********СПИСОК МЕРОПРИЯТИЙ********-->
+
+    </div>
+{% endblock %}

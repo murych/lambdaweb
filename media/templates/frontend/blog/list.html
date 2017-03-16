@@ -1,0 +1,105 @@
+{% extends 'frontend/base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <div class="head-search">
+        <div class="image-bc">
+            <img src="{% static 'img/eneZhZjXMck.jpg' %}">
+            <img src="{% static 'img/L7ZL3W9aIvk.jpg' %}">
+            <img src="{% static 'img/oF47553TnAI.jpg' %}">
+        </div>
+        <div class="container">
+            <div class="some-search">
+                <div class="title">Поиск</div>
+                <div class="input-search">
+                    <input class="search" type="text">
+                </div>
+            </div>
+            <div class="some-tags">
+                <div class="title">ПОПУЛЯРНЫЕ ТЕГИ</div>
+                <div class="cloud-tags">
+                    <a class="tag" href="#">python</a>
+                    <a class="tag" href="#">перевод</a>
+                    <a class="tag" href="#">web</a>
+                    <a class="tag" href="#">design</a>
+                    <a class="tag" href="#">django</a>
+                    <a class="tag" href="#">react</a>
+                    <a class="tag" href="#">js</a>
+                    <a class="tag" href="#">ecma2016</a>
+                    <a class="tag" href="#">android</a>
+                    <a class="tag" href="#">drone</a>
+                    <a class="tag" href="#">linux</a>
+                    <a class="tag" href="#">pycharm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="news-bar">
+        <div class="container">
+            <div class="head-content col-md-3">
+                <div class="title">Все новости</div>
+                <div class="count">Всего: <span>32</span></div>
+            </div>
+            <div class="sort-by col-md-4">
+                <div class="title">сортировать по</div>
+                <ul>
+                    <li><a href="#">Популярности</a></li>
+                    <li><a href="#">Просмотрам</a></li>
+                    <li><a href="#">Времени</a></li>
+                </ul>
+            </div>
+            <div class=" col-md-5 all">
+                <a class="button" href="#">ВСЕ</a>
+            </div>
+        </div>
+    </div>
+<div class="container">
+    <div class="article-list">
+{% for article in articles %}
+    {% if article.type  %}
+        <a href="#" class="article-main">
+            <div class="content-main">
+                <div class="tags">
+                    {% for tag in article.tags.all %}
+                        <div class="tag" style="background-color: {{ tag.color }}">{{ tag }}</div>
+                    {% endfor %}
+                </div>
+                <div class="title">{{ article.title }}</div>
+                <div class="description">{{ article.sub_title  }}
+                </div>
+                <div class="views">3<span class="red">K</span> просмотров</div>
+            </div>
+            <img src="/media/{{ article.main_image }}" class="img-responsive">
+        </a>
+
+        {% else %}
+        <a href="#" class="article-sub">
+            <div class="content-sub">
+                <img src="/media/{{ article.main_image }}" class="img-responsive">
+                <div class="some-content">
+                    <div class="tags-comment">
+                             <div class="tags">
+                    {% for tag in article.tags.all %}
+                        <div class="tag-outline" style="border-color:{{ tag.color }}; color: {{ tag.color }};">{{ tag }}</div>
+                    {% endfor %}
+                </div>
+                        <div class="comment">
+                            <span class="mdi mdi-comment-multiple-outline"></span>
+                            <span>12</span>
+                        </div>
+                    </div>
+                    <div class="title">{{ article.title }}</div>
+                    <div class="description">{{ article.short_description|safe }}</div>
+                </div>
+
+            </div>
+        </a>
+    {% endif %}
+{% endfor %}
+
+
+    </div>
+</div>
+
+
+{% endblock %}
