@@ -1,15 +1,16 @@
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 from filebrowser.fields import FileBrowseField
-from ckeditor_uploader.fields import RichTextUploadingField
-# from blog.models import Tag
-from lambdaweb import settings
-from django_ymap.fields import YmapCoord
 from hitcount.models import HitCountMixin
+
+from LambdaCM import settings
+from django_ymap.fields import YmapCoord
 
 
 class EventLocation(models.Model):
     address = models.CharField("Адрес", max_length=300, blank=True)
-    point = YmapCoord(max_length=200, start_query=u'Россия', size_width=500, size_height=500, verbose_name="Выберите место на карте")
+    point = YmapCoord(max_length=200, start_query=u'Россия', size_width=500, size_height=500,
+                      verbose_name="Выберите место на карте")
     name = models.CharField("Аудитория", max_length=300, blank=True)
 
     def __str__(self):
@@ -23,8 +24,7 @@ class EventLocation(models.Model):
         verbose_name_plural = "Местоположения"
 
 
-# Create your models here.
-class Event(models.Model,HitCountMixin):
+class Event(models.Model, HitCountMixin):
     title = models.CharField(verbose_name="Название", max_length=300)
     sub_title = models.CharField(verbose_name="Слоган", max_length=500)
     slug = models.SlugField()

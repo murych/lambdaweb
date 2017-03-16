@@ -1,11 +1,12 @@
-from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Group
-from django.utils.translation import gettext_lazy as _
-from filebrowser.fields import FileBrowseField
 from ckeditor_uploader.fields import RichTextUploadingField
 from colorfield.fields import ColorField
-from event.models import Event
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Group
+from django.db import models
+from django.utils.translation import gettext_lazy as _
+from filebrowser.fields import FileBrowseField
+
 from blog.models import Article
+from event.models import Event
 
 # from team.models import Project
 
@@ -13,8 +14,14 @@ social_network = (
     ('mdi-github-circle', 'GitHub'),
     ('mdi-twitter', 'Twitter'),
     ('mdi-gmail', 'Mail'),
-    ('mdi-vk', 'Vk'),  # mdi-vk - ставиться как иконка соц сети, а vk - видет пользователь
+    ('mdi-vk', 'VK'),  # mdi-vk - ставится как иконка соц сети, а vk - видет пользователь
     ('mdi-facebook', 'Facebook'),
+)
+
+type_partner = (
+    ('info', 'Информационный'),
+    ('finance', 'Финансовый'),
+    ('general', 'Генеральный'),
 )
 
 
@@ -137,11 +144,11 @@ class Project(models.Model):
 class Partner(models.Model):
     name = models.CharField(max_length=300, verbose_name="Название партнера")
     slug = models.SlugField()
-    type_partner = models.CharField(max_length=300, verbose_name="Тип партнера")
+    type_partner = models.CharField(max_length=300, verbose_name="Тип партнера", choices=type_partner)
     description = RichTextUploadingField(verbose_name="Описание")
-    address = models.CharField(verbose_name="Адресс", max_length=500)
     site = models.CharField(verbose_name="Сайт", max_length=500)
-    phone = models.CharField(verbose_name="Телефон", max_length=500)
+    address = models.CharField(verbose_name="Адрес", max_length=500, blank=True, null=True)
+    phone = models.CharField(verbose_name="Телефон", max_length=500, blank=True, null=True)
     image = FileBrowseField("Изображение", max_length=200, directory="images/", blank=True, null=True)
 
     class Media:

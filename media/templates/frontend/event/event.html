@@ -179,54 +179,54 @@
                 </div>
             </div>
             <div class="col-md-3 side-bar">
-{% if datetime_now < event.start %}
-                <div class="date-time-event-card">
-                    <div class="date-card">
-                        <div class="date">
-                            {{ event.start|date:"d F" }}
+                {% if datetime_now < event.start %}
+                    <div class="date-time-event-card">
+                        <div class="date-card">
+                            <div class="date">
+                                {{ event.start|date:"d F" }}
+                            </div>
+                            <div class="weekday">
+                                {{ event.start|date:"l" }}
+                            </div>
+                            <div class="time">
+                                <div class="value">{{ event.start|time:"H:i" }}</div>
+                            </div>
+                            <div class="text-time-left">
+                                До начала осталось
+                            </div>
                         </div>
-                        <div class="weekday">
-                            {{ event.start|date:"l" }}
-                        </div>
-                        <div class="time">
-                            <div class="value">{{ event.start|time:"H:i" }}</div>
-                        </div>
-                        <div class="text-time-left">
-                            До начала осталось
+                        <div class="time-left-card">
+
+                            <div class="time-card">
+                                <div class="item-value">
+                                    <div id="day0" class="item">0</div>
+                                    <div id="day1" class="item">0</div>
+                                </div>
+                                <div class="item-type">дней</div>
+                            </div>
+
+                            <span>:</span>
+
+                            <div class="time-card">
+                                <div class="item-value">
+                                    <div id='hour0' class="item">1</div>
+                                    <div id='hour1' class="item">3</div>
+                                </div>
+                                <div class="item-type">часов</div>
+                            </div>
+
+                            <span>:</span>
+
+                            <div class="time-card">
+                                <div class="item-value">
+                                    <div id='min0' class="item">3</div>
+                                    <div id='min1' class="item">7</div>
+                                </div>
+                                <div class="item-type">минут</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="time-left-card">
-
-                        <div class="time-card">
-                            <div class="item-value">
-                                <div id="day0" class="item">0</div>
-                                <div id="day1" class="item">0</div>
-                            </div>
-                            <div class="item-type">дней</div>
-                        </div>
-
-                        <span>:</span>
-
-                        <div class="time-card">
-                            <div class="item-value">
-                                <div id='hour0' class="item">1</div>
-                                <div id='hour1' class="item">3</div>
-                            </div>
-                            <div class="item-type">часов</div>
-                        </div>
-
-                        <span>:</span>
-
-                        <div class="time-card">
-                            <div class="item-value">
-                                <div id='min0' class="item">3</div>
-                                <div id='min1' class="item">7</div>
-                            </div>
-                            <div class="item-type">минут</div>
-                        </div>
-                    </div>
-                </div>
-{% endif %}
+                {% endif %}
                 <div class="advertising"></div>
                 <div class="map">
                     <div class="address">
@@ -267,18 +267,18 @@
             window.onload = function () {
                 ymaps.ready(function () {
                     var myMap = new ymaps.Map('same-map', {
-                                center: [{{ event.location.point }}],
-                                zoom: 18
-                            }, {
-                                searchControlProvider: 'yandex#search'
-                            }),
-                            myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-                                hintContent: '{{ event.location }}',
-                                balloonContent: 'Аудитория: {{ event.location }} '
-                            }, {
-                                preset: 'islands#blueEducationCircleIcon'
+                            center: [{{ event.location.point }}],
+                            zoom: 18
+                        }, {
+                            searchControlProvider: 'yandex#search'
+                        }),
+                        myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+                            hintContent: '{{ event.location }}',
+                            balloonContent: 'Аудитория: {{ event.location }} '
+                        }, {
+                            preset: 'islands#blueEducationCircleIcon'
 
-                            });
+                        });
 
                     myMap.geoObjects.add(myPlacemark);
                 });

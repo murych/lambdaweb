@@ -18,17 +18,16 @@
 
     <div class="container">
         <div class="list">
-{% for partner in partners %}
-            <div class="item partner" onclick="window.location = '{% url 'partner' partner.slug %}'">
-                <div class="image">
-                    <img src="{{ partner.image.url }}">
+            {% for partner in partners %}
+                <div class="item partner" onclick="window.location = '{% url 'partner' partner.slug %}'">
+                    <div class="image">
+                        <img src="{{ partner.image.url }}">
+                    </div>
+                    <div class="title">
+                        {{ partner }}
+                    </div>
                 </div>
-                <div class="title">
-                    {{ partner }}
-                </div>
-            </div>
-{% endfor %}
-
+            {% endfor %}
 
 
         </div>

@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import *
-# Register your models here.
-from team.models import SEO
+
 from django_ymap.admin import YmapAdmin
+from team.models import SEO
+from .models import *
 
 
 class SEO(admin.StackedInline):

@@ -1,12 +1,9 @@
 from django import forms
 from django.contrib import admin
-from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
-from django.contrib.admin.options import BaseModelAdmin
-from .models import *
-from blog.models import Article
-from team.models import SEO
+
+from team.models import *
 
 
 class SocialNetwork(admin.TabularInline):
@@ -135,7 +132,7 @@ class PatnerAdmin(admin.ModelAdmin):
     model = Partner
     prepopulated_fields = {'slug': ('name',)}
     fieldsets = (
-        (None, {'fields': ('name', 'type_partner', 'slug','image',)}),
+        (None, {'fields': ('name', 'type_partner', 'slug', 'image',)}),
         ('Описание', {'fields': ('description',)}),
         ('Контакты', {'fields': ('address', 'site', 'phone')}),
     )

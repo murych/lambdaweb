@@ -1,11 +1,7 @@
-from django.shortcuts import render
-from django.http import Http404
-from django.shortcuts import get_object_or_404
-from blog.models import Article
 from django.views import generic
 
+from blog.models import Article
 
-# Create your views here.
 
 class ArticleView(generic.DetailView):
     model = Article

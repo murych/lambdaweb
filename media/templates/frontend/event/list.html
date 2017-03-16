@@ -12,7 +12,7 @@
                 <!--*********МЕРОПРИЯТИЕ********-->
                 {% for event in events|slice:":6" %}
                     {% if event.type %}
-                        <div class="col-md-6   event-card" onclick="window.location ='{% url 'event' event.slug  %}'">
+                        <div class="col-md-6   event-card" onclick="window.location ='{% url 'event' event.slug %}'">
                             <a>
                                 <div class="mask">
                                     <div class="date">
@@ -39,7 +39,7 @@
                     {% else %}
                         <!--*********МЕРОПРИЯТИЕ********-->
 
-                        <div class="col-md-3   event-card" onclick="window.location ='{% url 'event' event.slug  %}'">
+                        <div class="col-md-3   event-card" onclick="window.location ='{% url 'event' event.slug %}'">
 
                             <div class="mask">
                                 <div class="date">
@@ -125,7 +125,7 @@
                 <!--*********МЕРОПРИЯТИЕ********-->
                 {% for event in events %}
                     {% if event.type %}
-                        <div class="col-md-6   event-card" onclick="window.location ='{% url 'event' event.slug  %}'">
+                        <div class="col-md-6   event-card" onclick="window.location ='{% url 'event' event.slug %}'">
                             <a>
                                 <div class="mask">
                                     <div class="date">
@@ -152,7 +152,7 @@
                     {% else %}
                         <!--*********МЕРОПРИЯТИЕ********-->
 
-                        <div class="col-md-3   event-card" onclick="window.location ='{% url 'event' event.slug  %}'">
+                        <div class="col-md-3   event-card" onclick="window.location ='{% url 'event' event.slug %}'">
 
                             <div class="mask">
                                 <div class="date">

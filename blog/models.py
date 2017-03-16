@@ -1,11 +1,10 @@
-from django.db import models
-from colorfield.fields import ColorField
-from meta.models import ModelMeta
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.db import models
 from filebrowser.fields import FileBrowseField
-from lambdaweb import settings
-# import team.models
 from hitcount.models import HitCountMixin
+from meta.models import ModelMeta
+
+from LambdaCM import settings
 
 
 class Article(ModelMeta, models.Model, HitCountMixin):
@@ -34,4 +33,3 @@ class Article(ModelMeta, models.Model, HitCountMixin):
         'title': 'name',
         'description': 'abstract',
     }
-

@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from blog.models import *
 from team.models import SEO
 

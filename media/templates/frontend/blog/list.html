@@ -53,53 +53,54 @@
             </div>
         </div>
     </div>
-<div class="container">
-    <div class="article-list">
-{% for article in articles %}
-    {% if article.type  %}
-        <a href="#" class="article-main">
-            <div class="content-main">
-                <div class="tags">
-                    {% for tag in article.tags.all %}
-                        <div class="tag" style="background-color: {{ tag.color }}">{{ tag }}</div>
-                    {% endfor %}
-                </div>
-                <div class="title">{{ article.title }}</div>
-                <div class="description">{{ article.sub_title  }}
-                </div>
-                <div class="views">3<span class="red">K</span> просмотров</div>
-            </div>
-            <img src="/media/{{ article.main_image }}" class="img-responsive">
-        </a>
-
-        {% else %}
-        <a href="#" class="article-sub">
-            <div class="content-sub">
-                <img src="/media/{{ article.main_image }}" class="img-responsive">
-                <div class="some-content">
-                    <div class="tags-comment">
-                             <div class="tags">
-                    {% for tag in article.tags.all %}
-                        <div class="tag-outline" style="border-color:{{ tag.color }}; color: {{ tag.color }};">{{ tag }}</div>
-                    {% endfor %}
-                </div>
-                        <div class="comment">
-                            <span class="mdi mdi-comment-multiple-outline"></span>
-                            <span>12</span>
+    <div class="container">
+        <div class="article-list">
+            {% for article in articles %}
+                {% if article.type %}
+                    <a href="#" class="article-main">
+                        <div class="content-main">
+                            <div class="tags">
+                                {% for tag in article.tags.all %}
+                                    <div class="tag" style="background-color: {{ tag.color }}">{{ tag }}</div>
+                                {% endfor %}
+                            </div>
+                            <div class="title">{{ article.title }}</div>
+                            <div class="description">{{ article.sub_title }}
+                            </div>
+                            <div class="views">3<span class="red">K</span> просмотров</div>
                         </div>
-                    </div>
-                    <div class="title">{{ article.title }}</div>
-                    <div class="description">{{ article.short_description|safe }}</div>
-                </div>
+                        <img src="/media/{{ article.main_image }}" class="img-responsive">
+                    </a>
 
-            </div>
-        </a>
-    {% endif %}
-{% endfor %}
+                {% else %}
+                    <a href="#" class="article-sub">
+                        <div class="content-sub">
+                            <img src="/media/{{ article.main_image }}" class="img-responsive">
+                            <div class="some-content">
+                                <div class="tags-comment">
+                                    <div class="tags">
+                                        {% for tag in article.tags.all %}
+                                            <div class="tag-outline"
+                                                 style="border-color:{{ tag.color }}; color: {{ tag.color }};">{{ tag }}</div>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="comment">
+                                        <span class="mdi mdi-comment-multiple-outline"></span>
+                                        <span>12</span>
+                                    </div>
+                                </div>
+                                <div class="title">{{ article.title }}</div>
+                                <div class="description">{{ article.short_description|safe }}</div>
+                            </div>
+
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
 
 
+        </div>
     </div>
-</div>
 
 
 {% endblock %}

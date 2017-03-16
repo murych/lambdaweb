@@ -1,12 +1,12 @@
 {% extends 'frontend/base.html' %}
 {% load  staticfiles %}
 {% block no_use_base %}
-<!--*********ШАПКА********-->
-<div class="navbar-wrapper">
-	<nav class="navbar ">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
+    <!--*********ШАПКА********-->
+    <div class="navbar-wrapper">
+        <nav class="navbar ">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
 		<span class="open-bar visible-xs">
             <div id="nav-icon3">
                 <span></span>
@@ -15,137 +15,137 @@
                 <span></span>
             </div>
  		</span>
-      <a class="navbar-brand" href="#"><img src="img/logo.png"></a>
+                    <a class="navbar-brand" href="#"><img src="img/logo.png"></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{% url 'index' %}">Главная</a></li>
+                        <li><a href="{% url 'events' %}">Мероприятие</a></li>
+                        <li><a href="#">Проекты</a></li>
+                        <li><a href="{% url 'partners' %}">Партнеры</a></li>
+                        <li><a href="#">О нас</a></li>
+
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
     </div>
+    <!--*********ШАПКА********-->
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <!--*********ИЗОБРАЖЕНИЕ********-->
+    <div class="slide">
+        <div class="main-tagline">
+            <div class="title">LAMBDA</div>
+            <div class="description">Code. Hack. Meet</div>
+        </div>
+    </div>
+    <!--*********ИЗОБРАЖЕНИЕ********-->
 
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Главная</a></li>
-        <li><a href="#">Мероприятие</a></li>
-        <li><a href="#">Проекты</a></li>
-        <li><a href="#">Партнеры</a></li>
-        <li><a href="#">О нас</a></li>
+    <!--*********ВОПРОСЫ И ОТВЕТЫ********-->
+    <div class="container-fluid qa-bg">
+        <div class="container">
+            <div class="row qa">
+                <div class="col-md-4 item">
+                    <div class="icon"><span class="mdi mdi-help"></span>
+                    </div>
+                    <div class="title">
+                        Что мы делаем?
+                    </div>
+                    <div class="description">
+                        Читаем лекции<br>
+                        Работаем над проектами<br>
+                        Приглашаем специалистов из ведущих IT компаний<br>
+                        Вместе ходим на конференции и митапы<br>
+                    </div>
+                </div>
+                <div class="col-md-4 item">
+                    <div class="icon"><span class="mdi mdi-ticket-confirmation"></span>
+                    </div>
+                    <div class="title">
+                        Кто может прийти?
+                    </div>
+                    <div class="description">
+                        Кто угодно. Начинающие свой путь в IT найдут у нас возможность быстро учиться, а
+                        опытные разработчики - единомышленниеов и проекты.
+                    </div>
+                </div>
+                <div class="col-md-4 item">
+                    <div class="icon"><span class="mdi mdi-map-marker"></span>
+                    </div>
+                    <div class="title">
+                        Где нас найти?
+                    </div>
+                    <div class="description">
+                        ДК МАИ ауд. 208<br>
+                        Понедельник / Среда 17:00
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--*********ВОПРОСЫ И ОТВЕТЫ********-->
 
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-</div>
-<!--*********ШАПКА********-->
+    <!--*********ЦИТАТА********-->
+    <div class="container">
+        <div class="qoute">
+            <div class="title">
+                "Сначала учите науку программирования и всю теорию. Далее выработаете свой программистский стиль.
+                Затем забудьте все и просто программируйте."
+            </div>
+            <div class="author">
+                - Линус Торвальдс, создатель ядра Linux
+            </div>
+        </div>
+    </div>
+    <!--*********ЦИТАТА********-->
 
-<!--*********ИЗОБРАЖЕНИЕ********-->
-<div class="slide">
-	<div class="main-tagline">
-		<div class="title">LAMBDA</div>
-		<div class="description">Code. Hack. Meet</div>
-	</div>
-</div>
-<!--*********ИЗОБРАЖЕНИЕ********-->
+    <!--*********КУРСЫ********-->
+    <div class="container">
+        <div class="row course">
+            <div class="col-md-6 item">
+                <a><img src="{% static 'img/mr_roboto.png' %}"></a>
+            </div>
 
-<!--*********ВОПРОСЫ И ОТВЕТЫ********-->
-<div class="container-fluid qa-bg">
-	<div class="container">
-		<div class="row qa">
-			<div class="col-md-4 item">
-				<div class="icon"><span class="mdi mdi-help"></span>
-				</div>
-				<div class="title">
-					Что мы делаем?
-				</div>
-				<div class="description">
-					Читаем лекции<br>
-					Работаем над проектами<br>
-					Приглашаем специалистов из ведущих IT компаний<br>
-					Вместе ходим на конференции и митапы<br>
-				</div>
-			</div>
-			<div class="col-md-4 item">
-				<div class="icon"><span class="mdi mdi-ticket-confirmation"></span>
-				</div>
-				<div class="title">
-					Кто может прийти?
-				</div>
-				<div class="description">
-					Кто угодно. Начинающие свой путь в IT найдут у нас возможность быстро учиться, а
-					опытные разработчики - единомышленниеов и проекты.
-				</div>
-			</div>
-			<div class="col-md-4 item">
-				<div class="icon"><span class="mdi mdi-map-marker"></span>
-				</div>
-				<div class="title">
-					Где нас найти?
-				</div>
-				<div class="description">
-					ДК МАИ ауд. 208<br>
-					Понедельник / Среда 17:00
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!--*********ВОПРОСЫ И ОТВЕТЫ********-->
+            <div class="col-md-6 item">
+                <a><img src="{% static 'img/jedi.png' %}"></a>
+            </div>
+            <div class="col-md-7 item">
+                <a><img src="{% static 'img/django.png' %}"></a>
+            </div>
+            <div class="col-md-5 item">
+                <a><img src="{% static 'img/big_data.png' %}"></a>
+            </div>
+        </div>
+    </div>
+    <!--*********КУРСЫ********-->
 
-<!--*********ЦИТАТА********-->
-<div class="container">
-	<div class="qoute">
-		<div class="title">
-			"Сначала учите науку программирования и всю теорию. Далее выработаете свой программистский стиль.
-			Затем забудьте все и просто программируйте."
-		</div>
-		<div class="author">
-			- Линус Торвальдс, создатель ядра Linux
-		</div>
-	</div>
-</div>
-<!--*********ЦИТАТА********-->
-
-<!--*********КУРСЫ********-->
-<div class="container">
-	<div class="row course">
-		<div class="col-md-6 item">
-			<a><img src="{% static 'img/mr_roboto.png'  %}"></a>
-		</div>
-
-		<div class="col-md-6 item">
-			<a><img src="{% static 'img/jedi.png'  %}"></a>
-		</div>
-		<div class="col-md-7 item">
-			<a><img src="{% static 'img/django.png'  %}"></a>
-		</div>
-		<div class="col-md-5 item">
-			<a><img src="{% static 'img/big_data.png'  %}"></a>
-		</div>
-	</div>
-</div>
-<!--*********КУРСЫ********-->
-
-<!--*********ПОСЛЕДНИЕ МЕРОПРИЯТИЯ********-->
-<div class="container-fluid no-padding">
-	<!--*********ПОИСКОВЫЙ БАР********-->
-	<div class="search-bar">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<span class="mdi mdi-calendar-multiple"></span>
-					<div class="text">
-						<div class="title">Последние мероприятия</div>
-						<div class="description">Лекции, выступления спикеров, хакатоны...</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--*********ПОИСКОВЫЙ БАР********-->
-	<!--*********СПИСОК МЕРОПРИЯТИЙ********-->
-	<div class="container events">
-		<div class="row no-margin">
-		   <!--*********МЕРОПРИЯТИЕ********-->
+    <!--*********ПОСЛЕДНИЕ МЕРОПРИЯТИЯ********-->
+    <div class="container-fluid no-padding">
+        <!--*********ПОИСКОВЫЙ БАР********-->
+        <div class="search-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="mdi mdi-calendar-multiple"></span>
+                        <div class="text">
+                            <div class="title">Последние мероприятия</div>
+                            <div class="description">Лекции, выступления спикеров, хакатоны...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--*********ПОИСКОВЫЙ БАР********-->
+        <!--*********СПИСОК МЕРОПРИЯТИЙ********-->
+        <div class="container events">
+            <div class="row no-margin">
+                <!--*********МЕРОПРИЯТИЕ********-->
                 {% for event in events %}
                     {% if event.type %}
-                        <div class="col-md-6   event-card" onclick="window.location ='{% url 'event' event.slug  %}'">
+                        <div class="col-md-6   event-card" onclick="window.location ='{% url 'event' event.slug %}'">
                             <a>
                                 <div class="mask">
                                     <div class="date">
@@ -172,7 +172,7 @@
                     {% else %}
                         <!--*********МЕРОПРИЯТИЕ********-->
 
-                        <div class="col-md-3   event-card" onclick="window.location ='{% url 'event' event.slug  %}'">
+                        <div class="col-md-3   event-card" onclick="window.location ='{% url 'event' event.slug %}'">
 
                             <div class="mask">
                                 <div class="date">
@@ -200,65 +200,66 @@
                         </div>
                     {% endif %}
                 {% endfor %}
-		</div>
-	</div>
-	<!--*********СПИСОК МЕРОПРИЯТИЙ********-->
+            </div>
+        </div>
+        <!--*********СПИСОК МЕРОПРИЯТИЙ********-->
 
-</div>
-<!--*********ПОСЛЕДНИЕ МЕРОПРИЯТИЯ********-->
+    </div>
+    <!--*********ПОСЛЕДНИЕ МЕРОПРИЯТИЯ********-->
 
-<!--*********ФУУТЕР********-->
-<footer>
-	<div class="container-fluid   no-padding">
-		<div class="container">
-			<div class="row footer">
-				<div class="col-md-1">
-					<img src="img/logo.png">
-				</div>
-				<div class="col-md-4">
-					<div class="description">
-						Мы образовательный проект Lambda при ФРЭЛА МАИ, реализующий практикум
-						программистов и бесплатные курсы для студентов.
-					</div>
-				</div>
-				<div class="col-md-4 soc">
-					<a href="#">
-						<span class="mdi mdi-vk"></span>
-						<div class="us">> follow us</div>
-					</a>
-					<a href="#">
-						<span class="mdi mdi-github-circle"></span>
-						<div class="us">> fork us</div>
-					</a>
-					<a href="#">
-						<span class="mdi mdi-youtube-play"></span>
-						<div class="us">> watch us</div>
-					</a>
-					<a href="#">
-						<span class="mdi mdi-slack"></span>
-						<div class="us">> chat with us</div>
-					</a>
-				</div>
-				<div class="col-md-3 info">
-					<div class="item">
-						<div class="icon"><span class="mdi mdi-email-outline"></span><a>info@lambda-it.ru</a></div>
+    <!--*********ФУУТЕР********-->
+    <footer>
+        <div class="container-fluid   no-padding">
+            <div class="container">
+                <div class="row footer">
+                    <div class="col-md-1">
+                        <img src="img/logo.png">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="description">
+                            Мы образовательный проект Lambda при ФРЭЛА МАИ, реализующий практикум
+                            программистов и бесплатные курсы для студентов.
+                        </div>
+                    </div>
+                    <div class="col-md-4 soc">
+                        <a href="#">
+                            <span class="mdi mdi-vk"></span>
+                            <div class="us">> follow us</div>
+                        </a>
+                        <a href="#">
+                            <span class="mdi mdi-github-circle"></span>
+                            <div class="us">> fork us</div>
+                        </a>
+                        <a href="#">
+                            <span class="mdi mdi-youtube-play"></span>
+                            <div class="us">> watch us</div>
+                        </a>
+                        <a href="#">
+                            <span class="mdi mdi-slack"></span>
+                            <div class="us">> chat with us</div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 info">
+                        <div class="item">
+                            <div class="icon"><span class="mdi mdi-email-outline"></span><a>info@lambda-it.ru</a></div>
 
-					</div>
-					<div class="item">
-						<div class="icon"><span class="mdi mdi-map-marker"></span><a>г. Москва Дубосековская ул. 4А/1</a></div>
-					</div>
-					<div class="item">
-						<div class="icon">
-							<span class="mdi mdi-phone"></span>
-							<a>8 800 555 35 35</a>
-						</div>
+                        </div>
+                        <div class="item">
+                            <div class="icon"><span class="mdi mdi-map-marker"></span><a>г. Москва Дубосековская ул.
+                                4А/1</a></div>
+                        </div>
+                        <div class="item">
+                            <div class="icon">
+                                <span class="mdi mdi-phone"></span>
+                                <a>8 800 555 35 35</a>
+                            </div>
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</footer>
-<!--*********ФУУТЕР********-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--*********ФУУТЕР********-->
 
 {% endblock %}
