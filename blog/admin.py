@@ -16,8 +16,9 @@ class SEO(admin.StackedInline):
 
 class ArticleAdmin(admin.ModelAdmin):
     model = Article
+    prepopulated_fields = {'slug': ('title',)}
     fieldsets = (
-        ('Основное', {'fields': ('title', 'sub_title', 'post_in_vk', 'post_in_twitter', 'type', 'main_image')}),
+        ('Основное', {'fields': ('title', 'sub_title', 'slug','post_in_vk', 'post_in_twitter', 'type', 'main_image')}),
         ('Описание', {'fields': ('tags', 'short_description', 'description')}),
     )
     inlines = (SEO,)

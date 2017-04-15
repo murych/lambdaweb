@@ -116,8 +116,10 @@ class ArticleAdmin(admin.StackedInline):
 
 class ProjectAdmin(admin.ModelAdmin):
     model = Project
+    prepopulated_fields = {'slug': ('name',)}
+
     fields = (
-        'name', 'git', 'description', 'members')
+        'name','sub_name','card_name','image' ,'git', 'description', 'members')
     inlines = (ArticleAdmin, SEOAdmin)
 
     class Media:

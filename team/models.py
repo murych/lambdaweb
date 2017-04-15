@@ -125,6 +125,10 @@ class Member(AbstractBaseUser):
 class Project(models.Model):
     name = models.CharField(max_length=300, verbose_name="Название")
     description = RichTextUploadingField(verbose_name="Описание")
+    #Добавил слоган для проекта
+    slug = models.SlugField(default='')
+    sub_name = models.CharField(max_length=300, verbose_name="Слоган", null=True, blank=True)
+    card_name = models.CharField(max_length=300, verbose_name="Название в списке", default='')
     members = models.ManyToManyField(Member, verbose_name="Участники проекта")
     git = models.URLField(verbose_name="Cсылка на Git", null=True, blank=True)
     image = FileBrowseField("Главное изображение", max_length=200, directory="images/", blank=True, null=True)

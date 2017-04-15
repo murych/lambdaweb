@@ -1,5 +1,8 @@
 {% extends 'frontend/base.html' %}
 {% load  staticfiles %}
+{% block title%}
+    <title>Главная - Lambda</title>
+{% endblock %}
 {% block no_use_base %}
     <!--*********ШАПКА********-->
     <div class="navbar-wrapper">
@@ -22,11 +25,10 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{% url 'index' %}">Главная</a></li>
-                        <li><a href="{% url 'events' %}">Мероприятие</a></li>
-                        <li><a href="#">Проекты</a></li>
-                        <li><a href="{% url 'partners' %}">Партнеры</a></li>
-                        <li><a href="#">О нас</a></li>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                    <li><a href="{% url 'article_list' %}">Публикации</a></li>
+                    <li><a href="{% url 'event_list' %}">Мероприятие</a></li>
+                     <li><a href="{% url 'patners_list' %}">Партнеры</a></li>
 
                     </ul>
                 </div><!-- /.navbar-collapse -->

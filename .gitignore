@@ -1,11 +1,5 @@
-/node_modules/
-*.pyo
-*.db
-.DS_Store
-.coverage
-lambdaweb/local_settings.py
-static/
-deploy/
-.idea/
+media/images
+db.sqlite3
+.idea
 __pycache__/
-*.sqlite3
+local_settings.py

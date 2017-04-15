@@ -1,4 +1,4 @@
-"""lambdaweb URL Configuration
+"""LambdaCM URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
@@ -20,8 +20,7 @@ from django.contrib import admin
 from filebrowser.sites import site
 
 from sites import urls as main_urls
-from . import views
-
+ 
 urlpatterns = [
     url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
     url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
@@ -30,9 +29,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^', include(main_urls)),
-    url(r'^events/$', views.events, name='events'),
-    url(r'^blog/$', views.blog, name='articles'),
-    url(r'^partners/$', views.partners, name='partners')
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

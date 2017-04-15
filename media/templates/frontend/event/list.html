@@ -1,5 +1,8 @@
 {% extends 'frontend/base.html' %}
 {% load staticfiles %}
+{% block title %}
+    <title>Мероприятия - Lambda</title>
+{% endblock %}
 {% block content %}
     <div class="container-fluid main-events-bg">
         <div class="main-events">
@@ -43,7 +46,7 @@
 
                             <div class="mask">
                                 <div class="date">
-                                    18 февраля
+                                    {{ event.start|date:"d F" }}
                                 </div>
                                 <a class="comment">
                                     <span class="mdi mdi-comment-multiple-outline"></span>
@@ -54,7 +57,7 @@
                                             {{ event.title }}
                                         </div>
                                         <div class="description">
-                                            Приходи, познакомимся ;)
+                                            {{ event.sub_title }}
                                         </div>
                                         <div class="continue">
                                             Подробнее...
@@ -87,16 +90,16 @@
                         <span class="mdi mdi-calendar-multiple"></span>
                         <div class="text">
                             <div class="title">мероприятия</div>
-                            <div class="addition-title">Всего: 32</div>
+                            <div class="addition-title">Всего: {{ events.count }}</div>
                         </div>
                     </div>
                     <div class="col-md-4 col-xs-12">
                         <div class="tags">
                             <div class="title">ПОПУЛЯРНЫЕ ТЕГИ</div>
                             <div class="tag-list">
-                                <a href="#" class="tag-item">Python</a>
-                                <a href="#" class="tag-item">Linux</a>
-                                <a href="#" class="tag-item">Безопастность</a>
+                                {% for tag in hit_tag|slice:':4' %}
+                                    <a href="#" class="tag-item">{{ tag.name }}</a>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -156,7 +159,7 @@
 
                             <div class="mask">
                                 <div class="date">
-                                    18 февраля
+                                    {{ event.start|date:"d F" }}
                                 </div>
                                 <a class="comment">
                                     <span class="mdi mdi-comment-multiple-outline"></span>
@@ -167,7 +170,7 @@
                                             {{ event.title }}
                                         </div>
                                         <div class="description">
-                                            Приходи, познакомимся ;)
+                                            {{ event.sub_title }}
                                         </div>
                                         <div class="continue">
                                             Подробнее...

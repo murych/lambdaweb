@@ -1,5 +1,5 @@
 """
-WSGI config for lambdaweb project.
+WSGI config for LambdaCM project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

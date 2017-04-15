@@ -1,0 +1,104 @@
+{% extends 'frontend/base.html' %}
+{% load staticfiles %}
+{% load gravatar %}
+{% load mathfilters %}
+{% block content %}
+    <div class="container content">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="main-content">
+                    <div class="head-content">
+
+                        {% for tag in article.tags.all %}
+                            <div class="tags" style="background-color: {{ tag.color }}">
+                                <div class="tag">{{ tag }}</div>
+                            </div>
+                        {% endfor %}
+
+                        <div class="author">
+                            {% gravatar article.author.email 150 %}
+                            <span>{{ article.author }}</span>
+                        </div>
+                    </div>
+                    <div class="title-content">
+                        <div class="title">
+                            <h1>{{ article.title }}</h1>
+                            <h4>{{ article.sub_title }}</h4>
+                        </div>
+                    </div>
+                    <div class="social-networks-content">
+                        <div class="social-networks">
+                            <a class="social-btn vk" href="http://vk.com/share.php?url=http://127.0.0.1:8000{% url "article" article.slug %}"
+                               target="_blank">
+                                <div class="social-icon"><span class="mdi mdi-vk"></span></div>
+                            </a>
+
+
+                            <a class="social-btn twitter" target="_blank" data-network="twitter"
+                               href="https://twitter.com/intent/tweet?url=http://127.0.0.1:8000{% url "article" article.slug %}">
+                                <div class="social-icon"><span class="mdi mdi-twitter"></span></div>
+                            </a>
+                            <a class="social-btn ok"
+                               href="https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&service=odnoklassniki&st.shareUrl=http://127.0.0.1:8000{% url "article" article.slug %}"
+                               target="_blank">
+                                <div class="social-icon"><span class="mdi mdi-odnoklassniki"></span></div>
+                            </a>
+                        </div>
+                        <div class="discuss">
+                            <a class="discuss-btn">
+                                <div class="discuss-icon"><span class="mdi mdi-comment-outline"></span></div>
+                                <div class="discuss-text">обсудить</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="img-content">
+                        <img src="/media/{{ article.main_image }}">
+                    </div>
+                    <div class="content">
+                        {{ article.description|safe }}
+                    </div>
+                    <div class="social-networks-content">
+                        <div class="social-networks">
+                            <a class="social-btn vk" href="http://vk.com/share.php?url=http://127.0.0.1:8000{% url "article" article.slug %}"
+                               target="_blank">
+                                <div class="social-icon"><span class="mdi mdi-vk"></span></div>
+                            </a>
+                            <a class="social-btn twitter" target="_blank" data-network="twitter"
+                               href="https://twitter.com/intent/tweet?url=http://127.0.0.1:8000{% url "article" article.slug %}">
+                                <div class="social-icon"><span class="mdi mdi-twitter"></span></div>
+                            </a>
+                            <a class="social-btn ok"
+                               href="https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&service=odnoklassniki&st.shareUrl=http://127.0.0.1:8000{% url "article" article.slug %}"
+                               target="_blank">
+                                <div class="social-icon"><span class="mdi mdi-odnoklassniki"></span></div>
+                            </a>
+                        </div>
+                        <div class="discuss">
+                            <a class="discuss-btn">
+                                <div class="discuss-icon"><span class="mdi mdi-comment-outline"></span></div>
+                                <div class="discuss-text">обсудить</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="views-content">
+                        <div class="views-count-btn">
+                            <div class="views-count-icon"><span class="mdi mdi-eye"></span></div>
+                            <div class="views-count-text">{{ article.hit_count.hits }}</div>
+                        </div>
+
+                    </div>
+                    {% load disqus_tags %}
+{% disqus_show_comments %}
+                </div>
+
+            </div>
+            <div class="col-md-3 side-bar">
+
+                <div class="advertising"></div>
+
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

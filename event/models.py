@@ -3,8 +3,9 @@ from django.db import models
 from filebrowser.fields import FileBrowseField
 from hitcount.models import HitCountMixin
 
-from LambdaCM import settings
+from lambdaweb import settings
 from django_ymap.fields import YmapCoord
+from meta.models import ModelMeta
 
 
 class EventLocation(models.Model):
@@ -24,7 +25,7 @@ class EventLocation(models.Model):
         verbose_name_plural = "Местоположения"
 
 
-class Event(models.Model, HitCountMixin):
+class Event(ModelMeta,models.Model, HitCountMixin):
     title = models.CharField(verbose_name="Название", max_length=300)
     sub_title = models.CharField(verbose_name="Слоган", max_length=500)
     slug = models.SlugField()
@@ -43,10 +44,37 @@ class Event(models.Model, HitCountMixin):
     type = models.BooleanField(default=False, verbose_name="Главная новость")
     value = models.CharField(verbose_name="Стоимость", max_length=300, default="Бесплатно")
 
-    def __str__(self):
-        return self.title
-
     class Meta:
         verbose_name = "Мероприятие"
         verbose_name_plural = "Мероприятия"
         ordering = ("-start",)
+
+    _metadata = {
+        'title': 'get_seo_title',
+        'use_og': 'True',
+        'use_title_tag': 'True',
+        'image': 'get_seo_image',
+        'description': 'get_description',
+        'type': 'article',
+        'use_twitter': 'True',
+        'use_facebook': 'True',
+        'use_googleplus': 'True',
+        'locale': 'ru_RU',
+        'twitter_card': 'summary_large_image',
+        'keywords': 'get_keywords',
+    }
+
+    def __str__(self):
+        return self.title
+
+    def get_seo_title(self):
+        return self.title + ' - Lambda'
+
+    def get_seo_image(self):
+        return self.featured_image.url
+
+    def get_keywords(self):
+        return self.events.key_words.strip().split(',')
+
+    def get_description(self):
+        return self.events.seo_description
