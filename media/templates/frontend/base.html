@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     {% block title %}
     {% endblock %}
-    <meta name="robots" content="all" />
+    <meta name="robots" content="all"/>
     <link rel="stylesheet" href="{% static 'css/main.min.css' %}">
     {% block author %}
         <meta name="author" content="Lambda-It">
@@ -34,7 +34,25 @@
                 <span></span>
             </div>
  		</span>
-                <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}"></a>
+                <a class="navbar-brand" href="/" style="width: 96px">
+
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+   viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
+<style type="text/css">
+  .st0 {
+      fill: #0092F2;
+  }
+
+  .st1 {
+      fill: #FFFFFF;
+  }
+</style>
+<rect id="XMLID_5_" class="st0" width="500" height="500"/>
+<polygon id="XMLID_1_" class="st1" points="178.8,111.1 229.3,204.1 150.2,389.2 189.8,389.2 252.1,245.8 330.3,389.2 373.3,389.2
+  221.8,111.1 "/>
+</svg>
+
+                </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -45,8 +63,8 @@
                             Главная</a>
                     </li>
                     <li><a title="Наши публикации" href="{% url 'article_list' %}">Публикации</a></li>
-                    <li><a  title="Наши мероприятия" href="{% url 'event_list' %}">Мероприятие</a></li>
-                     <li><a title="Наши партнеры " href="{% url 'patners_list' %}">Партнеры</a></li>
+                    <li><a title="Наши мероприятия" href="{% url 'event_list' %}">Мероприятие</a></li>
+                    <li><a title="Наши партнеры " href="{% url 'patners_list' %}">Партнеры</a></li>
 
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -61,7 +79,21 @@
             <div class="container">
                 <div class="row footer">
                     <div class="col-md-1">
-                        <img src="img/logo.png">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+   viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
+<style type="text/css">
+  .st0 {
+      fill: #0092F2;
+  }
+
+  .st1 {
+      fill: #FFFFFF;
+  }
+</style>
+<rect id="XMLID_5_" class="st0" width="500" height="500"/>
+<polygon id="XMLID_1_" class="st1" points="178.8,111.1 229.3,204.1 150.2,389.2 189.8,389.2 252.1,245.8 330.3,389.2 373.3,389.2
+  221.8,111.1 "/>
+</svg>
                     </div>
                     <div class="col-md-4">
                         <div class="description">
@@ -97,7 +129,7 @@
                         <div class="item">
                             <div class="icon"><span class="mdi mdi-map-marker"></span>
                                 <a title="Приходте к в мини кампус">г. Москва Дубосековская ул.
-                                4А/1</a></div>
+                                    4А/1</a></div>
                         </div>
                         <div class="item">
                             <div class="icon">
