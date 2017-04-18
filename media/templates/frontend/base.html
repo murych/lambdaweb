@@ -5,7 +5,9 @@
 <html lang="ru">
 
 <head>
-    {% include "blocks/counters.html" %}
+    {% include "frontend/blocks/adsense.html" %}
+    {% include "frontend/blocks/counters.html" %}
+    {% include "frontend/blocks/vk_messages.html" %}
     {% include "meta/meta.html" %}
     <meta charset="UTF-8">
     {% block title %}
@@ -15,7 +17,7 @@
     {% block author %}
         <meta name="author" content="Lambda-It">
     {% endblock %}
-    <link href="{% static 'css/materialdesignicons.min.css' %}/" media="all" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'css/materialdesignicons.min.css' %}" media="all" rel="stylesheet" type="text/css"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
@@ -39,19 +41,19 @@
 
                     <svg xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
    viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
-<style type="text/css">
-  .st0 {
-      fill: #0092F2;
-  }
+                        <style type="text/css">
+                          .st0 {
+                              fill: #0092F2;
+                          }
 
-  .st1 {
-      fill: #FFFFFF;
-  }
-</style>
-<rect id="XMLID_5_" class="st0" width="500" height="500"/>
-<polygon id="XMLID_1_" class="st1" points="178.8,111.1 229.3,204.1 150.2,389.2 189.8,389.2 252.1,245.8 330.3,389.2 373.3,389.2
+                          .st1 {
+                              fill: #FFFFFF;
+                          }
+                        </style>
+                        <rect id="XMLID_5_" class="st0" width="500" height="500"/>
+                        <polygon id="XMLID_1_" class="st1" points="178.8,111.1 229.3,204.1 150.2,389.2 189.8,389.2 252.1,245.8 330.3,389.2 373.3,389.2
   221.8,111.1 "/>
-</svg>
+                    </svg>
 
                 </a>
             </div>
@@ -64,7 +66,7 @@
                             Главная</a>
                     </li>
                     <li><a title="Наши публикации" href="{% url 'article_list' %}">Публикации</a></li>
-                    <li><a title="Наши мероприятия" href="{% url 'event_list' %}">Мероприятие</a></li>
+                    <li><a title="Наши мероприятия" href="{% url 'event_list' %}">Мероприятия</a></li>
                     <li><a title="Наши партнеры " href="{% url 'patners_list' %}">Партнеры</a></li>
 
                 </ul>
@@ -82,19 +84,19 @@
                     <div class="col-md-1">
                         <svg xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
    viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
-<style type="text/css">
-  .st0 {
-      fill: #0092F2;
-  }
+                            <style type="text/css">
+                              .st0 {
+                                  fill: #0092F2;
+                              }
 
-  .st1 {
-      fill: #FFFFFF;
-  }
-</style>
-<rect id="XMLID_5_" class="st0" width="500" height="500"/>
-<polygon id="XMLID_1_" class="st1" points="178.8,111.1 229.3,204.1 150.2,389.2 189.8,389.2 252.1,245.8 330.3,389.2 373.3,389.2
-  221.8,111.1 "/>
-</svg>
+                              .st1 {
+                                  fill: #FFFFFF;
+                              }
+                            </style>
+                            <rect id="XMLID_5_" class="st0" width="500" height="500"/>
+                            <polygon id="XMLID_1_" class="st1" points="178.8,111.1 229.3,204.1 150.2,389.2 189.8,389.2 252.1,245.8 330.3,389.2 373.3,389.2
+                              221.8,111.1 "/>
+                        </svg>
                     </div>
                     <div class="col-md-4">
                         <div class="description">
@@ -103,19 +105,19 @@
                         </div>
                     </div>
                     <div class="col-md-4 soc">
-                        <a href="#" title="Следите за нами в ВК">
+                        <a href="https://vk.com/lambdait" title="Следите за нами в ВК">
                             <span class="mdi mdi-vk"></span>
                             <div class="us">> follow us</div>
                         </a>
-                        <a href="#" title="Работайте с нами в Git">
+                        <a href="https://github.com/lambdafrela" title="Работайте с нами в Git">
                             <span class="mdi mdi-github-circle"></span>
                             <div class="us">> fork us</div>
                         </a>
-                        <a href="#" title="Смотрите нас на YouTube">
+                        <a href="https://www.youtube.com/channel/UC8fGhHpoUm-1ZWITOM98N9A" title="Смотрите нас на YouTube">
                             <span class="mdi mdi-youtube-play"></span>
                             <div class="us">> watch us</div>
                         </a>
-                        <a href="#" title="Общяйтесь с нами в Slack'e">
+                        <a href="https://lambdafrela.slack.com/" title="Общайтесь с нами в Slack'e">
                             <span class="mdi mdi-slack"></span>
                             <div class="us">> chat with us</div>
                         </a>
@@ -123,19 +125,18 @@
                     <div class="col-md-3 info">
                         <div class="item">
                             <div class="icon"><span class="mdi mdi-email-outline"></span>
-                                <a title="Есть вопросы? Напишите нам!">info@lambda-it.ru</a>
+                                <a href="mailto:info@lambda-it.ru" title="Есть вопросы? Напишите нам!">info@lambda-it.ru</a>
                             </div>
 
                         </div>
                         <div class="item">
                             <div class="icon"><span class="mdi mdi-map-marker"></span>
-                                <a title="Приходте к в мини кампус">г. Москва Дубосековская ул.
-                                    4А/1</a></div>
+                                <a title="Приходте к в мини-кампус">г. Москва, Дубосековская ул., 9</a></div>
                         </div>
                         <div class="item">
                             <div class="icon">
                                 <span class="mdi mdi-phone"></span>
-                                <a title="Что то срочное? Наберите нам!">8 800 555 35 35</a>
+                                <a title="Что-то срочное? Наберите нам!">8 800 555 35 35</a>
                             </div>
 
                         </div>
