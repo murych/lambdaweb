@@ -1,0 +1,39 @@
+{% extends 'frontend/base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <div class="container">
+        <div class="profile">
+            <div class="main">
+                <div class="content-main">
+                    <img src="{{ partner.image.url }}">
+                    <div class="connection">
+                        {% if partner.address %}
+                            <div class="info">
+                                <span class="mdi mdi-map-marker"></span> {{ partner.address }}
+                            </div>
+                        {% endif %}
+                        {% if partner.phone %}
+                            <div class="info">
+                                <span class="mdi mdi-phone"></span> {{ partner.phone }}
+                            </div>
+                        {% endif %}
+                        <div class="info">
+                            <span class="mdi mdi-earth"></span> <a target="_blank"
+                                                                        href="{{ partner.site }}">  {{ partner.site }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="description">
+                <h1 class="title">{{ partner.name }}</h1>
+                <div class="sub-title">
+                    {{ partner.get_type_partner_display }} партнер
+                </div>
+                <div class="full-description">
+                    {{ partner.description|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

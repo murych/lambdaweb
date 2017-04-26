@@ -1,0 +1,295 @@
+{% extends 'frontend/base.html' %}
+{% load  staticfiles %}
+{% block title%}
+    <title>Главная - Lambda</title>
+{% endblock %}
+{% block no_use_base %}
+    <!--*********ШАПКА********-->
+    <div class="navbar-wrapper">
+        <nav class="navbar ">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+		<span class="open-bar visible-xs">
+            <div id="nav-icon3">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+ 		</span>
+                    <a class="navbar-brand" href="/" style="width: 96px">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+   viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
+<style type="text/css">
+  .st0 {
+        fill: #0092F2;
+    }
+
+    .st1 {
+        fill: #FFFFFF;
+    }
+</style>
+ <polygon id="XMLID_1_" class="st1" points="178.8,111.1 229.3,204.1 150.2,389.2 189.8,389.2 252.1,245.8 330.3,389.2 373.3,389.2
+  221.8,111.1 "/>
+</svg>
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                    <li><a href="{% url 'article_list' %}">Публикации</a></li>
+                    <li><a href="{% url 'event_list' %}">Мероприятие</a></li>
+                     <li><a href="{% url 'patners_list' %}">Партнеры</a></li>
+
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+    <!--*********ШАПКА********-->
+
+    <!--*********ИЗОБРАЖЕНИЕ********-->
+    <div class="slide">
+        <div class="main-tagline">
+            <div class="title">LAMBDA</div>
+            <div class="description">Code. Hack. Meet</div>
+        </div>
+    </div>
+    <!--*********ИЗОБРАЖЕНИЕ********-->
+
+    <!--*********ВОПРОСЫ И ОТВЕТЫ********-->
+    <div class="container-fluid qa-bg">
+        <div class="container">
+            <div class="row qa">
+                <div class="col-md-4 item">
+                    <div class="icon"><span class="mdi mdi-help"></span>
+                    </div>
+                    <div class="title">
+                        Что мы делаем?
+                    </div>
+                    <div class="description">
+                        Читаем лекции<br>
+                        Работаем над проектами<br>
+                        Приглашаем специалистов из IT компаний<br>
+                        Вместе ходим на конференции и митапы<br>
+                    </div>
+                </div>
+                <div class="col-md-4 item">
+                    <div class="icon"><span class="mdi mdi-ticket-confirmation"></span>
+                    </div>
+                    <div class="title">
+                        Кто может прийти?
+                    </div>
+                    <div class="description">
+                        Кто угодно. Начинающие свой путь в IT найдут у нас возможность быстро учиться, а
+                        опытные разработчики - единомышленниеов и проекты.
+                    </div>
+                </div>
+                <div class="col-md-4 item">
+                    <div class="icon"><span class="mdi mdi-map-marker"></span>
+                    </div>
+                    <div class="title">
+                        Где нас найти?
+                    </div>
+                    <div class="description">
+                        Дубосековская 9 <br>
+                        Понедельник / Среда 17:00
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--*********ВОПРОСЫ И ОТВЕТЫ********-->
+
+    <!--*********ЦИТАТА********-->
+    <div class="container">
+        <div class="qoute">
+            <div class="title">
+                "Сначала учите науку программирования и всю теорию. Далее выработаете свой программистский стиль.
+                Затем забудьте все и просто программируйте."
+            </div>
+            <div class="author">
+                - Линус Торвальдс, создатель ядра Linux
+            </div>
+        </div>
+    </div>
+    <!--*********ЦИТАТА********-->
+
+    <!--*********КУРСЫ********-->
+    <div class="container">
+        <div class="row course">
+            <div class="col-md-6 item">
+                <a><img src="{% static 'img/mr_roboto.png' %}"></a>
+            </div>
+
+            <div class="col-md-6 item">
+                <a><img src="{% static 'img/jedi.png' %}"></a>
+            </div>
+            <div class="col-md-7 item">
+                <a><img src="{% static 'img/django.png' %}"></a>
+            </div>
+            <div class="col-md-5 item">
+                <a><img src="{% static 'img/big_data.png' %}"></a>
+            </div>
+        </div>
+    </div>
+    <!--*********КУРСЫ********-->
+
+    <!--*********ПОСЛЕДНИЕ МЕРОПРИЯТИЯ********-->
+    <div class="container-fluid no-padding">
+        <!--*********ПОИСКОВЫЙ БАР********-->
+        <div class="search-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="mdi mdi-calendar-multiple"></span>
+                        <div class="text">
+                            <div class="title">Последние мероприятия</div>
+                            <div class="description">Лекции, выступления спикеров, хакатоны...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--*********ПОИСКОВЫЙ БАР********-->
+        <!--*********СПИСОК МЕРОПРИЯТИЙ********-->
+        <div class="container events">
+            <div class="row no-margin">
+                <!--*********МЕРОПРИЯТИЕ********-->
+                {% for event in events %}
+                    {% if event.type %}
+                        <div class="col-md-6   event-card" onclick="window.location ='{% url 'event' event.slug %}'">
+                            <a>
+                                <div class="mask">
+                                    <div class="date">
+                                        {{ event.start|date:"d F" }}
+                                    </div>
+                                    <a class="comment">
+                                        <span class="mdi mdi-comment-multiple-outline"></span>
+                                    </a>
+                                    <div class="text">
+                                        <div class="title">
+                                            {{ event.title }}
+                                        </div>
+                                        <div class="description">
+                                            {{ event.sub_title }}
+                                        </div>
+                                        <div class="continue">
+                                            Подробнее...
+                                        </div>
+                                    </div>
+                                </div>
+                                <img src="/media/{{ event.featured_image }}"></a>
+                        </div>
+                        <!--*********МЕРОПРИЯТИЕ********-->
+                    {% else %}
+                        <!--*********МЕРОПРИЯТИЕ********-->
+
+                        <div class="col-md-3   event-card" onclick="window.location ='{% url 'event' event.slug %}'">
+
+                            <div class="mask">
+                                <div class="date">
+                                    18 февраля
+                                </div>
+                                <a class="comment">
+                                    <span class="mdi mdi-comment-multiple-outline"></span>
+                                </a>
+                                <a href="#">
+                                    <div class="text">
+                                        <div class="title">
+                                            {{ event.title }}
+                                        </div>
+                                        <div class="description">
+                                            Приходи, познакомимся ;)
+                                        </div>
+                                        <div class="continue">
+                                            Подробнее...
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <img src="/media/{{ event.featured_image }}">
+
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <!--*********СПИСОК МЕРОПРИЯТИЙ********-->
+
+    </div>
+    <!--*********ПОСЛЕДНИЕ МЕРОПРИЯТИЯ********-->
+
+    <!--*********ФУУТЕР********-->
+    <footer>
+        <div class="container-fluid   no-padding">
+            <div class="container">
+                <div class="row footer">
+                    <div class="col-md-1">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+   viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
+<style type="text/css">
+  .st0 {
+        fill: #0092F2;
+    }
+
+    .st1 {
+        fill: #FFFFFF;
+    }
+</style>
+<rect id="XMLID_5_" class="st0" width="500" height="500"/>
+<polygon id="XMLID_1_" class="st1" points="178.8,111.1 229.3,204.1 150.2,389.2 189.8,389.2 252.1,245.8 330.3,389.2 373.3,389.2
+  221.8,111.1 "/>
+</svg>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="description">
+                            Мы образовательный проект Lambda при ФРЭЛА МАИ, реализующий практикум
+                            программистов и бесплатные курсы для студентов.
+                        </div>
+                    </div>
+                    <div class="col-md-4 soc">
+                        <a href="https://vk.com/lambdait">
+                            <span class="mdi mdi-vk"></span>
+                            <div class="us">> follow us</div>
+                        </a>
+                        <a href="https://github.com/lambdafrela">
+                            <span class="mdi mdi-github-circle"></span>
+                            <div class="us">> fork us</div>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UC8fGhHpoUm-1ZWITOM98N9A">
+                            <span class="mdi mdi-youtube-play"></span>
+                            <div class="us">> watch us</div>
+                        </a>
+                        <a href="https://lambdafrela.slack.com/">
+                            <span class="mdi mdi-slack"></span>
+                            <div class="us">> chat with us</div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 info">
+                        <div class="item">
+                            <div class="icon"><span class="mdi mdi-email-outline"></span><a href="mailto:info@lambda-it.ru">info@lambda-it.ru</a></div>
+
+                        </div>
+                        <div class="item">
+                            <div class="icon"><span class="mdi mdi-map-marker"></span><a>г. Москва Дубосековская ул. 9</a></div>
+                        </div>
+                        <div class="item">
+                            <div class="icon">
+                                <span class="mdi mdi-phone"></span>
+                                <a>8 800 555 35 35</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--*********ФУУТЕР********-->
+
+{% endblock %}
