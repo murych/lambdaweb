@@ -63,8 +63,7 @@
                             <div class="title">{{ article.title }}</div>
                             <div class="description">{{ article.sub_title }}
                             </div>
-                            <div class="views">{{ article.hit_count.hits }}<span
-                                    style="color:{{ article.tags.first.color }}">K</span> просмотров
+                            <div class="views">{{ article.hit_count.hits }}  просмотров
                             </div>
                         </div>
                         <img src="/media/{{ article.main_image }}" class="img-responsive">
@@ -78,7 +77,7 @@
                                     <div class="tag-outline"
                                          style="border-color: {{ article.tags.first.color }}; color:{{ article.tags.first.color }} ">{{ article.tags.first }}</div>
                                     <div class="comment">
-                                        <span class="mdi mdi-comment-multiple-outline"></span>
+                                        <span class="mdi mdi-eye"></span>
                                         <span>{{ article.hit_count.hits }}</span>
                                     </div>
                                 </div>
