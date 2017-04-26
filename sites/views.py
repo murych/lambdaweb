@@ -39,7 +39,7 @@ def article_list(request, page=1):
             for tag in i.content_object.tags.all():
                 if tag not in context['hit_tag']:
                     context['hit_tag'].append(tag)  # из каждой статьи берем все тэги
-    paginator = Paginator(context['articles'], 3)
+    paginator = Paginator(context['articles'], 10)
     try:
         context['articles'] = paginator.page(page)
     except PageNotAnInteger:

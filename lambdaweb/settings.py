@@ -35,12 +35,6 @@ if os.path.exists(f):
     exec(open(f, "rb").read())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = [
-    '.lambda-it.ru',
-    '.lambda-it.ru.'
-]
 
 SITE_ID = 1
 # Application definition
@@ -262,6 +256,3 @@ JET_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
 META_SITE_PROTOCOL = 'http'
 META_SITE_DOMAIN = '127.0.0.1:8000'
 
-# DISQUS
-DISQUS_API_KEY = 'UeDjaDYTh25DryXUdHdZVrnK9cqEqsCj74mBASgMdHLDEixownHyVfDVjUDMrd2z'
-DISQUS_WEBSITE_SHORTNAME = 'lambda'
