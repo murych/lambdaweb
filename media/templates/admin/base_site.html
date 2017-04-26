@@ -1,0 +1,29 @@
+{% extends "admin/base.html" %}
+{% load static i18n %}
+
+{% block branding %}
+    <h1 id="site-name">
+        {% trans "Lambda" %}
+    </h1>
+    <style>
+        #branding #site-name {
+            font-size: 24px;
+        }
+    </style>
+{% endblock %}
+
+{% block nav-global %}
+    <a href="//yandex.ru" class="sidebar-link icon">
+        <span class="sidebar-link-label">
+            <span class="sidebar-link-icon icon-data"></span>
+            {% trans 'Яндекс.Почта' %}
+        </span>
+    </a>
+
+    <a href="/admin/filebrowser/browse/" class="sidebar-link icon">
+        <span class="sidebar-link-label">
+            <span class="sidebar-link-icon icon-data"></span>
+            {% trans ' МЕНЕДЖЕР ФАЙЛОВ' %}
+        </span>
+    </a>
+{% endblock %}

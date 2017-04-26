@@ -1,0 +1,115 @@
+{% extends 'frontend/base.html' %}
+{% load staticfiles %}
+{% block title %}
+    <title>Публикации - Lambda</title>
+{% endblock %}
+{% block content %}
+    <div class="head-search">
+        <div class="image-bc">
+            {% for article in articles_bg %}
+                <img src="/media/{{ article.main_image }}">
+            {% endfor %}
+        </div>
+        <div class="container">
+            <div class="some-search">
+                <div class="title">Поиск</div>
+                <div class="input-search">
+                    <input class="search" type="text">
+                </div>
+            </div>
+            <div class="some-tags">
+                <div class="title">ПОПУЛЯРНЫЕ ТЕГИ</div>
+                <div class="cloud-tags">
+                    {% for hit in hit_tag %}
+                        <a class="tag" href="#">{{ hit.name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="news-bar">
+        <div class="container">
+            <div class="head-content col-md-3">
+                <div class="title">Все новости</div>
+                <div class="count">Всего: <span>{{ articls.count }}</span></div>
+            </div>
+            <div class="sort-by col-md-4">
+                <div class="title">сортировать по</div>
+                <ul>
+                    <li><a href="#">Популярности</a></li>
+                    <li><a href="#">Просмотрам</a></li>
+                    <li><a href="#">Времени</a></li>
+                </ul>
+            </div>
+            <div class=" col-md-5 all">
+                <a class="button" href="#">ВСЕ</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="article-list">
+
+
+            {% for article in articles %}
+                {% if article.type %}
+                    <a href="{% url "article" article.slug %}" class="article-main">
+                        <div class="content-main">
+                            <div class="tags">
+                                {% for tag in article.tags.all %}
+                                    <div class="tag" style="background-color: {{ tag.color }}">{{ tag }}</div>
+                                {% endfor %}
+                            </div>
+                            <div class="title">{{ article.title }}</div>
+                            <div class="description">{{ article.sub_title }}
+                            </div>
+                            <div class="views">{{ article.hit_count.hits }}  просмотров
+                            </div>
+                        </div>
+                        <img src="/media/{{ article.main_image }}" class="img-responsive">
+                    </a>
+                {% else %}
+                    <a href="{% url "article" article.slug %}" class="article-sub">
+                        <div class="content-sub">
+                            <img src="/media/{{ article.main_image }}" class="img-responsive">
+                            <div class="some-content">
+                                <div class="tags-comment">
+                                    <div class="tag-outline"
+                                         style="border-color: {{ article.tags.first.color }}; color:{{ article.tags.first.color }} ">{{ article.tags.first }}</div>
+                                    <div class="comment">
+                                        <span class="mdi mdi-eye"></span>
+                                        <span>{{ article.hit_count.hits }}</span>
+                                    </div>
+                                </div>
+                                <div class="title">{{ article }}</div>
+                                <div class="description">{{ article.sub_title }} </div>
+                            </div>
+
+                        </div>
+                    </a>
+
+
+
+
+                {% endif %}
+            {% endfor %}
+
+
+        </div>
+    </div>
+    <div class="list-pagination">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                {% for page in articles.paginator.page_range %}
+                    {% if page == articles.number %}
+                        <li class="active"><a>{{ page }}</a></li>
+                    {% else %}
+                        <li><a href="{% url 'article_list_page' page %}">{{ page }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </nav>
+
+    </div>
+
+{% endblock %}

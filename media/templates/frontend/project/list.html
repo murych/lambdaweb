@@ -1,0 +1,35 @@
+{% extends 'frontend/base.html' %}
+{% load staticfiles %}
+{% block title %}
+    <title>Проекты - Lambda</title>
+{% endblock %}
+{% block content %}
+<div class="new-project">
+    <img src="/media/{{ projects.first.image  }}">
+    <div class="info">
+        <div class="description">
+            {{ projects.first.sub_name  }}
+        </div>
+        <div class="title">
+            {{ projects.first.name  }}
+        </div>
+        <a href="#" class="more">
+            подробнее
+        </a>
+    </div>
+</div>
+<div class="container">
+    <div class="list">
+        {% for project in projects|slice:"1:" %}
+        <div class="item">
+            <div class="image">
+                <img src="{{ project.image.url }}">
+            </div>
+            <div class="title">
+                {{ project.name }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

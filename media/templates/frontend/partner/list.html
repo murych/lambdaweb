@@ -1,0 +1,40 @@
+{% extends 'frontend/base.html' %}
+{% load staticfiles %}
+{% block title %}
+    <title>Партнеры - Lambda</title>
+{% endblock %}
+
+{% block content %}
+    <div class="what-to-a-partner">
+        <img src="{% static 'img/partner-guest-1440x370.jpg' %}">
+        <div class="info">
+            <div class="title">
+                Хотите стать нашим партнером?
+            </div>
+            <div class="description">
+                Хотите сделать предложение? Оказать помощь?
+            </div>
+            <div class="write-us">
+                Напишите нам
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="list">
+            {% for partner in partners %}
+                <div class="item partner" onclick="window.location = '{% url 'partner' partner.slug %}'">
+                    <div class="image">
+                        <img src="{{ partner.image.url }}">
+                    </div>
+                    <div class="title">
+                        {{ partner }}
+                    </div>
+                </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+{% endblock %}
