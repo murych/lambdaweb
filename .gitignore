@@ -3,4 +3,9 @@ db.sqlite3
 .idea
 __pycache__/
 local_settings.py
-counters.html
+media/
+!media/templates/
+media/templates/frontend/blocks
+uwsgi_params
+lambda_uwsgi.ini
+lambda_nginx.conf
