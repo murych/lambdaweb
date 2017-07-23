@@ -1,4 +1,5 @@
 {% extends 'frontend/base.html' %}
+{% load cache %}
 {% load  staticfiles %}
 {% block title%}
     <title>Главная - Lambda</title>
@@ -53,12 +54,14 @@
     <!--*********ШАПКА********-->
 
     <!--*********ИЗОБРАЖЕНИЕ********-->
+    {% cache 9999 index_background_image %}
     <div class="slide">
         <div class="main-tagline">
             <div class="title">LAMBDA</div>
             <div class="description">Code. Hack. Meet</div>
         </div>
     </div>
+    {% endcache %}
     <!--*********ИЗОБРАЖЕНИЕ********-->
 
     <!--*********ВОПРОСЫ И ОТВЕТЫ********-->

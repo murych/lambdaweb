@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 {% load sekizai_tags meta %}
-
+{% load cache %}
 <html lang="ru">
 
 <head>
@@ -23,7 +23,7 @@
 </head>
 <body>
 {% block no_use_base %}
-
+    {% cache 9999 header %}
     <!--*********ШАПКА********-->
     <nav class="navbar nav-blue">
         <div class="container">
@@ -74,9 +74,11 @@
         </div><!-- /.container-fluid -->
     </nav>
     <!--*********ШАПКА********-->
+    {% endcache %}
     {% block content %}
     {% endblock %}
     <!--*********ФУУТЕР********-->
+    {% cache 9999 footer %}
     <footer>
         <div class="container-fluid   no-padding">
             <div class="container">
@@ -145,6 +147,7 @@
             </div>
         </div>
     </footer>
+    {% endcache %}
 {% endblock %}
 
 {% block scripts %}
