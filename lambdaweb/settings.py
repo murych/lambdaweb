@@ -35,6 +35,7 @@ if os.path.exists(f):
     exec(open(f, "rb").read())
 
 # SECURITY WARNING: don't run with debug turned on in production!
+#DEBUG = True
 
 SITE_ID = 1
 # Application definition
@@ -149,6 +150,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Local memory cache
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}
+
 FILEBROWSER_SHOW_IN_DASHBOARD = False
 # CkEditor settings
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
@@ -239,8 +247,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'media/static'),)
-STATIC_ROOT = (os.path.join(BASE_DIR, 'static'))
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+#STATIC_ROOT = (os.path.join(BASE_DIR, 'static'))
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

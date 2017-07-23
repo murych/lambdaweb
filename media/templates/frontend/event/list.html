@@ -1,10 +1,12 @@
 {% extends 'frontend/base.html' %}
+{% load cache %}
 {% load staticfiles %}
 {% block title %}
     <title>Мероприятия - Lambda</title>
 {% endblock %}
 {% block content %}
     <div class="container-fluid main-events-bg">
+        {% cache 180 event_list_top %}
         <div class="main-events">
 
             <!--*********СПИСОК МЕРОПРИЯТИЙ********-->
@@ -122,6 +124,7 @@
             </div>
         </div>
         <!--*********ПОИСКОВЫЙ БАР********-->
+        {% endcache %}
         <!--*********СПИСОК МЕРОПРИЯТИЙ********-->
         <div class="container events">
             <div class="row no-margin">
