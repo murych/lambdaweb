@@ -66,7 +66,6 @@ INSTALLED_APPS = [
     'django_ymap',
     'django_gravatar',
     'colorfield',
-    'members'
 ]
 
 THUMBNAIL_HIGH_RESOLUTION = True

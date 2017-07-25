@@ -5,7 +5,6 @@
     <title>Главная - Lambda</title>
 {% endblock %}
 {% block no_use_base %}
-    {% cache 9999 index_background_image %}
     <!--*********ШАПКА********-->
     <div class="navbar-wrapper">
         <nav class="navbar ">
@@ -46,7 +45,6 @@
                     <li><a href="{% url 'article_list' %}">Публикации</a></li>
                     <li><a href="{% url 'event_list' %}">Мероприятие</a></li>
                      <li><a href="{% url 'patners_list' %}">Партнеры</a></li>
-                     <li><a href="{% url 'members_list' %}">Команда</a></li>
 
                     </ul>
                 </div><!-- /.navbar-collapse -->
@@ -56,7 +54,7 @@
     <!--*********ШАПКА********-->
 
     <!--*********ИЗОБРАЖЕНИЕ********-->
-    
+    {% cache 9999 index_background_image %}
     <div class="slide">
         <div class="main-tagline">
             <div class="title">LAMBDA</div>
