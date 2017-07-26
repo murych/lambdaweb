@@ -77,17 +77,17 @@ class Member(AbstractBaseUser):
     first_name = models.CharField(max_length=300, null=True, blank=True, verbose_name="Имя")
     last_name = models.CharField(max_length=300, null=True, blank=True, verbose_name="Фамилия")
 
-    
     date_of_birth = models.DateField(null=True, blank=True, verbose_name="Дата рождения")
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     profile_image = FileBrowseField("Изображения профиля", max_length=200, directory="состав_клуба/", blank=True,
                                     null=True)
 
-
     """ Поля для вывода на странице "Команда" """
-    description = models.TextField(max_length=300, null=False, blank=True, default='', verbose_name="Описание", help_text='Выводится в описании на странице "участники".')
-    contact_link = models.CharField(max_length=300, null=False, blank=True, default='', verbose_name="Ссылка для связи", help_text='Выводится на странице "участники".')
+    description = models.TextField(max_length=300, null=False, blank=True, default='', verbose_name="Описание",
+                                   help_text='Выводится в описании на странице "участники".')
+    contact_link = models.CharField(max_length=300, null=False, blank=True, default='', verbose_name="Ссылка для связи",
+                                    help_text='Выводится на странице "участники".')
     """ """
 
     objects = TeamManager()
@@ -97,6 +97,7 @@ class Member(AbstractBaseUser):
     class Meta:
         verbose_name = "Участника"
         verbose_name_plural = "Участники"
+
     @property
     def full_name(self):
         return self.get_full_name()
@@ -136,7 +137,7 @@ class Member(AbstractBaseUser):
 class Project(models.Model):
     name = models.CharField(max_length=300, verbose_name="Название")
     description = RichTextUploadingField(verbose_name="Описание")
-    #Добавил слоган для проекта
+    # Добавил слоган для проекта
     slug = models.SlugField(default='')
     sub_name = models.CharField(max_length=300, verbose_name="Слоган", null=True, blank=True)
     card_name = models.CharField(max_length=300, verbose_name="Название в списке", default='')

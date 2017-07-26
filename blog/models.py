@@ -6,6 +6,7 @@ from meta.models import ModelMeta
 
 from lambdaweb import settings
 
+
 class Article(ModelMeta, models.Model, HitCountMixin):
     """
         ModelMeta - для SEO элементов
@@ -18,9 +19,9 @@ class Article(ModelMeta, models.Model, HitCountMixin):
     description = RichTextUploadingField(verbose_name="Статья")
     author = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name="Автор", null=True, blank=True)
     tags = models.ManyToManyField("team.Tag", verbose_name="Тэги")
-    datetime_create = models.DateTimeField(auto_now_add=True) # Дата создания
+    datetime_create = models.DateTimeField(auto_now_add=True)  # Дата создания
     type = models.BooleanField(default=False, verbose_name="Главная новость")
-    datetime_updated = models.DateTimeField(auto_now=True) #Дата обновления
+    datetime_updated = models.DateTimeField(auto_now=True)  # Дата обновления
     main_image = FileBrowseField("Главное изображение", max_length=200, directory="images/", blank=True, null=True)
     post_in_vk = models.BooleanField(verbose_name="Постить в вк?", default=False)
     post_in_twitter = models.BooleanField(verbose_name="Постить в твиттер?", default=False)
@@ -36,7 +37,7 @@ class Article(ModelMeta, models.Model, HitCountMixin):
         'use_twitter': 'True',
         'use_facebook': 'True',
         'use_googleplus': 'True',
-        'locale':  'ru_RU',
+        'locale': 'ru_RU',
         'keywords': 'get_keywords',
         'twitter_card': 'summary_large_image',
     }
