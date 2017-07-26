@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from django_ymap.admin import YmapAdmin
 from team.models import SEO
-from .models import *
+from .models import EventLocation, Event
 
 
 class SEO(admin.StackedInline):

@@ -5,13 +5,13 @@ from django.utils import timezone
 from hitcount.models import HitCount
 from hitcount.views import HitCountMixin
 
-from event.models import *
-from team.models import *
+from event.models import Event
+from team.models import Article, Partner, Project
 
 
 def index(request):
     """
-        Главная страница
+    Главная страница
     :param request:
     :return:
     """
@@ -23,7 +23,7 @@ def index(request):
 
 def article_list(request, page=1):
     """
-        Список статей
+    Список статей
     :param request:
     :return:
     """
@@ -48,21 +48,20 @@ def article_list(request, page=1):
         context['articles'] = paginator.page(paginator.num_pages)
     return TemplateResponse(request, "frontend/blog/list.html", context)
 
-from hitcount.views import HitCountMixin
 
 def article(request, slug):
     context = {}
     context['article'] = Article.objects.get(slug=slug)
     context['meta'] = get_object_or_404(Article, slug=slug).as_meta(request)
     hit_count = HitCount.objects.get_for_object(context['article'])
-    hit_count_response = HitCountMixin.hit_count(request, hit_count)
+    hit_count_response = HitCountMixin.hit_count(request, hit_count)  # noqa
 
     return TemplateResponse(request, "frontend/blog/post.html", context)
 
 
 def event_list(request):
     """
-        Список мероприятий
+    Список мероприятий
     :param request:
     :return:
     """
@@ -82,7 +81,7 @@ def event_list(request):
 
 def event(request, slug):
     """
-        Мероприятие
+    Мероприятие
     :param request:
     :param slug:
     :return:
@@ -92,7 +91,7 @@ def event(request, slug):
     date = abs(context['event'].end - context['event'].start)
     context['time'] = date.seconds / 60
     hit_count = HitCount.objects.get_for_object(context['event'])
-    hit_count_response = HitCountMixin.hit_count(request, hit_count)
+    hit_count_response = HitCountMixin.hit_count(request, hit_count)  # noqa
     context['meta'] = get_object_or_404(Event, slug=slug).as_meta(request)
 
     context['datetime_now'] = timezone.now()
@@ -102,7 +101,7 @@ def event(request, slug):
 
 def patners_list(request):
     """
-        Список партнеров
+    Список партнеров
     :param request:
     :return:
     """
@@ -113,7 +112,7 @@ def patners_list(request):
 
 def patner(request, slug):
     """
-        Партнер
+    Партнер
     :param request:
     :param slug:
     :return:
@@ -125,9 +124,8 @@ def patner(request, slug):
 
 def project_list(request):
     """
-        Партнер
+    Партнер
     :param request:
-    :param slug:
     :return:
     """
     context = {}

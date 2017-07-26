@@ -25,7 +25,7 @@ class EventLocation(models.Model):
         verbose_name_plural = "Местоположения"
 
 
-class Event(ModelMeta,models.Model, HitCountMixin):
+class Event(ModelMeta, models.Model, HitCountMixin):
     title = models.CharField(verbose_name="Название", max_length=300)
     sub_title = models.CharField(verbose_name="Слоган", max_length=500)
     slug = models.SlugField()
