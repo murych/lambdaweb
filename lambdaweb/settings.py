@@ -35,7 +35,7 @@ if os.path.exists(f):
     exec(open(f, "rb").read())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+# DEBUG = True
 
 SITE_ID = 1
 # Application definition
@@ -97,8 +97,7 @@ ROOT_URLCONF = 'lambdaweb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'media/templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'media/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -166,7 +165,6 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_CONFIGS = {
     'default': {
 
-
         'toolbar_Basic': [
             ['Source', '-', 'Bold', 'Italic']
         ],
@@ -174,7 +172,7 @@ CKEDITOR_CONFIGS = {
 
             {'name': 'document', 'items': ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']},
             {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
-            {'name': 'editing', 'items': [ 'CodeSnippet', 'Find', 'Replace', '-', 'SelectAll']},
+            {'name': 'editing', 'items': ['CodeSnippet', 'Find', 'Replace', '-', 'SelectAll']},
             {'name': 'forms',
              'items': ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton',
                        'HiddenField']},
@@ -249,7 +247,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-#STATIC_ROOT = (os.path.join(BASE_DIR, 'static'))
+# STATIC_ROOT = (os.path.join(BASE_DIR, 'static'))
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -264,4 +262,3 @@ JET_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
 # Meta SEO
 META_SITE_PROTOCOL = 'http'
 META_SITE_DOMAIN = '127.0.0.1:8000'
-

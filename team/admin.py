@@ -3,11 +3,11 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
-from team.models import *
+import team.models as models
 
 
 class SocialNetwork(admin.TabularInline):
-    model = SocialNetwork
+    model = models.SocialNetwork
     extra = 0
     show_change_link = True
 
@@ -19,7 +19,7 @@ class UserCreationForm(forms.ModelForm):
     password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
 
     class Meta:
-        model = Member
+        model = models.Member
         fields = ('email',)
 
     def clean_password2(self):
@@ -47,8 +47,8 @@ class UserChangeForm(forms.ModelForm):
     password = ReadOnlyPasswordHashField()
 
     class Meta:
-        model = Member
-        fields = ('email', 'password', 'is_active', 'is_admin', )
+        model = models.Member
+        fields = ('email', 'password', 'is_active', 'is_admin',)
 
     def clean_password(self):
         # Regardless of what the user provides, return the initial value.
@@ -70,7 +70,8 @@ class UserAdmin(BaseUserAdmin):
     list_filter = ('is_admin',)
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        ('Персональная информация', {'fields': ('profile_image', 'first_name', 'last_name', 'description', 'contact_link')}),
+        ('Персональная информация',
+         {'fields': ('profile_image', 'first_name', 'last_name', 'description', 'contact_link')}),
         ('Права пользователя', {'fields': ('is_admin', 'is_active', 'groups')}),
     )
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
@@ -86,11 +87,11 @@ class UserAdmin(BaseUserAdmin):
     filter_horizontal = ()
 
 
-admin.site.register(Member, UserAdmin)
+admin.site.register(models.Member, UserAdmin)
 
 
 class SEOAdmin(admin.StackedInline):
-    model = SEO
+    model = models.SEO
     extra = 0
     fields = (
         'seo_description',
@@ -100,7 +101,7 @@ class SEOAdmin(admin.StackedInline):
 
 
 class ArticleAdmin(admin.StackedInline):
-    model = Article
+    model = models.Article
     extra = 0
     fields = (
         'title', 'main_image', 'short_description', 'description')
@@ -115,11 +116,11 @@ class ArticleAdmin(admin.StackedInline):
 
 
 class ProjectAdmin(admin.ModelAdmin):
-    model = Project
+    model = models.Project
     prepopulated_fields = {'slug': ('name',)}
 
     fields = (
-        'name','sub_name','card_name','image' ,'git', 'description', 'members')
+        'name', 'sub_name', 'card_name', 'image', 'git', 'description', 'members')
     inlines = (ArticleAdmin, SEOAdmin)
 
     class Media:
@@ -127,11 +128,11 @@ class ProjectAdmin(admin.ModelAdmin):
               'js/ckeditor.js']
 
 
-admin.site.register(Project, ProjectAdmin)
+admin.site.register(models.Project, ProjectAdmin)
 
 
 class PatnerAdmin(admin.ModelAdmin):
-    model = Partner
+    model = models.Partner
     prepopulated_fields = {'slug': ('name',)}
     fieldsets = (
         (None, {'fields': ('name', 'type_partner', 'slug', 'image',)}),
@@ -144,5 +145,5 @@ class PatnerAdmin(admin.ModelAdmin):
               'js/ckeditor.js']
 
 
-admin.site.register(Partner, PatnerAdmin)
-admin.site.register(Tag)
+admin.site.register(models.Partner, PatnerAdmin)
+admin.site.register(models.Tag)

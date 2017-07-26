@@ -1,4 +1,4 @@
-#* coding: utf-8
+# * coding: utf-8
 from django.db import models
 
 
@@ -17,7 +17,7 @@ class YmapCoord(models.CharField):
         return super(YmapCoord, self).formfield(**kwargs)
 
     def south_field_triple(self):
-        "Returns a suitable description of this field for South."
+        """Returns a suitable description of this field for South."""
         # We'll just introspect the _actual_ field.
         try:
             from south.modelsinspector import introspector
@@ -33,7 +33,6 @@ class YmapCoord(models.CharField):
         except ImportError:
             pass
 
-
     def deconstruct(self):
         name, path, args, kwargs = super(YmapCoord, self).deconstruct()
         if "start_query" in kwargs:
@@ -44,8 +43,10 @@ class YmapCoord(models.CharField):
             del kwargs["size_height"]
         return name, path, args, kwargs
 
+
 try:
     from south.modelsinspector import add_introspection_rules
+
     add_introspection_rules([], ["^django_ymap\.fields\.YmapCoord"])
 except ImportError:
     pass
