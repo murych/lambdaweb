@@ -22,6 +22,11 @@ PROJECT_APP = os.path.basename(PROJECT_APP_PATH)
 PROJECT_ROOT = os.path.dirname(PROJECT_APP_PATH)
 # SECRET_KEY = '$sp7335nltx@k74mj0dr^rz79q$hhq!0g7@65o$*a_r+o2g(dx'
 
+try:
+    SECRET_KEY = os.getenv('SECRET_KEY')
+except KeyError as e:
+    print('SECRET_KEY not found')
+
 if os.getenv('DJANGO_ENV') == 'prod':
     DEBUG = False
     ALLOWED_HOSTS = [
@@ -33,25 +38,11 @@ elif os.getenv('DJANGO_ENV') == 'test':
     ALLOWED_HOSTS = [
         '*'
     ]
-    try:
-        SECRET_KEY = os.getenv('SECRET_KEY')
-    except KeyError as e:
-        print('SECRET_KEY not found')
 elif os.getenv('DJANGO_ENV') == 'dev':
     DEBUG = True
     ALLOWED_HOSTS = [
         '*'
     ]
-    f = os.path.join(PROJECT_APP_PATH, "local_settings.py")
-    if os.path.exists(f):
-        import sys
-        import imp
-        module_name = "%s.local_settings" % PROJECT_APP
-        module = imp.new_module(module_name)
-        module.__file__ = f
-        sys.modules[module_name] = module
-        exec(open(f, "rb").read())
-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
