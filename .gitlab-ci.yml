@@ -32,6 +32,7 @@ staticcheck:
 
 test:
   before_script:
+    - export DJANGO_ENV='test'
     - export SECRET_KEY=$SECRET_KEY
     - pip install -Ur requirements.txt
     - python manage.py migrate
