@@ -32,9 +32,9 @@ staticcheck:
 
 test:
   before_script:
+    - export SECRET_KEY=$SECRET_KEY
     - pip install -Ur requirements.txt
     - python manage.py migrate
-    - export SECRET_KEY=$SECRET_KEY
 #    - python manage.py collectstatic --noinput
   script:
     - python manage.py test
