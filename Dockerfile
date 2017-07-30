@@ -2,6 +2,9 @@ FROM python:3.6
 
 MAINTAINER murych <t.mayzenberg@lambda-it.ru>
 
+ARG SECRET_KEY
+ENV DJANGO_ENV prod
+
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y \
@@ -15,12 +18,11 @@ RUN apt-get update && \
     pip3 install -U pip setuptools && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install uwsgi virtualenv
+RUN pip3 install uwsgi virtualenv \
+    echo "daemon off;" >> /etc/nginx/nginx.conf
 
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 COPY lambda_nginx.conf /etc/nginx/sites-available/default
 COPY supervisor-app.conf /etc/supervisor/conf.d/
-
 
 COPY requirements.txt /tmp/oldrequirements.txt
 RUN virtualenv /tmp/tmpenv && \
@@ -31,22 +33,14 @@ COPY ./ /opt/app
 
 RUN pip3 install -r /opt/app/requirements.txt
 
-ENV DJANGO_ENV=dev
-ENV DOCKER_CONTAINER=1
-#
-#EXPOSE 8000
-#
 RUN mkdir /var/log/uwsgi/ && \
     touch /opt/app/lambda.sock && \
-    touch /var/log/uwsgi/lambdaweb.log
+    touch /var/log/uwsgi/lambdaweb.log && \
+    export SECRET_KEY=$SECRET_KEY && \
+    export DJANGO_ENV=$DJANGO_ENV && \
+    echo $DJANGO_ENV $SECRET_KEY
 
 RUN python3 /opt/app/manage.py migrate
-#WORKDIR /opt/app
 
-
-#CMD ["uwsgi", "--ini", "/opt/app/lambda_uwsgi.ini"]
-# CMD ["python", "/opt/app/manage.py", "runserver", "0.0.0.0:8000"]
-
-EXPOSE 80
+EXPOSE 8000
 CMD ["supervisord", "-n"]
-#ENTRYPOINT bash
