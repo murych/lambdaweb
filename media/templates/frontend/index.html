@@ -7,19 +7,19 @@
 {% block no_use_base %}
     {% cache 9999 index_background_image %}
     <!--*********ШАПКА********-->
-    <div class="navbar-wrapper">
-        <nav class="navbar ">
+    <div class="navbar-wrapper" id="main-header">
+        <nav class="navbar">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-		<span class="open-bar visible-xs">
-            <div id="nav-icon3">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
- 		</span>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" id="collapse-button-1">
+                        <div id="nav-icon3">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        </div>                     
+                    </button>
                     <a class="navbar-brand" href="/" style="width: 96px">
                         <svg xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
    viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
@@ -38,19 +38,16 @@
                     </a>
                 </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                    <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'index' %}">Главная</a></li>
-                    <li><a href="{% url 'article_list' %}">Публикации</a></li>
-                    <li><a href="{% url 'event_list' %}">Мероприятие</a></li>
-                     <li><a href="{% url 'patners_list' %}">Партнеры</a></li>
-                     <li><a href="{% url 'members_list' %}">Команда</a></li>
-
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+                    <li><a title="Главная" href="{% url 'index' %}">                       Главная</a></li>
+                    <li><a title="Наши публикации" href="{% url 'article_list' %}">Публикации</a></li>
+                    <li><a title="Наши мероприятия" href="{% url 'event_list' %}">Мероприятия</a></li>
+                    <li><a title="Наши партнеры " href="{% url 'patners_list' %}">Партнеры</a></li>
+                    <li><a title="Наша команда " href="{% url 'members_list' %}">Команда</a></li>
+      </ul>
+    </div>
+</div>
         </nav>
     </div>
     <!--*********ШАПКА********-->
